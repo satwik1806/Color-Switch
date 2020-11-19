@@ -13,36 +13,38 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import java.lang.module.FindException.*;
 
-public class MainClass extends Application {
+public class MainClass  {
+    static String dis = "null";
     public static void main(String[] args) {
         System.out.println("hello");
-        launch(args);
-//        Application.launch(Frame.class, args);
+//        launch(args);
+        dis = "login menu";
+        Application.launch(Frame.class, args);
 //        Frame frame = new Frame();
 //        frame.
     }
 
-    Button bun;
-    @Override
-    public void start(Stage stage) throws Exception {
-        stage.setTitle("HELLO");
-        Button b = new Button("CAN YOU CLICK ME");
-
-        StackPane layout = new StackPane();
-        layout.getChildren().add(b);
-
-        BackgroundFill background_fill = new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY);
-
-        // create Background
-        Background background = new Background(background_fill);
-
-        layout.setBackground(background);
-
-
-        Scene sc = new Scene(layout,400,800);
-
-
-        stage.setScene(sc);
-        stage.show();
-    }
+//    Button bun;
+//    @Override
+//    public void start(Stage stage) throws Exception {
+//        stage.setTitle("HELLO");
+//        Button b = new Button("CAN YOU CLICK ME");
+//
+//        StackPane layout = new StackPane();
+//        layout.getChildren().add(b);
+//
+//        BackgroundFill background_fill = new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY);
+//
+//        // create Background
+//        Background background = new Background(background_fill);
+//
+//        layout.setBackground(background);
+//
+//
+//        Scene sc = new Scene(layout,400,800);
+//
+//
+//        stage.setScene(sc);
+//        stage.show();
+//    }
 }
