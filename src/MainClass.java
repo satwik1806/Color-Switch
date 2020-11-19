@@ -14,14 +14,11 @@ import javafx.stage.Stage;
 import java.lang.module.FindException.*;
 
 public class MainClass  {
-    static String dis = "null";
+    static String dis = "";
     public static void main(String[] args) {
         System.out.println("hello");
-//        launch(args);
         dis = "login menu";
         Application.launch(Frame.class, args);
-//        Frame frame = new Frame();
-//        frame.
     }
 
 //    Button bun;
@@ -47,4 +44,5 @@ public class MainClass  {
 //        stage.setScene(sc);
 //        stage.show();
 //    }
+
 }
