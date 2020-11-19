@@ -17,29 +17,32 @@ public class MainClass extends Application {
     public static void main(String[] args) {
         System.out.println("hello");
         launch(args);
+//        Application.launch(Frame.class, args);
+//        Frame frame = new Frame();
+//        frame.
     }
 
-//    Button bun;
+    Button bun;
     @Override
     public void start(Stage stage) throws Exception {
-//        stage.setTitle("HELLO");
-//        Button b = new Button("CAN YOU CLICK ME");
-//
-//        StackPane layout = new StackPane();
-//        layout.getChildren().add(b);
-//
-//        BackgroundFill background_fill = new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY);
-//
-//        // create Background
-//        Background background = new Background(background_fill);
-//
-//        layout.setBackground(background);
-//
-//
-//        Scene sc = new Scene(layout,400,800);
-//
-//
-//        stage.setScene(sc);
-//        stage.show();
+        stage.setTitle("HELLO");
+        Button b = new Button("CAN YOU CLICK ME");
+
+        StackPane layout = new StackPane();
+        layout.getChildren().add(b);
+
+        BackgroundFill background_fill = new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY);
+
+        // create Background
+        Background background = new Background(background_fill);
+
+        layout.setBackground(background);
+
+
+        Scene sc = new Scene(layout,400,800);
+
+
+        stage.setScene(sc);
+        stage.show();
     }
 }
