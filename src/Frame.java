@@ -86,6 +86,7 @@ public class Frame extends Application {
         VBox box = new VBox(30,Existing_PLayer,New_Player,Delete_Player,Exit_Game);
         box.setSpacing(50);
         box.setAlignment(Pos.CENTER);
+
         //layout
         StackPane layout = new StackPane();
         BackgroundFill background_fill = new BackgroundFill(Color.rgb(41,41,41), CornerRadii.EMPTY, Insets.EMPTY);
