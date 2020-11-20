@@ -7,6 +7,7 @@
 
 <AnchorPane prefHeight="611.0" prefWidth="619.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Try">
    <children>
+      <Group layoutX="77.0" layoutY="39.0" />
       <Group id="grp1" fx:id="grp1" layoutX="-12.0" layoutY="320.0" rotate="37.9" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="305.0">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="150.0" fill="#ff0181" height="164.0" layoutX="144.0" layoutY="140.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
@@ -16,5 +17,12 @@
          </children>
       </Group>
       <Button id="but" layoutX="473.0" layoutY="516.0" mnemonicParsing="false" onAction="#clickk" prefHeight="44.0" prefWidth="95.0" text="click" />
+      <Group layoutX="230.0" layoutY="24.0">
+         <children>
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" layoutX="61.0" layoutY="105.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="122.0" rotate="-30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="261.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         </children>
+      </Group>
          </children>
 </AnchorPane>
