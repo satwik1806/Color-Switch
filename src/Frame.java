@@ -1,8 +1,10 @@
 import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,11 +20,16 @@ public class Frame extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        System.out.println(MainClass.dis);
-        if(MainClass.dis.equals("login menu"))
-            display_loginmenu(stage);
-        if(MainClass.dis.equals("chck"))
-            display_Playermenu(stage);
+        Parent root = FXMLLoader.load(getClass().getResource("Try.fxml"));
+
+        stage.setScene(new Scene(root,700,700));
+        stage.show();
+
+//        System.out.println(MainClass.dis);
+//        if(MainClass.dis.equals("login menu"))
+//            display_loginmenu(stage);
+//        if(MainClass.dis.equals("chck"))
+//            display_Playermenu(stage);
     }
 
     public void display_Playermenu(Stage stage){

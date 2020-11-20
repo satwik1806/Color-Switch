@@ -19,6 +19,7 @@ public class MainClass  {
         System.out.println("hello");
         dis = "login menu";
         Application.launch(Frame.class, args);
+
     }
 
 //    Button bun;
