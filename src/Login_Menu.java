@@ -25,8 +25,8 @@ public class Login_Menu {
             rotate2.setAxis(new Point3D(0,0,1));
             obs1.getTransforms().addAll(rotate1);
             obs2.getTransforms().addAll(rotate2);
-            rotate1.setAngle(1);
-            rotate2.setAngle(1);
+            rotate1.setAngle(2);
+            rotate2.setAngle(2);
         }
     };
 
