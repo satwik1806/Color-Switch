@@ -25,26 +25,11 @@ public class Try {
     Rotate rotate  = new Rotate();
     int var = 0;
 
-//    @FXML
-//    public void clickk(ActionEvent E){
-//        rotate.setPivotX(300);
-//        rotate.setPivotY(100);
-//        grp1.getTransforms().addAll(rotate);
-//        rotate.setAngle(var);
-//        var+=45;
-//    }
-
-    public void trying() throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("Try.fxml"));
-
-    }
-
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
-            rotate.setPivotX(162);
+            rotate.setPivotX(163);
             rotate.setPivotY(140);
-//        rotate.setPivotZ(1);
             rotate.setAxis(new Point3D(0, 0, 1));
             grp1.getTransforms().addAll(rotate);
             rotate.setAngle(var + 1);
