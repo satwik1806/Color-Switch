@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="611.0" prefWidth="619.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Try">
    <children>
-      <Group id="grp1" fx:id="grp1" layoutX="132.0" layoutY="119.0" rotate="-82.1">
+      <Group id="grp1" fx:id="grp1" layoutX="-12.0" layoutY="320.0" rotate="37.9" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="305.0">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="150.0" fill="#ff0181" height="164.0" layoutX="144.0" layoutY="140.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
             <Rectangle id="rect1" arcHeight="150.0" arcWidth="50.0" fill="#32dbf0" height="38.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
