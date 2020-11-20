@@ -1,4 +1,5 @@
 import javafx.animation.AnimationTimer;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
@@ -33,5 +34,8 @@ public class Login_Menu {
     public Login_Menu(){
         timer.start();
     }
+
+    public void exit(ActionEvent e){System.exit(0);}
+
 
 }

@@ -36,7 +36,7 @@
             <InnerShadow />
          </effect>
       </Button>
-      <Button layoutX="-91.0" layoutY="490.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #32DBF0; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" text="                Exit Game" textFill="WHITE">
+      <Button layoutX="-91.0" layoutY="490.0" mnemonicParsing="false" onAction="#exit" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #32DBF0; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" text="                Exit Game" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -60,7 +60,7 @@
             <ColorAdjust brightness="-0.46" contrast="0.47" hue="-0.19" saturation="-0.1" />
          </effect>
       </Label>
-      <Group id = "obs1" fx:id="obs1" layoutX="100.0" layoutY="105.0" scaleX="0.25" scaleY="0.25">
+      <Group id="obs1" fx:id="obs1" layoutX="100.0" layoutY="105.0" scaleX="0.25" scaleY="0.25">
          <children>
             <Arc fill="#ff0181" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
             <Arc fill="#32dbf0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
