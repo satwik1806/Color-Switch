@@ -8,5 +8,4 @@ public class MainClass  {
         dis = "login menu";
         Application.launch(Frame.class, args);
     }
-
 }

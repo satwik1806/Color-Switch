@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="603.0" prefWidth="335.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login_Menu">
    <children>
-      <Button layoutX="-91.0" layoutY="239.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #FAE100; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="                New Player" textFill="WHITE">
+      <Button fx:id="newplayer" layoutX="-91.0" layoutY="239.0" mnemonicParsing="false" onAction="#New_Player" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #FAE100; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="                New Player" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

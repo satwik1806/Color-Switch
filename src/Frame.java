@@ -24,7 +24,7 @@ public class Frame extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Game_Screen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login_Menu.fxml"));
         stage.setScene(new Scene(root,480,700));
         stage.show();
 
