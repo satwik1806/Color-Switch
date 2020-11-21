@@ -18,6 +18,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.lang.module.FindException.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Frame extends Application {
@@ -28,27 +30,6 @@ public class Frame extends Application {
         stage.setScene(new Scene(root,480,700));
         stage.show();
 
-//        System.out.println(MainClass.dis);
-//        if(MainClass.dis.equals("login menu"))
-//            display_loginmenu(stage);
-//        if(MainClass.dis.equals("chck"))
-//            display_Playermenu(stage);
     }
 
-//    @FXML
-//    private Group obs1;
-//    private Group obs2;
-//    Rotate rotate1 = new Rotate();
-//
-//    AnimationTimer timer = new AnimationTimer() {
-//        @Override
-//        public void handle(long l) {
-//
-//        }
-//    }
-    public void display_Playermenu(Stage stage) throws IOException {
-//        stage.setTitle("Login Menu");
-//        Parent root = FXMLLoader.load(getClass().getResource("Login_Menu.fxml"));
-
-    }
 }
