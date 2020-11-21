@@ -4,10 +4,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Arc?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
 
-<AnchorPane prefHeight="611.0" prefWidth="619.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Try">
+<AnchorPane prefHeight="780.0" prefWidth="1070.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Try">
    <children>
       <Group layoutX="151.0" layoutY="158.0">
          <children>
@@ -47,6 +47,26 @@
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="261.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
          </children>
       </Group>
-      <Circle fill="#272727" layoutX="382.0" layoutY="371.0" radius="77.0" stroke="BLACK" strokeType="INSIDE" />
+      <Group layoutX="474.0" layoutY="242.0">
+         <children>
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="261.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" layoutX="116.0" layoutY="-116.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="233.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#32dbf0" height="261.0" layoutX="116.0" layoutY="117.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#32dbf0" height="185.0" layoutX="61.0" layoutY="-17.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="185.0" layoutX="174.0" layoutY="-17.0" rotate="-45.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="185.0" layoutX="174.0" layoutY="95.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="185.0" layoutX="61.0" layoutY="95.0" rotate="-45.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+         </children>
+      </Group>
+      <SVGPath content="M 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641z" fill="WHITE" layoutX="544.0" layoutY="381.0" />
+      <Group layoutX="328.0" layoutY="644.0">
+         <children>
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="118.0" layoutY="-116.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#32dbf0" height="261.0" layoutX="235.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="261.0" layoutX="118.0" layoutY="117.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         </children>
+      </Group>
          </children>
 </AnchorPane>
