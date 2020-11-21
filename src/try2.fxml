@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.SVGPath?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Try2"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Try2">
+   <children>
+      <Group rotate="173.0">
+         <children>
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#900dff" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#ff0181" layoutX="250.0" rotate="90.0" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#32dbf0" layoutY="250.0" rotate="-90.0" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#fae100" layoutX="250.0" layoutY="250.0" rotate="180.0" />
+         </children>
+      </Group>
+   </children>
 </AnchorPane>

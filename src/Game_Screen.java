@@ -1,14 +1,21 @@
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class Game_Screen {
@@ -94,8 +101,11 @@ public class Game_Screen {
         }
     }
 
-    public void pauseclick(ActionEvent e){
-        //pass
+    public void pauseclick(ActionEvent e) throws IOException {
+        Stage s = (Stage) pause.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("Game_Screen.fxml"));
+        s.setScene(new Scene(root,480,700));
+        s.show();
     }
 
     public void jump(MouseEvent e){
