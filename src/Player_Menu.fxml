@@ -29,7 +29,7 @@
             <ColorAdjust brightness="-0.46" contrast="0.47" hue="-0.19" saturation="-0.1" />
          </effect>
       </Label>
-      <Button layoutX="-97.0" layoutY="226.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #900DFF; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" text="                New Game" textFill="WHITE">
+      <Button layoutX="-97.0" layoutY="226.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #900DFF; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="                New Game" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -37,7 +37,7 @@
             <InnerShadow height="10.5" radius="2.125" width="0.0" />
          </effect>
       </Button>
-      <Button layoutX="-97.0" layoutY="333.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #FF0181; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" text="                Load Game" textFill="WHITE">
+      <Button layoutX="-97.0" layoutY="333.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #FF0181; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="                Load Game" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -45,7 +45,7 @@
             <InnerShadow height="10.5" radius="2.125" width="0.0" />
          </effect>
       </Button>
-      <Button layoutX="-97.0" layoutY="441.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #32DBF0; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" text="                Back To Login Menu" textFill="WHITE">
+      <Button layoutX="-97.0" layoutY="441.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #32DBF0; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="                Back To Login Menu" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
