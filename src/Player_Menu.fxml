@@ -29,7 +29,7 @@
             <ColorAdjust brightness="-0.46" contrast="0.47" hue="-0.19" saturation="-0.1" />
          </effect>
       </Label>
-      <Button layoutX="-97.0" layoutY="226.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #900DFF; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" text="                New Game" textFill="WHITE">
+      <Button layoutX="-97.0" layoutY="226.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #900DFF; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="                New Game" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -37,7 +37,7 @@
             <InnerShadow height="10.5" radius="2.125" width="0.0" />
          </effect>
       </Button>
-      <Button layoutX="-97.0" layoutY="333.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #FF0181; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" text="                Load Game" textFill="WHITE">
+      <Button layoutX="-97.0" layoutY="333.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #FF0181; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="                Load Game" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -45,15 +45,15 @@
             <InnerShadow height="10.5" radius="2.125" width="0.0" />
          </effect>
       </Button>
-      <Button layoutX="-97.0" layoutY="441.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #32DBF0; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" text="                Back To Login Menu" textFill="WHITE">
+      <Button layoutX="-97.0" layoutY="441.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #32DBF0; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="             Back To Login Menu" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
          <effect>
             <InnerShadow height="10.5" radius="2.125" width="0.0" />
          </effect>
       </Button>
-      <Group fx:id="obs4" layoutX="277.0" layoutY="322.0" scaleX="0.4" scaleY="0.4" scaleZ="0.4">
+      <Group fx:id="obs4" layoutX="265.0" layoutY="407.0" scaleX="0.4" scaleY="0.4" scaleZ="0.4">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" layoutX="61.0" layoutY="105.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="122.0" rotate="-30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />

@@ -1,13 +1,21 @@
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class Game_Screen {
@@ -27,6 +35,8 @@ public class Game_Screen {
     public Button pause;
     @FXML
     public AnchorPane pane;
+    @FXML
+    public SVGPath star;
 
     Rotate rotateleft = new Rotate();
     Rotate rotateright = new Rotate();
@@ -65,16 +75,42 @@ public class Game_Screen {
             rotatesquare2.setAngle(-1);
 
             fall();
+            starsize();
         }
     };
 
-    public void pauseclick(ActionEvent e){
-        //pass
+    private boolean less=false;
+
+    void starsize()
+    {
+
+        double X=star.getScaleX();
+        if(X>=0.7)
+            less=true;
+        if(X<=0.6)
+            less=false;
+        if(less)
+        {
+            star.setScaleX(X-0.005);
+            star.setScaleY(X-0.005);
+        }
+        else
+        {
+            star.setScaleX(X+0.005);
+            star.setScaleY(X+0.005);
+        }
+    }
+
+    public void pauseclick(ActionEvent e) throws IOException {
+        Stage s = (Stage) pause.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("Game_Screen.fxml"));
+        s.setScene(new Scene(root,480,700));
+        s.show();
     }
 
     public void jump(MouseEvent e){
 //        ball.setTranslateY(1);
-        ball.setTranslateY(ball.getTranslateY()-30);
+        ball.setTranslateY(ball.getTranslateY()-60);
     }
 
     public void fall(){
