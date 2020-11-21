@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
 
 
@@ -27,6 +28,8 @@ public class Game_Screen {
     public Button pause;
     @FXML
     public AnchorPane pane;
+    @FXML
+    public SVGPath star;
 
     Rotate rotateleft = new Rotate();
     Rotate rotateright = new Rotate();
@@ -65,8 +68,31 @@ public class Game_Screen {
             rotatesquare2.setAngle(-1);
 
             fall();
+            starsize();
         }
     };
+
+    private boolean less=false;
+
+    void starsize()
+    {
+
+        double X=star.getScaleX();
+        if(X>=0.7)
+            less=true;
+        if(X<=0.6)
+            less=false;
+        if(less)
+        {
+            star.setScaleX(X-0.01);
+            star.setScaleY(X-0.01);
+        }
+        else
+        {
+            star.setScaleX(X+0.01);
+            star.setScaleY(X+0.01);
+        }
+    }
 
     public void pauseclick(ActionEvent e){
         //pass
@@ -74,7 +100,7 @@ public class Game_Screen {
 
     public void jump(MouseEvent e){
 //        ball.setTranslateY(1);
-        ball.setTranslateY(ball.getTranslateY()-30);
+        ball.setTranslateY(ball.getTranslateY()-60);
     }
 
     public void fall(){

@@ -46,7 +46,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <SVGPath content="M 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641z" fill="WHITE" layoutX="30.0" layoutY="-96.0" scaleX="0.7" scaleY="0.7" />
+      <SVGPath fx:id="star" content="M 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641z" fill="WHITE" layoutX="30.0" layoutY="-96.0" scaleX="0.7" scaleY="0.7" />
       <Group fx:id="sq1" layoutX="91.0" layoutY="-34.0" scaleX="0.6" scaleY="0.6">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
