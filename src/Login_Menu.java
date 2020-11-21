@@ -1,9 +1,16 @@
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.transform.Rotate;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Login_Menu {
 
@@ -11,6 +18,8 @@ public class Login_Menu {
     private Group obs1;
     @FXML
     private Group obs2;
+    @FXML
+    private Button newplayer;
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
@@ -37,5 +46,11 @@ public class Login_Menu {
 
     public void exit(ActionEvent e){System.exit(0);}
 
+    public void New_Player(ActionEvent e) throws IOException {
+        Stage s = (Stage) newplayer.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("Player_Menu.fxml"));
+        s.setScene(new Scene(root,480,700));
+        s.show();
+    }
 
 }
