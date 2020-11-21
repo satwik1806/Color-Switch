@@ -69,10 +69,7 @@ public class Login_Menu {
     public void exit(ActionEvent e){System.exit(0);}
 
     public void New_Player(ActionEvent e) throws IOException {
-        Stage s = (Stage) newplayer.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Player_Menu.fxml"));
-        s.setScene(new Scene(root,480,700));
-        s.show();
+        Frame.navigation.load("PLayer_Menu.fxml");
     }
 
 }

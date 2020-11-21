@@ -24,11 +24,14 @@ import java.util.List;
 
 public class Frame extends Application {
 
+
+    static Navigation navigation;
+
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login_Menu.fxml"));
-        stage.setScene(new Scene(root,480,700));
-        stage.show();
+        navigation=new Navigation(stage);
+        Frame.navigation.load("Login_Menu.fxml");
 
     }
 

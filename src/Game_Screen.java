@@ -102,10 +102,11 @@ public class Game_Screen {
     }
 
     public void pauseclick(ActionEvent e) throws IOException {
-        Stage s = (Stage) pause.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Pause.fxml"));
-        s.setScene(new Scene(root,480,700));
-        s.show();
+        Frame.navigation.load("Pause.fxml");
+//        Stage s = (Stage) pause.getScene().getWindow();
+//        Parent root = FXMLLoader.load(getClass().getResource("Pause.fxml"));
+//        s.setScene(new Scene(root,480,700));
+//        s.show();
     }
 
     public void jump(MouseEvent e){

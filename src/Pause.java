@@ -67,16 +67,19 @@ public class Pause {
     }
 
     public void gotohome(ActionEvent e) throws IOException {
-        Stage s = (Stage) home.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Player_Menu.fxml"));
-        s.setScene(new Scene(root,480,700));
-        s.show();
+//        Stage s = (Stage) home.getScene().getWindow();
+//        Parent root = FXMLLoader.load(getClass().getResource("Player_Menu.fxml"));
+//        s.setScene(new Scene(root,480,700));
+//        s.show();
+        Frame.navigation.GoBack();
+        Frame.navigation.GoBack();
     }
 
     public void back(ActionEvent e) throws IOException{
-        Stage s = (Stage) play.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Game_Screen.fxml"));
-        s.setScene(new Scene(root,480,700));
-        s.show();
+//        Stage s = (Stage) play.getScene().getWindow();
+//        Parent root = FXMLLoader.load(getClass().getResource("Game_Screen.fxml"));
+//        s.setScene(new Scene(root,480,700));
+//        s.show();
+        Frame.navigation.GoBack();
     }
 }

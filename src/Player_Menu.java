@@ -92,16 +92,11 @@ public class Player_Menu {
     }
 
     public void New_Game(ActionEvent e) throws IOException {
-        Stage s = (Stage) newgame.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Game_Screen.fxml"));
-        s.setScene(new Scene(root,480,700));
-        s.show();
+        Frame.navigation.load("Game_Screen.fxml");
     }
 
     public void backlogin() throws IOException {
-        Stage s = (Stage) backtologin.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Login_Menu.fxml"));
-        s.setScene(new Scene(root,480,700));
-        s.show();
+        Frame.navigation.GoBack();
+
     }
 }
