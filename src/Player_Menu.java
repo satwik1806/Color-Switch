@@ -97,6 +97,5 @@ public class Player_Menu {
 
     public void backlogin() throws IOException {
         Frame.navigation.GoBack();
-
     }
 }

@@ -39,7 +39,7 @@
          </children>
       </Group>
       <Circle fx:id="ball" fill="#900dff" layoutX="250.0" layoutY="605.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="pause" layoutX="386.0" layoutY="4.0" mnemonicParsing="false" onAction="#pauseclick" prefHeight="88.0" prefWidth="88.0" scaleX="0.6" scaleY="0.6" style="-fx-shape: &quot;M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 &quot;; -fx-background-image: &quot;url('D:\Color_Switch_ramit\src.A.PNG')&quot;;">
+      <Button fx:id="pause" layoutX="386.0" layoutY="4.0" mnemonicParsing="false" onAction="#pauseclick" prefHeight="88.0" prefWidth="88.0" scaleX="0.6" scaleY="0.6" style="-fx-shape: &quot;M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 &quot;;">
          <graphic>
             <ImageView fitHeight="83.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" scaleX="1.35" scaleY="1.35">
                <image>
