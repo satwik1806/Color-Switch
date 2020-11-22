@@ -42,8 +42,8 @@ public class Login_Menu {
             rotate2.setAxis(new Point3D(0,0,1));
             obs1.getTransforms().addAll(rotate1);
             obs2.getTransforms().addAll(rotate2);
-            rotate1.setAngle(2);
-            rotate2.setAngle(2);
+            rotate1.setAngle(1.5);
+            rotate2.setAngle(5);
 
             //11
             rotate11.setPivotX(0);
@@ -69,7 +69,7 @@ public class Login_Menu {
     public void exit(ActionEvent e){System.exit(0);}
 
     public void New_Player(ActionEvent e) throws IOException {
-        Frame.navigation.load("PLayer_Menu.fxml");
+        Frame.navigation.load("New_Player_Details.fxml");
     }
 
 }
