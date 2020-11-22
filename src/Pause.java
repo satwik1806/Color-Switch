@@ -66,6 +66,10 @@ public class Pause {
         timer.start();
     }
 
+    public void saveanddisplscore(ActionEvent e){
+        Frame.navigation.load("Score_Menu.fxml");
+    }
+
     public void gotohome(ActionEvent e) throws IOException {
 //        Stage s = (Stage) home.getScene().getWindow();
 //        Parent root = FXMLLoader.load(getClass().getResource("Player_Menu.fxml"));
