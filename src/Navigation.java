@@ -41,8 +41,14 @@ public class Navigation {
     {
         if (controllers.size() > 1)
         {
-            controllers.remove(controllers.get(controllers.size() - 1));
+            controllers.remove((controllers.size() - 1));
             scene.setRoot(controllers.get(controllers.size() - 1));
         }
+    }
+
+    public void cleanPrevious()
+    {
+        while(controllers.size()>1)
+            controllers.remove(0);
     }
 }
