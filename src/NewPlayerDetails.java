@@ -37,6 +37,7 @@ public class NewPlayerDetails {
         }
     };
 
+    public NewPlayerDetails(){ timer.start(); }
     public void dosubmit(ActionEvent e){
         Frame.navigation.load("Player_Menu.fxml");
     }

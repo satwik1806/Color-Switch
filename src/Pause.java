@@ -75,8 +75,9 @@ public class Pause {
 //        Parent root = FXMLLoader.load(getClass().getResource("Player_Menu.fxml"));
 //        s.setScene(new Scene(root,480,700));
 //        s.show();
-        Frame.navigation.GoBack();
-        Frame.navigation.GoBack();
+//        Frame.navigation.GoBack();
+//        Frame.navigation.GoBack();
+        Frame.navigation.load("Player_menu.fxml");
     }
 
     public void back(ActionEvent e) throws IOException{
