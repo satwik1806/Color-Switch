@@ -48,7 +48,7 @@ public class Login_Menu {
             obs1.getTransforms().addAll(rotate1);
             obs2.getTransforms().addAll(rotate2);
             rotate1.setAngle(1.5);
-            rotate2.setAngle(5);
+            rotate2.setAngle(3);
 
             //11
             rotate11.setPivotX(0);
@@ -69,14 +69,14 @@ public class Login_Menu {
             rotatet1.setPivotY(159);
             rotatet1.setAxis(new Point3D(0,0,1));
             t1.getTransforms().addAll(rotatet1);
-            rotatet1.setAngle(3);
+            rotatet1.setAngle(2);
 
             //t2
             rotatet2.setPivotX(74);
             rotatet2.setPivotY(159);
             rotatet2.setAxis(new Point3D(0,0,1));
             t2.getTransforms().addAll(rotatet2);
-            rotatet2.setAngle(-3);
+            rotatet2.setAngle(-2);
 
 
         }
