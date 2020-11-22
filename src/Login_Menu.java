@@ -24,12 +24,17 @@ public class Login_Menu {
     private Group obs22;
     @FXML
     private Button newplayer;
-
+    @FXML
+    private Group t1;
+    @FXML
+    private Group t2;
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
     Rotate rotate11 = new Rotate();
     Rotate rotate22 = new Rotate();
+    Rotate rotatet1 = new Rotate();
+    Rotate rotatet2 = new Rotate();
 
     AnimationTimer timer = new AnimationTimer() {
         @Override
@@ -58,6 +63,9 @@ public class Login_Menu {
             rotate22.setAxis(new Point3D(0,0,1));
             obs22.getTransforms().addAll(rotate22);
             rotate22.setAngle(1.5);
+
+            //t1
+
 
         }
     };

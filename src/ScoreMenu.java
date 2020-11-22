@@ -54,15 +54,15 @@ public class ScoreMenu {
 
         Frame.navigation.GoBack();
         Frame.navigation.GoBack();
-
+        Frame.navigation.GoBack();
         Frame.navigation.load("Game_Screen.fxml");
     }
 
     public void returntomain(ActionEvent e) {
-        Frame.navigation.load("Player_Menu.fxml");
-//        Frame.navigation.GoBack();
-//        Frame.navigation.GoBack();
-//        Frame.navigation.GoBack();
+//        Frame.navigation.load("Player_Menu.fxml");
+        Frame.navigation.GoBack();
+        Frame.navigation.GoBack();
+        Frame.navigation.GoBack();
 
     }
 

@@ -69,7 +69,7 @@
             <Circle fill="#272727" radius="70.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Group>
-      <Group id="obs2" fx:id="obs2" layoutX="200.0" layoutY="427.0" scaleX="0.4" scaleY="0.4">
+      <Group id="obs2" fx:id="obs2" layoutX="200.0" layoutY="473.0" scaleX="0.4" scaleY="0.4">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="150.0" fill="#ff0181" height="164.0" layoutX="144.0" layoutY="140.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
             <Rectangle id="rect1" arcHeight="150.0" arcWidth="50.0" fill="#32dbf0" height="38.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
@@ -105,6 +105,20 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
+      <Group fx:id="t1" layoutX="312.0" layoutY="262.0" scaleX="0.6" scaleY="0.6">
+         <children>
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" layoutX="61.0" layoutY="105.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="122.0" rotate="-30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="261.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         </children>
+      </Group>
+      <Group fx:id="t2" layoutX="312.0" layoutY="289.0" rotate="180.0" scaleX="0.3" scaleY="0.3">
+         <children>
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" layoutX="61.0" layoutY="105.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="122.0" rotate="-30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="261.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         </children>
+      </Group>
    </children>
    <effect>
       <InnerShadow />
