@@ -65,6 +65,18 @@ public class Login_Menu {
             rotate22.setAngle(1.5);
 
             //t1
+            rotatet1.setPivotX(74);
+            rotatet1.setPivotY(159);
+            rotatet1.setAxis(new Point3D(0,0,1));
+            t1.getTransforms().addAll(rotatet1);
+            rotatet1.setAngle(3);
+
+            //t2
+            rotatet2.setPivotX(74);
+            rotatet2.setPivotY(159);
+            rotatet2.setAxis(new Point3D(0,0,1));
+            t2.getTransforms().addAll(rotatet2);
+            rotatet2.setAngle(-3);
 
 
         }

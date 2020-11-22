@@ -105,14 +105,14 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Group fx:id="t1" layoutX="312.0" layoutY="262.0" scaleX="0.6" scaleY="0.6">
+      <Group fx:id="t2" layoutX="289.0" layoutY="285.0" rotate="180.0" scaleX="0.25" scaleY="0.25">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" layoutX="61.0" layoutY="105.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="122.0" rotate="-30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="261.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
          </children>
       </Group>
-      <Group fx:id="t2" layoutX="312.0" layoutY="289.0" rotate="180.0" scaleX="0.3" scaleY="0.3">
+      <Group fx:id="t1" layoutX="289.0" layoutY="262.0" scaleX="0.5" scaleY="0.5">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" layoutX="61.0" layoutY="105.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="122.0" rotate="-30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
