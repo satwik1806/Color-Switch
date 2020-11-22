@@ -19,10 +19,17 @@ public class Login_Menu {
     @FXML
     private Group obs2;
     @FXML
+    private Group obs11;
+    @FXML
+    private Group obs22;
+    @FXML
     private Button newplayer;
+
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
+    Rotate rotate11 = new Rotate();
+    Rotate rotate22 = new Rotate();
 
     AnimationTimer timer = new AnimationTimer() {
         @Override
@@ -37,6 +44,21 @@ public class Login_Menu {
             obs2.getTransforms().addAll(rotate2);
             rotate1.setAngle(2);
             rotate2.setAngle(2);
+
+            //11
+            rotate11.setPivotX(0);
+            rotate11.setPivotY(0);
+            rotate11.setAxis(new Point3D(0,0,1));
+            obs11.getTransforms().addAll(rotate11);
+            rotate11.setAngle(1.5);
+
+            //22
+            rotate22.setPivotX(0);
+            rotate22.setPivotY(0);
+            rotate22.setAxis(new Point3D(0,0,1));
+            obs22.getTransforms().addAll(rotate22);
+            rotate22.setAngle(1.5);
+
         }
     };
 
@@ -47,10 +69,7 @@ public class Login_Menu {
     public void exit(ActionEvent e){System.exit(0);}
 
     public void New_Player(ActionEvent e) throws IOException {
-        Stage s = (Stage) newplayer.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Player_Menu.fxml"));
-        s.setScene(new Scene(root,480,700));
-        s.show();
+        Frame.navigation.load("PLayer_Menu.fxml");
     }
 
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,10 +10,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="pane" onMouseClicked="#jump" onTouchMoved="#jump" prefHeight="700.0" prefWidth="480.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game_Screen">
    <children>
-      <Group id="grp1" fx:id="right" layoutX="144.0" layoutY="253.0" scaleX="0.35" scaleY="0.35">
+      <Group id="grp1" fx:id="right" layoutX="144.0" layoutY="322.0" scaleX="0.35" scaleY="0.35">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="150.0" fill="#ff0181" height="164.0" layoutX="144.0" layoutY="140.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
             <Rectangle id="rect1" arcHeight="150.0" arcWidth="50.0" fill="#32dbf0" height="38.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
@@ -20,7 +22,7 @@
             <Rectangle id="rect1" arcHeight="150.0" arcWidth="50.0" fill="#fae100" height="38.0" layoutX="162.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
          </children>
       </Group>
-      <Group fx:id="colorswitch" layoutX="250.0" layoutY="256.0" scaleX="0.15" scaleY="0.15">
+      <Group fx:id="colorswitch" layoutX="250.0" layoutY="317.0" scaleX="0.15" scaleY="0.15">
          <children>
             <Arc fill="#ff0181" length="90.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
             <Arc fill="#fae100" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
@@ -28,7 +30,7 @@
             <Arc fill="#32dbf0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
          </children>
       </Group>
-      <Group id="grp1" fx:id="left" layoutX="30.0" layoutY="253.0" scaleX="0.35" scaleY="0.35">
+      <Group id="grp1" fx:id="left" layoutX="30.0" layoutY="322.0" scaleX="0.35" scaleY="0.35">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="150.0" fill="#ff0181" height="164.0" layoutX="144.0" layoutY="140.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
             <Rectangle id="rect1" arcHeight="150.0" arcWidth="50.0" fill="#32dbf0" height="38.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
@@ -36,8 +38,8 @@
             <Rectangle id="rect1" arcHeight="150.0" arcWidth="50.0" fill="#fae100" height="38.0" layoutX="162.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="164.0" />
          </children>
       </Group>
-      <Circle fx:id="ball" fill="#900dff" layoutX="250.0" layoutY="604.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="pause" layoutX="386.0" layoutY="4.0" mnemonicParsing="false" onAction="#pauseclick" prefHeight="88.0" prefWidth="88.0" scaleX="0.6" scaleY="0.6" style="-fx-shape: &quot;        M 100, 100        m -75, 0        a 75,75 0 1,0 150,0        a 75,75 0 1,0 -150,0        &quot;; -fx-background-image: &quot;url('D:\Color_Switch_ramit\src.A.PNG')&quot;;">
+      <Circle fx:id="ball" fill="#900dff" layoutX="250.0" layoutY="605.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="pause" layoutX="386.0" layoutY="4.0" mnemonicParsing="false" onAction="#pauseclick" prefHeight="88.0" prefWidth="88.0" scaleX="0.6" scaleY="0.6" style="-fx-shape: &quot;M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 &quot;;">
          <graphic>
             <ImageView fitHeight="83.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" scaleX="1.35" scaleY="1.35">
                <image>
@@ -46,7 +48,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Group fx:id="sq1" layoutX="119.0" layoutY="-34.0" scaleX="0.6" scaleY="0.6">
+      <Group fx:id="sq1" layoutX="119.0" scaleX="0.6" scaleY="0.6">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="118.0" layoutY="-116.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
@@ -54,7 +56,7 @@
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="261.0" layoutX="118.0" layoutY="117.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
          </children>
       </Group>
-      <Group fx:id="sq2" layoutX="119.0" layoutY="-34.0" rotate="45.0" scaleX="0.4" scaleY="0.4">
+      <Group fx:id="sq2" layoutX="119.0" rotate="45.0" scaleX="0.4" scaleY="0.4">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#fae100" height="261.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#900dff" height="261.0" layoutX="118.0" layoutY="-116.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
@@ -62,6 +64,11 @@
             <Rectangle arcHeight="50.0" arcWidth="100.0" fill="#ff0181" height="261.0" layoutX="118.0" layoutY="117.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
          </children>
       </Group>
-      <SVGPath fx:id="star" content="M 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641z" fill="WHITE" layoutX="55.0" layoutY="-96.0" scaleX="0.7" scaleY="0.7" />
+      <SVGPath fx:id="star" content="M 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641z" fill="WHITE" layoutX="55.0" layoutY="-60.0" scaleX="0.7" scaleY="0.7" />
+      <Label layoutX="30.0" layoutY="21.0" style="-fx-background-color: #272727;" text="5" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

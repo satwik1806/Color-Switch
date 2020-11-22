@@ -1,6 +1,13 @@
 import javafx.animation.AnimationTimer;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Pause {
     @FXML
@@ -57,5 +64,26 @@ public class Pause {
 
     public Pause (){
         timer.start();
+    }
+
+    public void saveanddisplscore(ActionEvent e){
+        Frame.navigation.load("Score_Menu.fxml");
+    }
+
+    public void gotohome(ActionEvent e) throws IOException {
+//        Stage s = (Stage) home.getScene().getWindow();
+//        Parent root = FXMLLoader.load(getClass().getResource("Player_Menu.fxml"));
+//        s.setScene(new Scene(root,480,700));
+//        s.show();
+        Frame.navigation.GoBack();
+        Frame.navigation.GoBack();
+    }
+
+    public void back(ActionEvent e) throws IOException{
+//        Stage s = (Stage) play.getScene().getWindow();
+//        Parent root = FXMLLoader.load(getClass().getResource("Game_Screen.fxml"));
+//        s.setScene(new Scene(root,480,700));
+//        s.show();
+        Frame.navigation.GoBack();
     }
 }
