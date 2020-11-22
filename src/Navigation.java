@@ -1,3 +1,4 @@
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,13 +25,11 @@ public class Navigation {
     public void load(String sUrl)
     {
         try {
-
             //loads the fxml file
             Parent root = (Parent)(FXMLLoader.load(getClass().getResource(sUrl)));
             controllers.add(root);
             scene.setRoot(root);
             stage.show();
-
         } catch(Exception e) {
             e.printStackTrace();
         }
