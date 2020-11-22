@@ -24,9 +24,7 @@ import java.util.List;
 
 public class Frame extends Application {
 
-
     static Navigation navigation;
-
 
     @Override
     public void start(Stage stage) throws Exception {
