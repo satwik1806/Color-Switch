@@ -109,13 +109,18 @@ public class Game_Screen {
 //        s.show();
     }
 
+    private double toadd = 0.01;
+    private double add = 1;
+    private boolean flag = true;
     public void jump(MouseEvent e){
 //        ball.setTranslateY(1);
+        flag = false;
+        add = 1;
         ball.setTranslateY(ball.getTranslateY()-60);
     }
 
     public void fall(){
-        ball.setTranslateY(ball.getTranslateY()+1);
+        if(!flag) {ball.setTranslateY(ball.getTranslateY()+add+toadd);add+=toadd;}
     }
 
     public Game_Screen(){

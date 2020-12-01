@@ -96,6 +96,9 @@ public class Player_Menu {
     }
 
     public void backlogin() throws IOException {
-        Frame.navigation.GoBack();
+//        Frame.navigation.GoBack();
+//        Frame.navigation.GoBack();
+        Frame.navigation.cleanPrevious();
+        Frame.navigation.load("Login_Menu.fxml");
     }
 }
