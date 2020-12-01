@@ -63,6 +63,7 @@ public class ScoreMenu {
         Frame.navigation.GoBack();
         Frame.navigation.GoBack();
         Frame.navigation.GoBack();
+
     }
 
     private boolean less1 = false;

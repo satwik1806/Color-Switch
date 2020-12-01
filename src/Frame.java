@@ -28,6 +28,7 @@ public class Frame extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        stage.setTitle("COLOR SWITCH (Ramit & Satwik)");
         navigation=new Navigation(stage);
         Frame.navigation.load("Login_Menu.fxml");
 
