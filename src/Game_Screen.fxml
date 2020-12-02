@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" onMouseClicked="#jump" onTouchMoved="#jump" prefHeight="700.0" prefWidth="480.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game_Screen">
+<AnchorPane fx:id="pane" onMouseClicked="#jumpwanted" prefHeight="700.0" prefWidth="480.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game_Screen">
    <children>
       <Group id="grp1" fx:id="right" layoutX="144.0" layoutY="322.0" scaleX="0.35" scaleY="0.35">
          <children>

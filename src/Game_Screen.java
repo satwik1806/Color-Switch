@@ -2,6 +2,7 @@ import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -9,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
@@ -16,9 +19,13 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.ResourceBundle;
 
 
-public class Game_Screen {
+public class Game_Screen implements Initializable {
     @FXML
     private Group left;
     @FXML
@@ -76,6 +83,13 @@ public class Game_Screen {
 
             fall();
             starsize();
+            if(jumphappened)
+            {
+                jump();
+                jumphappened=!(jumpcount>10);
+                if(!jumphappened)
+                    jumpcount=0;
+            }
         }
     };
 
@@ -112,20 +126,46 @@ public class Game_Screen {
     private double toadd = 0.01;
     private double add = 1;
     private boolean flag = true;
-    public void jump(MouseEvent e){
+    private boolean jumphappened=false;
+    private int jumpcount=0;
+    public void jumpwanted(MouseEvent e){
 //        ball.setTranslateY(1);
+        jumphappened=true;
+    }
+
+    private void jump()
+    {
         flag = false;
         add = 1;
-        ball.setTranslateY(ball.getTranslateY()-60);
+        ball.setTranslateY(ball.getTranslateY()-5);
+        jumpcount+=1;
     }
 
     public void fall(){
         if(!flag) {ball.setTranslateY(ball.getTranslateY()+add+toadd);add+=toadd;}
     }
 
-    public Game_Screen(){
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         timer.start();
+        ball.setFill(Paint.valueOf(colors[new Random().nextInt(4)]));
+
     }
+
+    private String[] colors={"FAE100","900DFF","FF0181","32DBF0"};
+
+    private ArrayList<Obstacle> onscreen;
+
+    private void checkcollide()
+    {
+        for(Obstacle o:onscreen)
+        {
+            if(o.checkcollide(ball))
+                break;
+        }
+    }
+
 
 
 }
