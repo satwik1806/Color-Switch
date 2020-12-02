@@ -53,47 +53,70 @@ public class Game_Screen implements Initializable {
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
-            //left
-            rotateleft.setPivotX(163);
-            rotateleft.setPivotY(140);
-            rotateleft.setAxis(new Point3D(0,0,1));
-            left.getTransforms().addAll(rotateleft);
-            rotateleft.setAngle(1);
-
-            //2
-            rotateright.setPivotX(163);
-            rotateright.setPivotY(140);
-            rotateright.setAxis(new Point3D(0,0,1));
-            right.getTransforms().addAll(rotateright);
-            rotateright.setAngle(-1.5);
-
-            //3
-            rotatesquare1.setPivotX(130.75);
-            rotatesquare1.setPivotY(130.5);
-            rotatesquare1.setAxis(new Point3D(0,0,1));
-            sq1.getTransforms().addAll(rotatesquare1);
-            rotatesquare1.setAngle(1.5);
-
-            //4
-            rotatesquare2.setPivotX(130.75);
-            rotatesquare2.setPivotY(130.5);
-            rotatesquare2.setAxis(new Point3D(0,0,1));
-            sq2.getTransforms().addAll(rotatesquare2);
-            rotatesquare2.setAngle(-1);
-
-            fall();
-            starsize();
-            if(jumphappened)
-            {
-                jump();
-                jumphappened=!(jumpcount>10);
-                if(!jumphappened)
-                    jumpcount=0;
+            if(check()) {
+                rotate();
+                fall();
+                starsize();
+                if (jumphappened) {
+                    jump();
+                    jumphappened = !(jumpcount > 10);
+                    if (!jumphappened)
+                        jumpcount = 0;
+                }
             }
         }
     };
 
     private boolean less=false;
+
+    boolean check()
+    {
+        if(s==null)
+        {
+            s=pane.getScene();
+            if(s!=null)
+                root=s.getRoot();
+            return true;
+        }
+        return s.getRoot().equals(root);
+    }
+
+    private Scene s;
+    private Parent root;
+
+
+
+    void rotate()
+    {
+        //left
+        rotateleft.setPivotX(163);
+        rotateleft.setPivotY(140);
+        rotateleft.setAxis(new Point3D(0,0,1));
+        left.getTransforms().addAll(rotateleft);
+        rotateleft.setAngle(1);
+
+        //2
+        rotateright.setPivotX(163);
+        rotateright.setPivotY(140);
+        rotateright.setAxis(new Point3D(0,0,1));
+        right.getTransforms().addAll(rotateright);
+        rotateright.setAngle(-1.5);
+
+        //3
+        rotatesquare1.setPivotX(130.75);
+        rotatesquare1.setPivotY(130.5);
+        rotatesquare1.setAxis(new Point3D(0,0,1));
+        sq1.getTransforms().addAll(rotatesquare1);
+        rotatesquare1.setAngle(1.5);
+
+        //4
+        rotatesquare2.setPivotX(130.75);
+        rotatesquare2.setPivotY(130.5);
+        rotatesquare2.setAxis(new Point3D(0,0,1));
+        sq2.getTransforms().addAll(rotatesquare2);
+        rotatesquare2.setAngle(-1);
+    }
+
 
     void starsize()
     {
@@ -116,7 +139,9 @@ public class Game_Screen implements Initializable {
     }
 
     public void pauseclick(ActionEvent e) throws IOException {
+
         Frame.navigation.load("Pause.fxml");
+
 //        Stage s = (Stage) pause.getScene().getWindow();
 //        Parent root = FXMLLoader.load(getClass().getResource("Pause.fxml"));
 //        s.setScene(new Scene(root,480,700));
@@ -150,7 +175,6 @@ public class Game_Screen implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timer.start();
         ball.setFill(Paint.valueOf(colors[new Random().nextInt(4)]));
-
     }
 
     private String[] colors={"FAE100","900DFF","FF0181","32DBF0"};

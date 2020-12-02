@@ -2,14 +2,17 @@ import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Pause {
+public class Pause implements Initializable {
     @FXML
     private Button play;
     @FXML
@@ -62,9 +65,6 @@ public class Pause {
         }
     }
 
-    public Pause (){
-        timer.start();
-    }
 
     public void saveanddisplscore(ActionEvent e){
         Frame.navigation.load("Score_Menu.fxml");
@@ -86,5 +86,10 @@ public class Pause {
 //        s.setScene(new Scene(root,480,700));
 //        s.show();
         Frame.navigation.GoBack();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        timer.start();
     }
 }
