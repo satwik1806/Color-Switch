@@ -1,2 +1,3 @@
-public class Shapes {
+public abstract class Shapes {
+    public abstract void display();
 }

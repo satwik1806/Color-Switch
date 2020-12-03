@@ -9,8 +9,9 @@ public abstract class Obstacle {
 
     public abstract void rotate();
 
-    public Group getGroup(){return g;}
+    public abstract void display();
 
+    public Group getGroup(){return g;}
 
 }
 
