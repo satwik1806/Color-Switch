@@ -45,6 +45,10 @@ public class Game_Screen implements Initializable {
     @FXML
     public SVGPath star;
 
+
+    private ArrayList<Obstacle> onscreen;
+
+
     Rotate rotateleft = new Rotate();
     Rotate rotateright = new Rotate();
     Rotate rotatesquare1 = new Rotate();
@@ -88,6 +92,8 @@ public class Game_Screen implements Initializable {
 
     void rotate()
     {
+        for(Obstacle o:onscreen)
+            o.rotate();
         //left
         rotateleft.setPivotX(163);
         rotateleft.setPivotY(140);
@@ -179,7 +185,6 @@ public class Game_Screen implements Initializable {
 
     private String[] colors={"FAE100","900DFF","FF0181","32DBF0"};
 
-    private ArrayList<Obstacle> onscreen;
 
     private void checkcollide()
     {
