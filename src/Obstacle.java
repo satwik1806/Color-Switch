@@ -11,6 +11,5 @@ public abstract class Obstacle {
 
     public Group getGroup(){return g;}
 
-
 }
 
