@@ -7,6 +7,9 @@ public class Shape_rect extends Shapes {
     private Rectangle rect;
     private float archeight;
     private float archwidth;
+    private String color;
+    private float layoutx;
+    private float layouty;
     private float height;
     private float width;
 

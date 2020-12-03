@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Try2">
    <children>
-      <Group layoutX="-166.0" layoutY="-120.0" rotate="173.0" scaleX="0.5" scaleY="0.5">
+      <Group fx:id="circle" layoutX="13.0" layoutY="-147.0" scaleX="0.35" scaleY="0.35">
          <children>
             <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#900dff" />
             <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#ff0181" layoutX="250.0" rotate="90.0" />
@@ -57,5 +57,13 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#900dff" height="11.0" scaleX="0.9" scaleY="0.9" stroke="BLACK" strokeType="INSIDE" width="40.0" />
          </children>
       </Group>
+      <Group layoutX="-166.0" layoutY="260.0" scaleX="0.5" scaleY="0.5">
+         <children>
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#ff0181" layoutX="250.0" rotate="90.0" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#32dbf0" layoutY="250.0" rotate="-90.0" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#fae100" layoutX="250.0" layoutY="250.0" rotate="180.0" />
+         </children>
+      </Group>
+      <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#900dff" layoutX="362.0" layoutY="19.0" scaleX="0.5" scaleY="0.5" />
    </children>
 </AnchorPane>

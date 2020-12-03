@@ -1,19 +1,15 @@
+import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
 public class Obstacle_Windmill extends Obstacle{
 
+    private Group group;
     private Shape_rect rect1;
     private Shape_rect rect2;
     private Shape_rect rect3;
     private Shape_rect rect4;
 
-    private Rotate rotate_obj = new Rotate();
-
-    public Obstacle_Windmill()
-    {
-        display();
-    }
 
     @Override
     public void display() {
@@ -36,12 +32,13 @@ public class Obstacle_Windmill extends Obstacle{
     public boolean checkcollide(Circle c) {
         return false;
     }
+    private Rotate rotateobj = new Rotate();
 
     @Override
     public void rotate() {
-        rotate_obj.setPivotX(163);
-        rotate_obj.setPivotY(140);
-        rotate_obj.setAngle(2);
-        group.getTransforms().add(rotate_obj);
+        rotateobj.setPivotX(163);
+        rotateobj.setPivotY(140);
+        rotateobj.setAngle(2);
+        group.getTransforms().add(rotateobj);
     }
 }
