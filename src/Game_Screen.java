@@ -92,8 +92,7 @@ public class Game_Screen implements Initializable {
 
     void rotate()
     {
-        for(Obstacle o:onscreen)
-            o.rotate();
+
         //left
         rotateleft.setPivotX(163);
         rotateleft.setPivotY(140);

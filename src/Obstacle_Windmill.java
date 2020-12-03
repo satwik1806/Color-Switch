@@ -32,13 +32,13 @@ public class Obstacle_Windmill extends Obstacle{
     public boolean checkcollide(Circle c) {
         return false;
     }
+    private Rotate rotateobj = new Rotate();
 
     @Override
     public void rotate() {
-        Rotate rotate = new Rotate();
-        rotate.setPivotX(163);
-        rotate.setPivotY(140);
-        rotate.setAngle(2);
-        group.getTransforms().add(rotate);
+        rotateobj.setPivotX(163);
+        rotateobj.setPivotY(140);
+        rotateobj.setAngle(2);
+        group.getTransforms().add(rotateobj);
     }
 }
