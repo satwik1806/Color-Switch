@@ -1,3 +1,6 @@
+import javafx.animation.PathTransition;
+import javafx.animation.Transition;
+import javafx.animation.TranslateTransition;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 
