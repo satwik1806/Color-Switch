@@ -39,4 +39,8 @@ public class Obstacle_1square extends Obstacle{
     public boolean checkcollide(Circle c) {
         return false;
     }
+
+    public Obstacle_1square(Ball ball){
+        display();
+    }
 }
