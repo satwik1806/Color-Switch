@@ -48,6 +48,7 @@ public class Game_Screen implements Initializable {
 
     private ArrayList<Obstacle> onscreen = new ArrayList<>();
 
+    private Star startest=new Star(55,-60);
 
     Rotate rotateleft = new Rotate();
     Rotate rotateright = new Rotate();
@@ -60,7 +61,7 @@ public class Game_Screen implements Initializable {
             if(check()) {
                 rotate();
                 fall();
-                starsize();
+                startest.starsize();
                 if (jumphappened) {
                     jump();
                     jumphappened = !(jumpcount > 10);
@@ -100,25 +101,25 @@ public class Game_Screen implements Initializable {
     }
 
 
-    void starsize()
-    {
-
-        double X=star.getScaleX();
-        if(X>=0.7)
-            less=true;
-        if(X<=0.6)
-            less=false;
-        if(less)
-        {
-            star.setScaleX(X-0.005);
-            star.setScaleY(X-0.005);
-        }
-        else
-        {
-            star.setScaleX(X+0.005);
-            star.setScaleY(X+0.005);
-        }
-    }
+//    void starsize()
+//    {
+//
+//        double X=star.getScaleX();
+//        if(X>=0.7)
+//            less=true;
+//        if(X<=0.6)
+//            less=false;
+//        if(less)
+//        {
+//            star.setScaleX(X-0.005);
+//            star.setScaleY(X-0.005);
+//        }
+//        else
+//        {
+//            star.setScaleX(X+0.005);
+//            star.setScaleY(X+0.005);
+//        }
+//    }
 
     public void pauseclick(ActionEvent e) throws IOException {
 
@@ -163,6 +164,7 @@ public class Game_Screen implements Initializable {
         onscreen.add(new Obstacle_2Windmill());
 
         pane.getChildren().addAll(onscreen.get(0).getGroup(),onscreen.get(1).getGroup());
+        pane.getChildren().add(startest.getStar());
 
         timer.start();
         ball.setFill(Paint.valueOf(colors[new Random().nextInt(4)]));
