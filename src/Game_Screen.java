@@ -92,8 +92,7 @@ public class Game_Screen implements Initializable {
 
     void rotate()
     {
-        for(Obstacle o:onscreen)
-            o.rotate();
+
         //left
         rotateleft.setPivotX(163);
         rotateleft.setPivotY(140);
@@ -154,8 +153,8 @@ public class Game_Screen implements Initializable {
 //        s.show();
     }
 
-    private double toadd = 0.01;
-    private double add = 1;
+    private double toadd = 0.02;
+    private double add = 2;
     private boolean flag = true;
     private boolean jumphappened=false;
     private int jumpcount=0;
