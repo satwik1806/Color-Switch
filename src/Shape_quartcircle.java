@@ -3,14 +3,14 @@ import javafx.scene.shape.SVGPath;
 
 public class Shape_quartcircle extends Shapes {
 
-    private SVGPath quat;
+    private SVGPath quat = new SVGPath(); //quarter
     private int rotate;
     public Shape_quartcircle(float layoutx, float layouty, int rotate, String color) {
         this.layoutx = layoutx;
         this.layouty = layouty;
         this.rotate = rotate;
         this.color = color;
-
+        display();
     }
 
     @Override
@@ -22,5 +22,11 @@ public class Shape_quartcircle extends Shapes {
         quat.setRotate(rotate);
     }
 
+    public SVGPath getQuat() {
+        return quat;
+    }
 
+    public void setQuat(SVGPath quat) {
+        this.quat = quat;
+    }
 }

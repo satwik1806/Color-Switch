@@ -29,13 +29,14 @@ public class Obstacle_circle extends Obstacle {
     @Override
     public void display() {
         q1=new Shape_quartcircle(0,0,0,colors[0]);
-        q1=new Shape_quartcircle(250,250,90,colors[1]);
-        q1=new Shape_quartcircle(0,250,-90,colors[2]);
-        q1=new Shape_quartcircle(250,0,90,colors[3]);
+        q2=new Shape_quartcircle(250,250,180,colors[1]);
+        q3=new Shape_quartcircle(0,250,-90,colors[2]);
+        q4=new Shape_quartcircle(250,0,90,colors[3]);
 
+        group.getChildren().addAll(q1.getQuat(),q2.getQuat(),q3.getQuat(),q4.getQuat());
         //group properties
-        group.setLayoutX(30);
-        group.setLayoutY(322);
+        group.setLayoutX(-150);
+        group.setLayoutY(-170);
         group.setScaleX(0.35);
         group.setScaleY(0.35);
     }

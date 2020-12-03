@@ -159,7 +159,7 @@ public class Game_Screen implements Initializable {
 //        Obstacle obj1 = new Obstacle_2square();
 //        Obstacle obj2 = new Obstacle_Windmill();
 
-        onscreen.add(new Obstacle_2square());
+        onscreen.add(new Obstacle_circle());
         onscreen.add(new Obstacle_2Windmill());
 
         pane.getChildren().addAll(onscreen.get(0).getGroup(),onscreen.get(1).getGroup());
