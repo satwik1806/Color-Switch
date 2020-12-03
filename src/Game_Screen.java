@@ -46,7 +46,7 @@ public class Game_Screen implements Initializable {
     public SVGPath star;
 
 
-    private ArrayList<Obstacle> onscreen;
+    private ArrayList<Obstacle> onscreen = new ArrayList<>();
 
 
     Rotate rotateleft = new Rotate();
@@ -93,33 +93,10 @@ public class Game_Screen implements Initializable {
     void rotate()
     {
 
-        //left
-        rotateleft.setPivotX(163);
-        rotateleft.setPivotY(140);
-        rotateleft.setAxis(new Point3D(0,0,1));
-        left.getTransforms().addAll(rotateleft);
-        rotateleft.setAngle(1);
+        for(Obstacle o:onscreen){
+            o.rotate();
+        }
 
-        //2
-        rotateright.setPivotX(163);
-        rotateright.setPivotY(140);
-        rotateright.setAxis(new Point3D(0,0,1));
-        right.getTransforms().addAll(rotateright);
-        rotateright.setAngle(-1.5);
-
-        //3
-        rotatesquare1.setPivotX(130.75);
-        rotatesquare1.setPivotY(130.5);
-        rotatesquare1.setAxis(new Point3D(0,0,1));
-        sq1.getTransforms().addAll(rotatesquare1);
-        rotatesquare1.setAngle(1.5);
-
-        //4
-        rotatesquare2.setPivotX(130.75);
-        rotatesquare2.setPivotY(130.5);
-        rotatesquare2.setAxis(new Point3D(0,0,1));
-        sq2.getTransforms().addAll(rotatesquare2);
-        rotatesquare2.setAngle(-1);
     }
 
 
@@ -178,6 +155,15 @@ public class Game_Screen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+//        Obstacle obj1 = new Obstacle_2square();
+//        Obstacle obj2 = new Obstacle_Windmill();
+
+        onscreen.add(new Obstacle_2square());
+        onscreen.add(new Obstacle_2Windmill());
+
+        pane.getChildren().addAll(onscreen.get(0).getGroup(),onscreen.get(1).getGroup());
+
         timer.start();
         ball.setFill(Paint.valueOf(colors[new Random().nextInt(4)]));
     }

@@ -4,7 +4,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 
 public class Shape_rect extends Shapes {
-    private Rectangle rect;
+    private Rectangle rect = new Rectangle();
     private float archeight;
     private float archwidth;
     private String color;
@@ -21,6 +21,8 @@ public class Shape_rect extends Shapes {
         this.layouty = layy;
         this.height = heiht;
         this.width = width;
+
+        display();
     }
 
     @Override

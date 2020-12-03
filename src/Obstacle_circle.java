@@ -9,6 +9,7 @@ public class Obstacle_circle extends Obstacle {
     private Shape_quartcircle q3;
     private Shape_quartcircle q4;
 
+
     private Rotate rotate_obj = new Rotate();
 
 

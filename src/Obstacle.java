@@ -3,7 +3,8 @@ import javafx.scene.shape.Circle;
 
 public abstract class Obstacle {
 
-    protected Group group;
+    protected String[] colors={"FAE100","900DFF","FF0181","32DBF0"};
+    protected Group group = new Group();
 
     public abstract boolean checkcollide(Circle c);
 

@@ -15,15 +15,18 @@ public class Obstacle_2square extends Obstacle {
     private Shape_rect rect7;
     private Shape_rect rect8;
 
-    private Group grp1; //bigger square
-    private Group grp2; //small square
+    private Group grp1 = new Group(); //bigger square
+    private Group grp2 = new Group(); //small square
 
     @Override
     public void display() {
-        rect1 = new Shape_rect(50,100,"#fae100",0,0,261,26);
-        rect2 = new Shape_rect(50,100,"#900dff",118,-116,261,26);
-        rect3 = new Shape_rect(50,100,"#32dbf0",235,0,261,26);
-        rect4 = new Shape_rect(50,100,"#ff0181",118,117,261,26);
+        rect1 = new Shape_rect(50,100,colors[0],0,0,261,26);
+        rect2 = new Shape_rect(50,100,colors[1],118,-116,261,26);
+        rect3 = new Shape_rect(50,100,colors[2],235,0,261,26);
+        rect4 = new Shape_rect(50,100,colors[3],118,117,261,26);
+
+        rect2.getRect().setRotate(90);
+        rect4.getRect().setRotate(90);
 
         grp1.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect());
 
@@ -32,10 +35,13 @@ public class Obstacle_2square extends Obstacle {
         grp1.setScaleX(0.6);
         grp1.setScaleY(0.6);
 
-        rect5 = new Shape_rect(50,100,"#fae100",0,0,261,26);
-        rect6 = new Shape_rect(50,100,"#900dff",118,-116,261,26);
-        rect7 = new Shape_rect(50,100,"#32dbf0",235,0,261,26);
-        rect8 = new Shape_rect(50,100,"#ff0181",118,117,261,26);
+        rect5 = new Shape_rect(50,100,colors[0],0,0,261,26);
+        rect6 = new Shape_rect(50,100,colors[1],118,-116,261,26);
+        rect7 = new Shape_rect(50,100,colors[2],235,0,261,26);
+        rect8 = new Shape_rect(50,100,colors[3],118,117,261,26);
+
+        rect6.getRect().setRotate(90);
+        rect8.getRect().setRotate(90);
 
         grp2.getChildren().addAll(rect5.getRect(),rect6.getRect(),rect7.getRect(),rect8.getRect());
 
@@ -48,7 +54,6 @@ public class Obstacle_2square extends Obstacle {
         group.getChildren().addAll(grp1,grp2);
 
         //group properties
-        group.setLayoutX(119);
 
     }
     private Rotate rotatesquare1 = new Rotate();
@@ -74,5 +79,9 @@ public class Obstacle_2square extends Obstacle {
     @Override
     public boolean checkcollide(Circle c) {
         return false;
+    }
+
+    public Obstacle_2square() {
+        display();
     }
 }
