@@ -1,14 +1,16 @@
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 
-public class Obstacle {
+public abstract class Obstacle {
 
-    private Group g;
+    protected Group g;
 
-    public boolean checkcollide(Circle c)
-    {
-        return true;
-    }
+    public abstract boolean checkcollide(Circle c);
+
+    public abstract void rotate();
+
+    public Group getGroup(){return g;}
 
 
 }
+
