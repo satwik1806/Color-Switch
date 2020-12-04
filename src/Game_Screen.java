@@ -2,6 +2,7 @@ import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,27 +22,18 @@ import java.util.ResourceBundle;
 
 public class Game_Screen implements Initializable {
     @FXML
-    private Group left;
-    @FXML
-    private Group right;
-    @FXML
-    private Group sq1;
-    @FXML
-    private Group sq2;
-    @FXML
     private Circle ball;
-    @FXML
-    private Group colorswitch;
     @FXML
     public Button pause;
     @FXML
     public AnchorPane pane;
-    @FXML
-    public SVGPath star;
+
 
 
     private ArrayList<Obstacle> onscreenobstacles = new ArrayList<>();
     private ArrayList<Collider> onscreencolliders=new ArrayList<>();
+
+
 
     private Star startest=new Star(55,-60);
 
@@ -52,6 +44,20 @@ public class Game_Screen implements Initializable {
             if(check()) {
                 rotate();
                 fall();
+                for (int i=0;i<onscreenobstacles.size();i++)
+                {
+                    Obstacle c=onscreenobstacles.get(i);
+                    if(c.node().getBoundsInParent().getMinY()>700)
+                    {
+                        Obstacle o=new Obstacle_1Windmill();
+                        onscreencolliders.add(o);
+                        onscreenobstacles.add(o);
+                        pane.getChildren().add(o.group);
+                        onscreencolliders.remove(c);
+                        onscreenobstacles.remove(c);
+                        o.group.setLayoutY(-370);
+                    }
+                }
                 startest.starsize();
                 if (jumphappened) {
                     jump();
@@ -81,6 +87,15 @@ public class Game_Screen implements Initializable {
     private Parent root;
 
 
+    void movedown()
+    {
+        if(ball.getBoundsInParent().getMinY()<400)
+        {
+            for (Collider c:onscreencolliders)
+                c.node().setLayoutY(c.node().getLayoutY()+2.5);
+        }
+    }
+
 
     void rotate()
     {
@@ -91,8 +106,8 @@ public class Game_Screen implements Initializable {
 
     public void pauseclick(ActionEvent e) throws IOException {Frame.navigation.load("Pause.fxml"); }
 
-    private double toadd = 0.02;
-    private double add = 2;
+    private double toadd = 0.05;
+    private double add = 5;
     private boolean flag = true;
     private boolean jumphappened=false;
     private int jumpcount=0;
@@ -106,11 +121,7 @@ public class Game_Screen implements Initializable {
         add = 1;
         ball.setTranslateY(ball.getTranslateY()-5);
         jumpcount+=1;
-        if(ball.getTranslateY()<=-300)
-        {
-            for (Collider c:onscreencolliders)
-                c.node().setLayoutY(c.node().getLayoutY()+2.5);
-        }
+        movedown();
     }
 
     public void fall(){
@@ -120,9 +131,13 @@ public class Game_Screen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         onscreenobstacles.add(new Obstacle_circle());
         onscreenobstacles.add(new Obstacle_2Windmill());
+        Obstacle tt=new Obstacle_2square();
+        tt.node().setLayoutY(-300);
+        onscreenobstacles.add(tt);
+
+
         for (Obstacle o:onscreenobstacles)
             onscreencolliders.add(o);
 
