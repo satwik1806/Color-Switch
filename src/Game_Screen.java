@@ -22,23 +22,12 @@ import java.util.ResourceBundle;
 
 public class Game_Screen implements Initializable {
     @FXML
-    private Group left;
-    @FXML
-    private Group right;
-    @FXML
-    private Group sq1;
-    @FXML
-    private Group sq2;
-    @FXML
     private Circle ball;
-    @FXML
-    private Group colorswitch;
     @FXML
     public Button pause;
     @FXML
     public AnchorPane pane;
-    @FXML
-    public SVGPath star;
+
 
 
     private ArrayList<Obstacle> onscreenobstacles = new ArrayList<>();
