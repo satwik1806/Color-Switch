@@ -9,14 +9,12 @@ public class Obstacle_ConcentricCircle extends Obstacle {
     private Shape_quartcircle q3;
     private Shape_quartcircle q4;
 
-
     private Rotate rotate1 = new Rotate();
 
     private Shape_quartcircle q5;
     private Shape_quartcircle q6;
     private Shape_quartcircle q7;
     private Shape_quartcircle q8;
-
 
     private Rotate rotate2 = new Rotate();
 
