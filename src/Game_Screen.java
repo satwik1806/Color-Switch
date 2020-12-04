@@ -28,15 +28,33 @@ public class Game_Screen implements Initializable {
     @FXML
     public AnchorPane pane;
 
-
-
     private ArrayList<Obstacle> onscreenobstacles = new ArrayList<>();
     private ArrayList<Collider> onscreencolliders=new ArrayList<>();
 
 
+    public Obstacle add(){
+        Random rand = new Random();
+        int x = rand.nextInt(6);
+        System.out.println(x);
+        switch (x){
+            case 0:
+                return new Obstacle_1square();
+            case 1:
+                return new Obstacle_1Windmill();
+            case 2:
+                return new Obstacle_2square();
+            case 3:
+                return new Obstacle_2Windmill();
+            case 4:
+                return new Obstacle_circle();
+            case 5:
+                return new Obstacle_ConcentricCircle();
+            default:
+                return new Obstacle_circle();
+        }
+    }
 
     private Star startest=new Star(55,-60);
-
 
     AnimationTimer timer = new AnimationTimer() {
         @Override
@@ -49,13 +67,15 @@ public class Game_Screen implements Initializable {
                     Obstacle c=onscreenobstacles.get(i);
                     if(c.node().getBoundsInParent().getMinY()>700)
                     {
-                        Obstacle o=new Obstacle_1Windmill();
+                        Obstacle o=add();
                         onscreencolliders.add(o);
                         onscreenobstacles.add(o);
                         pane.getChildren().add(o.group);
                         onscreencolliders.remove(c);
                         onscreenobstacles.remove(c);
-                        o.group.setLayoutY(-370);
+//                        o.group.setLayoutY(-370);
+                        double lower = o.group.getBoundsInParent().getMinY();
+                        o.group.setLayoutY(o.group.getLayoutY() -300 - lower);
                     }
                 }
                 startest.starsize();
@@ -86,7 +106,6 @@ public class Game_Screen implements Initializable {
     private Scene s;
     private Parent root;
 
-
     void movedown()
     {
         if(ball.getBoundsInParent().getMinY()<400)
@@ -96,13 +115,11 @@ public class Game_Screen implements Initializable {
         }
     }
 
-
     void rotate()
     {
         for(Obstacle o: onscreenobstacles)
             o.rotate();
     }
-
 
     public void pauseclick(ActionEvent e) throws IOException {Frame.navigation.load("Pause.fxml"); }
 
@@ -128,7 +145,6 @@ public class Game_Screen implements Initializable {
         if(!flag) {ball.setTranslateY(ball.getTranslateY()+add+toadd);add+=toadd;}
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         onscreenobstacles.add(new Obstacle_circle());
@@ -136,7 +152,6 @@ public class Game_Screen implements Initializable {
         Obstacle tt=new Obstacle_2square();
         tt.node().setLayoutY(-300);
         onscreenobstacles.add(tt);
-
 
         for (Obstacle o:onscreenobstacles)
             onscreencolliders.add(o);
@@ -149,10 +164,10 @@ public class Game_Screen implements Initializable {
 
         timer.start();
         ball.setFill(Paint.valueOf(colors[new Random().nextInt(4)]));
+
     }
 
     private String[] colors={"FAE100","900DFF","FF0181","32DBF0"};
-
 
     private void checkcollide()
     {
@@ -162,7 +177,4 @@ public class Game_Screen implements Initializable {
                 break;
         }
     }
-
-
-
 }

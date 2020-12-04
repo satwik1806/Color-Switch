@@ -20,6 +20,9 @@ public class Obstacle_1square extends Obstacle{
 
         group.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect());
 
+        rect2.getRect().setRotate(90);
+        rect4.getRect().setRotate(90);
+
         //gourp properties
         group.setLayoutX(119);
         group.setScaleX(0.6);
@@ -40,7 +43,7 @@ public class Obstacle_1square extends Obstacle{
         return false;
     }
 
-    public Obstacle_1square(Ball ball){
+    public Obstacle_1square(){
         display();
     }
 }
