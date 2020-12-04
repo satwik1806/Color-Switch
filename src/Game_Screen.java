@@ -1,22 +1,16 @@
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
-import javafx.scene.transform.Rotate;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,7 +40,8 @@ public class Game_Screen implements Initializable {
     public SVGPath star;
 
 
-    private ArrayList<Obstacle> onscreen = new ArrayList<>();
+    private ArrayList<Obstacle> onscreenobstacles = new ArrayList<>();
+    private ArrayList<Collider> onscreencolliders=new ArrayList<>();
 
     private Star startest=new Star(55,-60);
 
@@ -89,11 +84,8 @@ public class Game_Screen implements Initializable {
 
     void rotate()
     {
-
-        for(Obstacle o:onscreen){
+        for(Obstacle o: onscreenobstacles)
             o.rotate();
-        }
-
     }
 
 
@@ -114,11 +106,11 @@ public class Game_Screen implements Initializable {
         add = 1;
         ball.setTranslateY(ball.getTranslateY()-5);
         jumpcount+=1;
-//        System.out.println(ball.getLayoutY()+"cyhgfchc");
-//        System.out.println(ball.getTranslateY()+"gggggg");
         if(ball.getTranslateY()<=-300)
-        {pane.setTranslateY(pane.getTranslateY()+(-300-ball.getTranslateY())%10);
-            System.out.println("AYA");}
+        {
+            for (Collider c:onscreencolliders)
+                c.node().setLayoutY(c.node().getLayoutY()+2.5);
+        }
     }
 
     public void fall(){
@@ -129,11 +121,16 @@ public class Game_Screen implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        onscreen.add(new Obstacle_circle());
-        onscreen.add(new Obstacle_2Windmill());
+        onscreenobstacles.add(new Obstacle_circle());
+        onscreenobstacles.add(new Obstacle_2Windmill());
+        for (Obstacle o:onscreenobstacles)
+            onscreencolliders.add(o);
 
-        pane.getChildren().addAll(onscreen.get(0).getGroup(),onscreen.get(1).getGroup());
-        pane.getChildren().add(startest.getStar());
+        onscreencolliders.add(startest);
+        onscreencolliders.add(new ColorSwitch());
+
+        for (Collider c:onscreencolliders)
+            pane.getChildren().add(c.node());
 
         timer.start();
         ball.setFill(Paint.valueOf(colors[new Random().nextInt(4)]));
@@ -144,7 +141,7 @@ public class Game_Screen implements Initializable {
 
     private void checkcollide()
     {
-        for(Obstacle o:onscreen)
+        for(Obstacle o: onscreenobstacles)
         {
             if(o.checkcollide(ball))
                 break;

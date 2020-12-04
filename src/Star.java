@@ -1,10 +1,11 @@
 import javafx.animation.PathTransition;
 import javafx.animation.Transition;
 import javafx.animation.TranslateTransition;
+import javafx.scene.Node;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 
-public class Star {
+public class Star implements Collider {
     private final SVGPath star=new SVGPath();
 
     public SVGPath getStar() {
@@ -12,12 +13,7 @@ public class Star {
     }
 
     public Star(int layoutx, int layouty) {
-        star.setContent("M 192.000 212.000L 212.000 226.641L" +
-                " 209.321 202.000L 232.000 192.000L" +
-                " 209.321 182.000L 212.000 157.359L" +
-                " 192.000 172.000L 172.000 157.359L" +
-                " 174.679 182.000L 152.000 192.000L " +
-                "174.679 202.000L 172.000 226.641z");
+        display();
         star.setLayoutY(layouty);
         star.setLayoutX(layoutx);
         star.setFill(Paint.valueOf("WHITE"));
@@ -52,4 +48,18 @@ public class Star {
         }
     }
 
+    @Override
+    public void display() {
+        star.setContent("M 192.000 212.000L 212.000 226.641L" +
+                " 209.321 202.000L 232.000 192.000L" +
+                " 209.321 182.000L 212.000 157.359L" +
+                " 192.000 172.000L 172.000 157.359L" +
+                " 174.679 182.000L 152.000 192.000L " +
+                "174.679 202.000L 172.000 226.641z");
+    }
+
+    @Override
+    public Node node() {
+        return star;
+    }
 }
