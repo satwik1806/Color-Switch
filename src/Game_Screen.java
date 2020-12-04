@@ -48,11 +48,8 @@ public class Game_Screen implements Initializable {
 
     private ArrayList<Obstacle> onscreen = new ArrayList<>();
 
+    private Star startest=new Star(55,-60);
 
-    Rotate rotateleft = new Rotate();
-    Rotate rotateright = new Rotate();
-    Rotate rotatesquare1 = new Rotate();
-    Rotate rotatesquare2 = new Rotate();
 
     AnimationTimer timer = new AnimationTimer() {
         @Override
@@ -60,7 +57,7 @@ public class Game_Screen implements Initializable {
             if(check()) {
                 rotate();
                 fall();
-                starsize();
+                startest.starsize();
                 if (jumphappened) {
                     jump();
                     jumphappened = !(jumpcount > 10);
@@ -100,35 +97,7 @@ public class Game_Screen implements Initializable {
     }
 
 
-    void starsize()
-    {
-
-        double X=star.getScaleX();
-        if(X>=0.7)
-            less=true;
-        if(X<=0.6)
-            less=false;
-        if(less)
-        {
-            star.setScaleX(X-0.005);
-            star.setScaleY(X-0.005);
-        }
-        else
-        {
-            star.setScaleX(X+0.005);
-            star.setScaleY(X+0.005);
-        }
-    }
-
-    public void pauseclick(ActionEvent e) throws IOException {
-
-        Frame.navigation.load("Pause.fxml");
-
-//        Stage s = (Stage) pause.getScene().getWindow();
-//        Parent root = FXMLLoader.load(getClass().getResource("Pause.fxml"));
-//        s.setScene(new Scene(root,480,700));
-//        s.show();
-    }
+    public void pauseclick(ActionEvent e) throws IOException {Frame.navigation.load("Pause.fxml"); }
 
     private double toadd = 0.02;
     private double add = 2;
@@ -136,7 +105,6 @@ public class Game_Screen implements Initializable {
     private boolean jumphappened=false;
     private int jumpcount=0;
     public void jumpwanted(MouseEvent e){
-//        ball.setTranslateY(1);
         jumphappened=true;
     }
 
@@ -146,6 +114,11 @@ public class Game_Screen implements Initializable {
         add = 1;
         ball.setTranslateY(ball.getTranslateY()-5);
         jumpcount+=1;
+//        System.out.println(ball.getLayoutY()+"cyhgfchc");
+//        System.out.println(ball.getTranslateY()+"gggggg");
+        if(ball.getTranslateY()<=-300)
+        {pane.setTranslateY(pane.getTranslateY()+(-300-ball.getTranslateY())%10);
+            System.out.println("AYA");}
     }
 
     public void fall(){
@@ -156,13 +129,11 @@ public class Game_Screen implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        Obstacle obj1 = new Obstacle_2square();
-//        Obstacle obj2 = new Obstacle_Windmill();
-
-        onscreen.add(new Obstacle_ConcentricCircle());
+        onscreen.add(new Obstacle_circle());
         onscreen.add(new Obstacle_2Windmill());
 
         pane.getChildren().addAll(onscreen.get(0).getGroup(),onscreen.get(1).getGroup());
+        pane.getChildren().add(startest.getStar());
 
         timer.start();
         ball.setFill(Paint.valueOf(colors[new Random().nextInt(4)]));
