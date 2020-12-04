@@ -84,11 +84,8 @@ public class Game_Screen implements Initializable {
 
     void rotate()
     {
-
-        for(Obstacle o: onscreenobstacles){
+        for(Obstacle o: onscreenobstacles)
             o.rotate();
-        }
-
     }
 
 
@@ -130,9 +127,7 @@ public class Game_Screen implements Initializable {
             onscreencolliders.add(o);
 
         onscreencolliders.add(startest);
-
-//        pane.getChildren().addAll(onscreenobstacles.get(0).getGroup(), onscreenobstacles.get(1).getGroup());
-//        pane.getChildren().add(startest.getStar());
+        onscreencolliders.add(new ColorSwitch());
 
         for (Collider c:onscreencolliders)
             pane.getChildren().add(c.node());
