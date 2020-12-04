@@ -117,8 +117,11 @@ public class Game_Screen implements Initializable {
 //        System.out.println(ball.getLayoutY()+"cyhgfchc");
 //        System.out.println(ball.getTranslateY()+"gggggg");
         if(ball.getTranslateY()<=-300)
-        {pane.setTranslateY(pane.getTranslateY()+(-300-ball.getTranslateY())%10);
-            System.out.println("AYA");}
+        {
+
+//            pane.setTranslateY(pane.getTranslateY()+(-300-ball.getTranslateY())%10);
+//            System.out.println("AYA");
+        }
     }
 
     public void fall(){
