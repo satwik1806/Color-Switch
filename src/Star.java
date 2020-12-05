@@ -4,6 +4,7 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.Node;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
+import javafx.scene.shape.Shape;
 
 public class Star implements Collider {
     private final SVGPath star=new SVGPath();
@@ -19,12 +20,6 @@ public class Star implements Collider {
         star.setFill(Paint.valueOf("WHITE"));
         star.setScaleX(0.7);
         star.setScaleY(0.7);
-    }
-
-    public boolean Collide(Ball b)
-    {
-//        if(b.getBallColor().equals())
-        return false;
     }
 
     private boolean less=false;
@@ -66,6 +61,10 @@ public class Star implements Collider {
 
     @Override
     public boolean collide(Ball b) {
+        Shape s = Shape.intersect(star,(Shape) b.node());
+        if(s.getBoundsInParent().getWidth() != -1){
+            return true;
+        }
         return false;
     }
 }

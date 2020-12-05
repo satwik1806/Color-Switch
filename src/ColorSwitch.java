@@ -1,9 +1,14 @@
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class ColorSwitch implements Collider{
 
@@ -19,6 +24,7 @@ public class ColorSwitch implements Collider{
         display();
     }
 
+    private ArrayList<Arc> allarc = new ArrayList<>();
 
     @Override
     public void display() {
@@ -59,6 +65,12 @@ public class ColorSwitch implements Collider{
         g.setLayoutY(317);
         g.setScaleX(0.15);
         g.setScaleY(0.15);
+
+        allarc.add(a1);
+        allarc.add(a2);
+        allarc.add(a3);
+        allarc.add(a4);
+
     }
 
     @Override
@@ -66,8 +78,21 @@ public class ColorSwitch implements Collider{
         return g;
     }
 
+    protected String[] colors={"FAE100","900DFF","FF0181","32DBF0"};
+
+
     @Override
     public boolean collide(Ball b) {
+        for(Arc a: allarc){
+            Shape s = Shape.intersect((Shape) a,(Shape) b.node());
+            if(s.getBoundsInParent().getWidth() != -1){
+                Paint p = Paint.valueOf(colors[new Random().nextInt(4)]);
+                while (((Shape) b.node()).getFill() == p)
+                    p = Paint.valueOf(colors[new Random().nextInt(4)]);
+                b.setBallColor(p);
+                return true;
+            }
+        }
         return false;
     }
 }

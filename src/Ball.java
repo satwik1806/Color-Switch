@@ -29,6 +29,8 @@ public class Ball {
         return ball.getFill();
     }
 
+    public void setBallColor(Paint p){ball.setFill(p);}
+
     private void display()
     {
         ball.setLayoutX(250);

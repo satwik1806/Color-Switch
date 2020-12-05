@@ -77,9 +77,11 @@ public class Game_Screen implements Initializable {
                         pane.getChildren().add(o.group);
                         onscreencolliders.remove(c);
                         onscreenobstacles.remove(c);
+
+//                        pane.getChildren().removeAll(o);
 //                        o.group.setLayoutY(-370);
                         double lower = o.group.getBoundsInParent().getCenterY();
-                        o.group.setLayoutY(o.group.getLayoutY() -200 - lower);
+                        o.group.setLayoutY(o.group.getLayoutY() -250 - lower);
                     }
                 }
                 startest.starsize();
@@ -96,10 +98,21 @@ public class Game_Screen implements Initializable {
 
     private boolean checkcollide(Ball b)
     {
+
+        Collider temp = null;
         for(Collider c:onscreencolliders)
         {
-            if(c.collide(b))
-                return true;
+            if(c.collide(b)) {
+                if (c instanceof Obstacle)
+                    return true;
+                else {
+                    temp = c;
+                }
+            }
+        }
+        if(temp != null) {
+            pane.getChildren().removeAll(temp.node());
+            onscreencolliders.remove(temp);
         }
         return false;
     }
@@ -163,8 +176,8 @@ public class Game_Screen implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         onscreenobstacles.add(new Obstacle_circle());
         onscreenobstacles.add(new Obstacle_2Windmill());
-        Obstacle tt=new Obstacle_2square();
-        tt.node().setLayoutY(-300);
+        Obstacle tt=new Obstacle_ConcentricCircle();
+        tt.node().setLayoutY(-350);
         onscreenobstacles.add(tt);
 
         for (Obstacle o:onscreenobstacles)
