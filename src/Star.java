@@ -23,6 +23,7 @@ public class Star implements Collider {
 
     public boolean Collide(Ball b)
     {
+//        if(b.getBallColor().equals())
         return false;
     }
 
@@ -61,5 +62,10 @@ public class Star implements Collider {
     @Override
     public Node node() {
         return star;
+    }
+
+    @Override
+    public boolean collide(Ball b) {
+        return false;
     }
 }

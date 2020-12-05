@@ -24,6 +24,10 @@ public class Ball {
         ball.setFill(Paint.valueOf(colour));
     }
 
+    public Paint getBallColor()
+    {
+        return ball.getFill();
+    }
 
     private void display()
     {

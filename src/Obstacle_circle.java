@@ -14,7 +14,7 @@ public class Obstacle_circle extends Obstacle {
 
 
     @Override
-    public boolean checkcollide(Circle c) {
+    public boolean collide(Ball c) {
         return false;
     }
 

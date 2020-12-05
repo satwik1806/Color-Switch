@@ -30,17 +30,18 @@ public class Obstacle_1square extends Obstacle{
 
     }
     private Rotate rotatesquare1 = new Rotate();
+
+    @Override
+    public boolean collide(Ball c) {
+        return false;
+    }
+
     @Override
     public void rotate() {
         rotatesquare1.setPivotX(130.75);
         rotatesquare1.setPivotY(130.5);
         group.getTransforms().addAll(rotatesquare1);
         rotatesquare1.setAngle(1.5);
-    }
-
-    @Override
-    public boolean checkcollide(Circle c) {
-        return false;
     }
 
     public Obstacle_1square(){

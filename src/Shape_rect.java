@@ -1,6 +1,7 @@
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
 
 public class Shape_rect extends Shapes {
@@ -90,5 +91,13 @@ public class Shape_rect extends Shapes {
 
     public void setWidth(float width) {
         this.width = width;
+    }
+
+    public boolean collide(Ball b)
+    {
+        Shape s=Shape.intersect(rect,(Shape)b.node());
+        System.out.println((s==null));
+        return (s==null);
+//        return rect.getBoundsInParent().intersects(b.node().getBoundsInParent());
     }
 }

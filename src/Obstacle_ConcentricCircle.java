@@ -21,8 +21,9 @@ public class Obstacle_ConcentricCircle extends Obstacle {
     private Group grp1 = new Group();
     private Group grp2 = new Group();
 
+
     @Override
-    public boolean checkcollide(Circle c) {
+    public boolean collide(Ball c) {
         return false;
     }
 

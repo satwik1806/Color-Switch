@@ -57,6 +57,10 @@ public class Game_Screen implements Initializable {
         @Override
         public void handle(long l) {
             if(check()) {
+                if(checkcollide(ball)){
+                    System.out.println("Collided");
+                    timer.stop();
+                }
                 rotate();
                 fall();
                 for (int i=0;i<onscreenobstacles.size();i++)
@@ -86,7 +90,17 @@ public class Game_Screen implements Initializable {
         }
     };
 
-    private boolean less=false;
+
+    private boolean checkcollide(Ball b)
+    {
+        for(Collider c:onscreencolliders)
+        {
+            if(c.collide(b))
+                return true;
+        }
+        return false;
+    }
+
 
     boolean check()
     {

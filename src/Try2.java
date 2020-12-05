@@ -1,6 +1,8 @@
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.transform.Rotate;
 
 import javax.swing.*;
@@ -24,5 +26,11 @@ public class Try2 {
 
     public Try2(){
         timer.start();
+    }
+
+    public static void main(String[] args) {
+        Paint p=new Color(0,0,0,0);
+        Paint p1=new Color(0,0,0,0);
+        System.out.println(p.equals(p1));
     }
 }
