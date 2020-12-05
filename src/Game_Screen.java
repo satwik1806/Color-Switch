@@ -71,8 +71,8 @@ public class Game_Screen implements Initializable {
                         onscreencolliders.remove(c);
                         onscreenobstacles.remove(c);
 //                        o.group.setLayoutY(-370);
-                        double lower = o.group.getBoundsInParent().getMinY();
-                        o.group.setLayoutY(o.group.getLayoutY() -300 - lower);
+                        double lower = o.group.getBoundsInParent().getCenterY();
+                        o.group.setLayoutY(o.group.getLayoutY() -200 - lower);
                     }
                 }
                 startest.starsize();
