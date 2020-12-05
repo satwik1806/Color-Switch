@@ -60,6 +60,11 @@ public class Obstacle_2square extends Obstacle {
     private Rotate rotatesquare2 = new Rotate();
 
     @Override
+    public boolean collide(Ball c) {
+        return false;
+    }
+
+    @Override
     public void rotate() {
         //rotate big square
         rotatesquare1.setPivotX(130.75);
@@ -76,10 +81,6 @@ public class Obstacle_2square extends Obstacle {
         rotatesquare2.setAngle(-1);
     }
 
-    @Override
-    public boolean checkcollide(Circle c) {
-        return false;
-    }
 
     public Obstacle_2square() {
         display();

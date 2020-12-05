@@ -29,11 +29,12 @@ public class Obstacle_1Windmill extends Obstacle{
 
     }
 
+    private Rotate rotateobj = new Rotate();
+
     @Override
-    public boolean checkcollide(Circle c) {
+    public boolean collide(Ball c) {
         return false;
     }
-    private Rotate rotateobj = new Rotate();
 
     @Override
     public void rotate() {

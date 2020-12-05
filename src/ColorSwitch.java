@@ -65,4 +65,9 @@ public class ColorSwitch implements Collider{
     public Node node() {
         return g;
     }
+
+    @Override
+    public boolean collide(Ball b) {
+        return false;
+    }
 }

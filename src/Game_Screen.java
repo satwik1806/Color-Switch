@@ -22,20 +22,17 @@ import java.util.ResourceBundle;
 
 public class Game_Screen implements Initializable {
     @FXML
-    private Circle ball;
-    @FXML
     public Button pause;
     @FXML
     public AnchorPane pane;
 
     private ArrayList<Obstacle> onscreenobstacles = new ArrayList<>();
     private ArrayList<Collider> onscreencolliders=new ArrayList<>();
-
+    private Ball ball;
 
     public Obstacle add(){
         Random rand = new Random();
         int x = rand.nextInt(6);
-        System.out.println(x);
         switch (x){
             case 0:
                 return new Obstacle_1square();
@@ -60,6 +57,10 @@ public class Game_Screen implements Initializable {
         @Override
         public void handle(long l) {
             if(check()) {
+                if(checkcollide(ball)){
+                    System.out.println("Collided");
+                    timer.stop();
+                }
                 rotate();
                 fall();
                 for (int i=0;i<onscreenobstacles.size();i++)
@@ -89,7 +90,17 @@ public class Game_Screen implements Initializable {
         }
     };
 
-    private boolean less=false;
+
+    private boolean checkcollide(Ball b)
+    {
+        for(Collider c:onscreencolliders)
+        {
+            if(c.collide(b))
+                return true;
+        }
+        return false;
+    }
+
 
     boolean check()
     {
@@ -108,7 +119,7 @@ public class Game_Screen implements Initializable {
 
     void movedown()
     {
-        if(ball.getBoundsInParent().getMinY()<400)
+        if(ball.node().getBoundsInParent().getMinY()<400)
         {
             for (Collider c:onscreencolliders)
                 c.node().setLayoutY(c.node().getLayoutY()+2.5);
@@ -136,13 +147,13 @@ public class Game_Screen implements Initializable {
     {
         flag = false;
         add = 1;
-        ball.setTranslateY(ball.getTranslateY()-5);
+        ball.node().setTranslateY(ball.node().getTranslateY()-5);
         jumpcount+=1;
         movedown();
     }
 
     public void fall(){
-        if(!flag) {ball.setTranslateY(ball.getTranslateY()+add+toadd);add+=toadd;}
+        if(!flag) {ball.node().setTranslateY(ball.node().getTranslateY()+add+toadd);add+=toadd;}
     }
 
     @Override
@@ -163,18 +174,10 @@ public class Game_Screen implements Initializable {
             pane.getChildren().add(c.node());
 
         timer.start();
-        ball.setFill(Paint.valueOf(colors[new Random().nextInt(4)]));
+        ball=new Ball((colors[new Random().nextInt(4)]));
 
+        pane.getChildren().add(ball.node());
     }
 
     private String[] colors={"FAE100","900DFF","FF0181","32DBF0"};
-
-    private void checkcollide()
-    {
-        for(Obstacle o: onscreenobstacles)
-        {
-            if(o.checkcollide(ball))
-                break;
-        }
-    }
 }
