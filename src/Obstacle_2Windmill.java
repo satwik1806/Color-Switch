@@ -50,6 +50,8 @@ public class Obstacle_2Windmill extends Obstacle{
         grp2.setScaleY(0.35);
         grp2.setRotate(0);
         group.getChildren().addAll(grp1,grp2);
+        group.setScaleY(1.3);
+        group.setScaleX(1.3);
     }
 
     @Override
