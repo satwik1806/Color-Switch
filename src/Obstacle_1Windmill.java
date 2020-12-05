@@ -2,6 +2,8 @@ import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
+import java.util.ArrayList;
+
 public class Obstacle_1Windmill extends Obstacle{
 
     private Shape_rect rect1;
@@ -9,6 +11,7 @@ public class Obstacle_1Windmill extends Obstacle{
     private Shape_rect rect3;
     private Shape_rect rect4;
 
+    private ArrayList<Shape_rect> allshapes = new ArrayList<>();
     public Obstacle_1Windmill(){
         display();
     }
@@ -18,6 +21,11 @@ public class Obstacle_1Windmill extends Obstacle{
         rect2 = new Shape_rect(150,50,"#32dbf0",0,121,38,164);
         rect3 = new Shape_rect(50,150,"#900dff",145,-24,164,38);
         rect4 = new Shape_rect(150,50,"#fae100",162,121,38,164);
+
+        allshapes.add(rect1);
+        allshapes.add(rect2);
+        allshapes.add(rect3);
+        allshapes.add(rect4);
 
         group.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect());
 
@@ -32,7 +40,13 @@ public class Obstacle_1Windmill extends Obstacle{
     private Rotate rotateobj = new Rotate();
 
     @Override
-    public boolean collide(Ball c) {
+    public boolean collide(Ball c){
+        for(Shape_rect s:allshapes)
+        {
+            if(s.collide(c) && !s.getRect().getFill().equals(c.getBallColor()))
+                return true;
+
+        }
         return false;
     }
 

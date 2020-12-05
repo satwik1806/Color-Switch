@@ -2,6 +2,8 @@ import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
+import java.util.ArrayList;
+
 public class Obstacle_ConcentricCircle extends Obstacle {
 
     private Shape_quartcircle q1;
@@ -24,6 +26,12 @@ public class Obstacle_ConcentricCircle extends Obstacle {
 
     @Override
     public boolean collide(Ball c) {
+        for(Shape_quartcircle s:allshapes)
+        {
+            if(s.collide(c) && !s.getQuat().getFill().equals(c.getBallColor()))
+                return true;
+
+        }
         return false;
     }
 
@@ -40,12 +48,19 @@ public class Obstacle_ConcentricCircle extends Obstacle {
         grp2.getTransforms().add(rotate2);
     }
 
+    private ArrayList<Shape_quartcircle> allshapes = new ArrayList<>();
+
     @Override
     public void display() {
         q1=new Shape_quartcircle(0,0,0,colors[0]);
         q2=new Shape_quartcircle(250,250,180,colors[1]);
         q3=new Shape_quartcircle(0,250,-90,colors[2]);
         q4=new Shape_quartcircle(250,0,90,colors[3]);
+
+        allshapes.add(q1);
+        allshapes.add(q2);
+        allshapes.add(q3);
+        allshapes.add(q4);
 
         grp1.getChildren().addAll(q1.getQuat(),q2.getQuat(),q3.getQuat(),q4.getQuat());
 
@@ -59,6 +74,11 @@ public class Obstacle_ConcentricCircle extends Obstacle {
         q6=new Shape_quartcircle(250,250,180,colors[1]);
         q7=new Shape_quartcircle(0,250,-90,colors[2]);
         q8=new Shape_quartcircle(250,0,90,colors[3]);
+
+        allshapes.add(q5);
+        allshapes.add(q6);
+        allshapes.add(q7);
+        allshapes.add(q8);
 
         grp2.getChildren().addAll(q5.getQuat(),q6.getQuat(),q7.getQuat(),q8.getQuat());
         //group properties

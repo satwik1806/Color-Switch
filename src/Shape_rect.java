@@ -96,11 +96,6 @@ public class Shape_rect extends Shapes {
     public boolean collide(Ball b)
     {
         Shape s=Shape.intersect(rect,(Shape)b.node());
-//        System.out.println(s.getBoundsInParent());
         return (s.getBoundsInParent().getWidth() != -1);
-//        System.out.println("1 -- " + rect.getBoundsInParent());
-//        System.out.println((b.node()).getBoundsInParent());
-//        System.out.println("\n");
-//        return rect.getBoundsInParent().intersects((b.node()).getBoundsInParent());
     }
 }

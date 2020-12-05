@@ -3,6 +3,8 @@ import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
+import java.util.ArrayList;
+
 public class Obstacle_2square extends Obstacle {
 
     private Shape_rect rect1;
@@ -18,6 +20,8 @@ public class Obstacle_2square extends Obstacle {
     private Group grp1 = new Group(); //bigger square
     private Group grp2 = new Group(); //small square
 
+    private ArrayList<Shape_rect> allshapes=new ArrayList<>();
+
     @Override
     public void display() {
         rect1 = new Shape_rect(50,100,colors[0],0,0,261,26);
@@ -27,6 +31,11 @@ public class Obstacle_2square extends Obstacle {
 
         rect2.getRect().setRotate(90);
         rect4.getRect().setRotate(90);
+
+        allshapes.add(rect1);
+        allshapes.add(rect2);
+        allshapes.add(rect3);
+        allshapes.add(rect4);
 
         grp1.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect());
 
@@ -42,6 +51,11 @@ public class Obstacle_2square extends Obstacle {
 
         rect6.getRect().setRotate(90);
         rect8.getRect().setRotate(90);
+
+        allshapes.add(rect5);
+        allshapes.add(rect6);
+        allshapes.add(rect7);
+        allshapes.add(rect8);
 
         grp2.getChildren().addAll(rect5.getRect(),rect6.getRect(),rect7.getRect(),rect8.getRect());
 
@@ -61,6 +75,12 @@ public class Obstacle_2square extends Obstacle {
 
     @Override
     public boolean collide(Ball c) {
+        for(Shape_rect s:allshapes)
+        {
+            if(s.collide(c) && !s.getRect().getFill().equals(c.getBallColor()))
+                return true;
+
+        }
         return false;
     }
 
