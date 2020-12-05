@@ -1,6 +1,7 @@
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 
 import java.util.ArrayList;
@@ -78,8 +79,9 @@ public class Obstacle_2Windmill extends Obstacle{
     public boolean collide(Ball c) {
         for(Shape_rect s:allshapes)
         {
-            if(s.collide(c))
+            if(s.collide(c) && !s.getRect().getFill().equals(c.getBallColor()))
                 return true;
+
         }
         return false;
     }

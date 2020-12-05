@@ -60,6 +60,9 @@ public class Game_Screen implements Initializable {
                 if(checkcollide(ball)){
                     System.out.println("Collided");
                     timer.stop();
+                    System.out.println("DONE ========================" +
+                            "\n \n \n \n \n \n \n \n \n \n \n \n \n" +
+                            "DONE ===================" );
                 }
                 rotate();
                 fall();
