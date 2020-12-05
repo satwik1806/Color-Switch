@@ -7,6 +7,17 @@ public class Ball {
 
     private Circle ball=new Circle();
 
+    private int score=0;
+
+    public int getScore() {
+        return score;
+    }
+
+    public void incrementScore()
+    {
+        score++;
+    }
+
     public Ball(String colour)
     {
         display();

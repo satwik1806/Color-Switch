@@ -67,8 +67,8 @@ public class Obstacle_ConcentricCircle extends Obstacle {
         grp2.setScaleY(0.45);
 
         group.getChildren().addAll(grp1,grp2);
-        group.setScaleY(0.9);
-        group.setScaleX(0.9);
+        group.setScaleY(0.8);
+        group.setScaleX(0.8);
     }
 
     public Obstacle_ConcentricCircle(){
