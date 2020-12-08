@@ -87,7 +87,7 @@ public class ColorSwitch implements Collider{
             Shape s = Shape.intersect((Shape) a,(Shape) b.node());
             if(s.getBoundsInParent().getWidth() != -1){
                 Paint p = Paint.valueOf(colors[new Random().nextInt(4)]);
-                while (((Shape) b.node()).getFill() == p)
+                while (((Shape) b.node()).getFill().equals(p))
                     p = Paint.valueOf(colors[new Random().nextInt(4)]);
                 b.setBallColor(p);
                 return true;
