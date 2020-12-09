@@ -102,7 +102,8 @@ public class Obstacle_2square extends Obstacle {
     }
 
 
-    public Obstacle_2square() {
+    public Obstacle_2square(Game_Screen g) {
+        super(g);
         display();
     }
 }

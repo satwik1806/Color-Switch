@@ -58,7 +58,8 @@ public class Obstacle_1square extends Obstacle{
         rotatesquare1.setAngle(1.5);
     }
 
-    public Obstacle_1square(){
+    public Obstacle_1square(Game_Screen g){
+        super(g);
         display();
     }
 }

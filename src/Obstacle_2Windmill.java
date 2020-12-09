@@ -22,7 +22,8 @@ public class Obstacle_2Windmill extends Obstacle{
 
     private ArrayList<Shape_rect> allshapes=new ArrayList<>();
 
-    public Obstacle_2Windmill(){
+    public Obstacle_2Windmill(Game_Screen g){
+        super(g);
         display();
     }
 

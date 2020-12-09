@@ -1,3 +1,4 @@
+import javafx.scene.Node;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
@@ -23,6 +24,11 @@ public class Shape_quartcircle extends Shapes {
         quat.setRotate(rotate);
     }
 
+    @Override
+    public Node node() {
+        return quat;
+    }
+
     public SVGPath getQuat() {
         return quat;
     }
@@ -31,6 +37,7 @@ public class Shape_quartcircle extends Shapes {
         this.quat = quat;
     }
 
+    @Override
     public boolean collide(Ball c){
         Shape s=Shape.intersect(quat,(Shape)c.node());
         return (s.getBoundsInParent().getWidth() != -1);

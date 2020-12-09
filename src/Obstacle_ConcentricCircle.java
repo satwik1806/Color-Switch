@@ -87,14 +87,14 @@ public class Obstacle_ConcentricCircle extends Obstacle {
         grp2.setScaleX(0.45);
         grp2.setScaleY(0.45);
         grp1.setRotate(5);
-//        grp2.setRotate(10);
 
         group.getChildren().addAll(grp1,grp2);
         group.setScaleY(0.85);
         group.setScaleX(0.85);
     }
 
-    public Obstacle_ConcentricCircle(){
+    public Obstacle_ConcentricCircle(Game_Screen g){
+        super(g);
         display();
     }
 }

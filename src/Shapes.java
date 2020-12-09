@@ -1,4 +1,4 @@
-public abstract class Shapes {
+public abstract class Shapes implements Collider {
     protected float layoutx;
     protected float layouty;
     protected String color;

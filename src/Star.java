@@ -6,20 +6,18 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
 
-public class Star implements Collider {
+public class Star extends Shapes{
     private final SVGPath star=new SVGPath();
 
     public SVGPath getStar() {
         return star;
     }
 
-    public Star(int layoutx, int layouty) {
+    public Star(double layoutx, double layouty) {
         display();
         star.setLayoutY(layouty);
         star.setLayoutX(layoutx);
         star.setFill(Paint.valueOf("WHITE"));
-        star.setScaleX(0.7);
-        star.setScaleY(0.7);
     }
 
     private boolean less=false;
@@ -28,9 +26,9 @@ public class Star implements Collider {
     {
 
         double X=star.getScaleX();
-        if(X>=0.7)
+        if(X>=1)
             less=true;
-        if(X<=0.6)
+        if(X<=0.9)
             less=false;
         if(less)
         {

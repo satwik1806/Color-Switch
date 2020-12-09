@@ -1,3 +1,4 @@
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -35,6 +36,11 @@ public class Shape_rect extends Shapes {
         rect.setLayoutY(this.layouty);
         rect.setHeight(this.height);
         rect.setWidth(this.width);
+    }
+
+    @Override
+    public Node node() {
+        return rect;
     }
 
     public Rectangle getRect() {
