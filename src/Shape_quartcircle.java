@@ -25,6 +25,11 @@ public class Shape_quartcircle extends Shapes {
     }
 
     @Override
+    public Paint getcolor() {
+        return quat.getFill();
+    }
+
+    @Override
     public Node node() {
         return quat;
     }

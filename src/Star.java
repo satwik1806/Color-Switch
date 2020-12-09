@@ -53,6 +53,11 @@ public class Star extends Shapes{
     }
 
     @Override
+    public Paint getcolor() {
+        return star.getFill();
+    }
+
+    @Override
     public Node node() {
         return star;
     }

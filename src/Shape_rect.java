@@ -39,6 +39,11 @@ public class Shape_rect extends Shapes {
     }
 
     @Override
+    public Paint getcolor() {
+        return rect.getFill();
+    }
+
+    @Override
     public Node node() {
         return rect;
     }

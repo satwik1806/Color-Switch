@@ -26,6 +26,11 @@ public class Game_Screen implements Initializable {
     private Button pause;
     @FXML
     private AnchorPane pane;
+
+    public AnchorPane getPane() {
+        return pane;
+    }
+
     @FXML
     private Label score;
 
@@ -54,6 +59,7 @@ public class Game_Screen implements Initializable {
         Obstacle tt=new Obstacle_1square(this);
         tt.node().setLayoutY(-350);
         onscreenobstacles.add(tt);
+
 
         for (Obstacle o:onscreenobstacles)
             onscreencolliders.add(o);
@@ -97,6 +103,12 @@ public class Game_Screen implements Initializable {
             }
         }
     };
+
+    public void increaseScore()
+    {
+        curscore++;
+        score.setText(Integer.toString(curscore));
+    }
 
 
     public Obstacle add(){
@@ -151,21 +163,16 @@ public class Game_Screen implements Initializable {
             {
                 if (c instanceof Obstacle)
                     return true;
-                else
+                if(c instanceof ColorSwitch)
                 {
-                    if(c instanceof Star)
-                    {
-                        curscore++;
-                        score.setText(Integer.toString(curscore));
-                    }
-                    temp = c;
+                    temp =c;
                 }
             }
         }
-        if(temp != null)
+        if(temp!=null)
         {
-            pane.getChildren().removeAll(temp.node());
             onscreencolliders.remove(temp);
+            pane.getChildren().remove(temp.node());
         }
         return false;
     }

@@ -25,7 +25,13 @@ public class Obstacle_circle extends Obstacle {
             {
                 if(temp instanceof Star)
                 {
-
+                    gameScreen.increaseScore();
+                    group.getChildren().remove(s.node());
+                    return false;
+                }
+                else if (!c.getBallColor().equals(temp.getcolor()))
+                {
+                    return true;
                 }
             }
 
