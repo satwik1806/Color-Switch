@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
@@ -22,9 +23,13 @@ import java.util.ResourceBundle;
 
 public class Game_Screen implements Initializable {
     @FXML
-    public Button pause;
+    private Button pause;
     @FXML
-    public AnchorPane pane;
+    private AnchorPane pane;
+    @FXML
+    private Label score;
+
+    private int curscore=0;
 
     private ArrayList<Obstacle> onscreenobstacles = new ArrayList<>();
     private ArrayList<Collider> onscreencolliders=new ArrayList<>();
@@ -106,6 +111,11 @@ public class Game_Screen implements Initializable {
                 if (c instanceof Obstacle)
                     return true;
                 else {
+                    if(c instanceof Star)
+                    {
+                        curscore++;
+                        score.setText(Integer.toString(curscore));
+                    }
                     temp = c;
                 }
             }
@@ -193,7 +203,10 @@ public class Game_Screen implements Initializable {
         ball=new Ball((colors[new Random().nextInt(4)]));
 
         pane.getChildren().add(ball.node());
+        score.setText("0");
     }
+
+
 
     private String[] colors={"FAE100","900DFF","FF0181","32DBF0"};
 }
