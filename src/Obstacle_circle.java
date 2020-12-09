@@ -30,11 +30,8 @@ public class Obstacle_circle extends Obstacle {
                     return false;
                 }
                 else if (!c.getBallColor().equals(temp.getcolor()))
-                {
                     return true;
-                }
             }
-
         }
         return false;
     }
