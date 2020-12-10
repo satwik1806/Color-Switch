@@ -73,8 +73,8 @@ public class Obstacle_circle extends Obstacle {
 
         s.getStar().setLayoutX(210);
         s.getStar().setLayoutY(110);
-        s.getStar().setScaleX(2);
-        s.getStar().setScaleY(2);
+        s.getStar().setScaleX(1.5);
+        s.getStar().setScaleY(1.5);
     }
 
     public Obstacle_circle(Game_Screen g) {

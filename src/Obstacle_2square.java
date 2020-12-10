@@ -16,11 +16,11 @@ public class Obstacle_2square extends Obstacle {
     private Shape_rect rect6;
     private Shape_rect rect7;
     private Shape_rect rect8;
-
+    private Star s = new Star(0,0);
     private Group grp1 = new Group(); //bigger square
     private Group grp2 = new Group(); //small square
 
-    private ArrayList<Shape_rect> allshapes=new ArrayList<>();
+    private ArrayList<Shapes> allshapes=new ArrayList<>();
 
     @Override
     public void display() {
@@ -57,6 +57,8 @@ public class Obstacle_2square extends Obstacle {
         allshapes.add(rect7);
         allshapes.add(rect8);
 
+        allshapes.add(s);
+
         grp2.getChildren().addAll(rect5.getRect(),rect6.getRect(),rect7.getRect(),rect8.getRect());
 
         //group2 properties
@@ -65,6 +67,12 @@ public class Obstacle_2square extends Obstacle {
         grp2.setScaleX(0.4);
         grp2.setScaleY(0.4);
 
+
+        grp1.getChildren().add(s.getStar());
+        s.getStar().setScaleX(0.85);
+        s.getStar().setScaleY(0.85);
+        s.getStar().setLayoutX(-63);
+        s.getStar().setLayoutY(-62);
         group.getChildren().addAll(grp1,grp2);
 
         //group properties
@@ -75,11 +83,19 @@ public class Obstacle_2square extends Obstacle {
 
     @Override
     public boolean collide(Ball c) {
-        for(Shape_rect s:allshapes)
+        for(Shapes temp:allshapes)
         {
-            if(s.collide(c) && !s.getRect().getFill().equals(c.getBallColor()))
-                return true;
-
+            if(temp.collide(c))
+            {
+                if(temp instanceof Star)
+                {
+                    gameScreen.increaseScore();
+                    group.getChildren().remove(s.node());
+                    return false;
+                }
+                else if (!c.getBallColor().equals(temp.getcolor()))
+                    return true;
+            }
         }
         return false;
     }
@@ -99,6 +115,7 @@ public class Obstacle_2square extends Obstacle {
         rotatesquare2.setAxis(new Point3D(0,0,1));
         grp2.getTransforms().addAll(rotatesquare2);
         rotatesquare2.setAngle(-1);
+        s.starsize();
     }
 
 

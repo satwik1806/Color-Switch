@@ -21,24 +21,26 @@ public class Star extends Shapes{
     }
 
     private boolean less=false;
-
+    private int cnt = 100;
     void starsize()
     {
 
-        double X=star.getScaleX();
-        if(X>=2)
+        double X = star.getScaleX();
+        if(cnt >=120)
             less=true;
-        if(X<=1.7)
+        if(cnt < 80)
             less=false;
         if(less)
         {
             star.setScaleX(X-0.005);
             star.setScaleY(X-0.005);
+            cnt--;
         }
         else
         {
             star.setScaleX(X+0.005);
             star.setScaleY(X+0.005);
+            cnt++;
         }
     }
 

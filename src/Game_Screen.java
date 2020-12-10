@@ -56,7 +56,7 @@ public class Game_Screen implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         onscreenobstacles.add(new Obstacle_circle(this));
         onscreenobstacles.add(new Obstacle_2Windmill(this));
-        Obstacle tt=new Obstacle_1square(this);
+        Obstacle tt=new Obstacle_2square(this);
         tt.node().setLayoutY(-350);
         onscreenobstacles.add(tt);
 
