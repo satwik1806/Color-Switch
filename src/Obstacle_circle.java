@@ -63,14 +63,18 @@ public class Obstacle_circle extends Obstacle {
 
         group.getChildren().addAll(q1.getQuat(),q2.getQuat(),q3.getQuat(),q4.getQuat());
         group.getChildren().add(s.getStar());
-        s.getStar().setLayoutX(s.getStar().getBoundsInParent().getCenterX());
-        s.getStar().setLayoutY(s.getStar().getBoundsInParent().getCenterY());
+
         allshapes.add(s);
         //group properties
         group.setLayoutX(-150);
         group.setLayoutY(-170);
         group.setScaleX(0.35);
         group.setScaleY(0.35);
+
+        s.getStar().setLayoutX(210);
+        s.getStar().setLayoutY(110);
+        s.getStar().setScaleX(2);
+        s.getStar().setScaleY(2);
     }
 
     public Obstacle_circle(Game_Screen g) {

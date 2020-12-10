@@ -26,9 +26,9 @@ public class Star extends Shapes{
     {
 
         double X=star.getScaleX();
-        if(X>=1)
+        if(X>=2)
             less=true;
-        if(X<=0.9)
+        if(X<=1.7)
             less=false;
         if(less)
         {
