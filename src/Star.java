@@ -32,14 +32,14 @@ public class Star extends Shapes{
             less=false;
         if(less)
         {
-            star.setScaleX(X-0.005);
-            star.setScaleY(X-0.005);
+            star.setScaleX(X-0.01);
+            star.setScaleY(X-0.01);
             cnt--;
         }
         else
         {
-            star.setScaleX(X+0.005);
-            star.setScaleY(X+0.005);
+            star.setScaleX(X+0.01);
+            star.setScaleY(X+0.01);
             cnt++;
         }
     }

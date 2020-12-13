@@ -10,8 +10,9 @@ public class Obstacle_1square extends Obstacle{
     private Shape_rect rect2;
     private Shape_rect rect3;
     private Shape_rect rect4;
+    private Star s;
 
-    private ArrayList<Shape_rect> allshapes = new ArrayList<>();
+    private ArrayList<Shapes> allshapes = new ArrayList<>();
 
 
     @Override
@@ -20,16 +21,22 @@ public class Obstacle_1square extends Obstacle{
         rect2 = new Shape_rect(50,100,"#900dff",118,-116,261,26);
         rect3 = new Shape_rect(50,100,"#32dbf0",235,0,261,26);
         rect4 = new Shape_rect(50,100,"#ff0181",118,117,261,26);
-
+        s=new Star(0,0);
         allshapes.add(rect1);
         allshapes.add(rect2);
         allshapes.add(rect3);
         allshapes.add(rect4);
+        allshapes.add(s);
 
-        group.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect());
+        group.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect(),s.node());
 
         rect2.getRect().setRotate(90);
         rect4.getRect().setRotate(90);
+
+        s.getStar().setScaleX(0.85);
+        s.getStar().setScaleY(0.85);
+        s.getStar().setLayoutX(-63);
+        s.getStar().setLayoutY(-62);
 
         //gourp properties
         group.setLayoutX(119);
@@ -41,11 +48,19 @@ public class Obstacle_1square extends Obstacle{
 
     @Override
     public boolean collide(Ball c) {
-        for(Shape_rect s:allshapes)
+        for(Shapes temp:allshapes)
         {
-            if(s.collide(c) && !s.getRect().getFill().equals(c.getBallColor()))
-                return true;
-
+            if(temp.collide(c))
+            {
+                if(temp instanceof Star)
+                {
+                    gameScreen.increaseScore();
+                    group.getChildren().remove(s.node());
+                    return false;
+                }
+                else if (!c.getBallColor().equals(temp.getcolor()))
+                    return true;
+            }
         }
         return false;
     }
@@ -56,6 +71,7 @@ public class Obstacle_1square extends Obstacle{
         rotatesquare1.setPivotY(130.5);
         group.getTransforms().addAll(rotatesquare1);
         rotatesquare1.setAngle(1.5);
+        s.starsize();
     }
 
     public Obstacle_1square(Game_Screen g){

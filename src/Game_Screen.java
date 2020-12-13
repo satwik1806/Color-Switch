@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-//not shoing commits in inteij
 public class Game_Screen implements Initializable {
     @FXML
     private Button pause;
@@ -141,17 +140,38 @@ public class Game_Screen implements Initializable {
             if(c.node().getBoundsInParent().getMinY()>700)
             {
                 Obstacle o=add();
+                ColorSwitch newcolorswitch=addColorSwitch();
+
                 onscreencolliders.add(o);
+                onscreencolliders.add(newcolorswitch);
                 onscreenobstacles.add(o);
+
                 pane.getChildren().add(o.group);
+                pane.getChildren().add(newcolorswitch.node());
+
                 onscreencolliders.remove(c);
                 onscreenobstacles.remove(c);
+
                 double lower = o.group.getBoundsInParent().getCenterY();
                 o.group.setLayoutY(o.group.getLayoutY() -250 - lower);
+                newcolorswitch.node().setLayoutY(o.group.getBoundsInParent().getMinY()-80);
+
             }
         }
     }
 
+
+    private Star addStar()
+    {
+        return new Star(0,0);
+    }
+
+
+
+    private ColorSwitch addColorSwitch()
+    {
+        return new ColorSwitch();
+    }
 
 
     private boolean checkcollide(Ball b)
@@ -165,6 +185,8 @@ public class Game_Screen implements Initializable {
                     return false;
                 if(c instanceof ColorSwitch)
                     temp =c;
+                if(c instanceof Star)
+                    temp=c;
             }
         }
         if(temp!=null)

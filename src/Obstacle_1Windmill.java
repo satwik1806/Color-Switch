@@ -11,6 +11,9 @@ public class Obstacle_1Windmill extends Obstacle{
     private Shape_rect rect3;
     private Shape_rect rect4;
 
+    private Star s;
+
+
     private ArrayList<Shape_rect> allshapes = new ArrayList<>();
     public Obstacle_1Windmill(Game_Screen g){
         super(g);
