@@ -56,7 +56,7 @@ public class Game_Screen implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         onscreenobstacles.add(new Obstacle_circle(this));
         onscreenobstacles.add(new Obstacle_2Windmill(this));
-        Obstacle tt=new Obstacle_2square(this);
+        Obstacle tt=new Obstacle_1Windmill(this);
         tt.node().setLayoutY(-350);
         onscreenobstacles.add(tt);
 
@@ -66,8 +66,10 @@ public class Game_Screen implements Initializable {
 
         onscreencolliders.add(new ColorSwitch());
 
-        for (Collider c:onscreencolliders)
+        for (Collider c:onscreencolliders) {
             pane.getChildren().add(c.node());
+
+        }
 
         timer.start();
         ball=new Ball((colors[new Random().nextInt(4)]));
@@ -148,6 +150,11 @@ public class Game_Screen implements Initializable {
                 onscreenobstacles.remove(c);
                 double lower = o.group.getBoundsInParent().getCenterY();
                 o.group.setLayoutY(o.group.getLayoutY() -250 - lower);
+
+                if(o instanceof Obstacle_1Windmill)
+                    pane.getChildren().add(((Obstacle_1Windmill) o).getStar().getStar());
+                if(o instanceof Obstacle_2Windmill)
+                    pane.getChildren().add(((Obstacle_2Windmill) o).getStar().getStar());
             }
         }
     }

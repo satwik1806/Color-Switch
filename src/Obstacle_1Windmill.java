@@ -11,7 +11,8 @@ public class Obstacle_1Windmill extends Obstacle{
     private Shape_rect rect3;
     private Shape_rect rect4;
 
-    private ArrayList<Shape_rect> allshapes = new ArrayList<>();
+    private ArrayList<Shapes> allshapes = new ArrayList<>();
+    public Star s  = new Star(0,0);
     public Obstacle_1Windmill(Game_Screen g){
         super(g);
         display();
@@ -27,26 +28,42 @@ public class Obstacle_1Windmill extends Obstacle{
         allshapes.add(rect2);
         allshapes.add(rect3);
         allshapes.add(rect4);
-
+        allshapes.add(s);
         group.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect());
-
+        
         //gourp properties
         group.setLayoutX(5);
         group.setLayoutY(322);
         group.setScaleX(0.6);
         group.setScaleY(0.6);
+        
+        //star properties
+        s.getStar().setLayoutX(group.getBoundsInParent().getMaxX());
+        s.getStar().setLayoutY(group.getBoundsInParent().getMinY() + 80);
 
+    }
+
+    public Star getStar(){
+        return this.s;
     }
 
     private Rotate rotateobj = new Rotate();
 
     @Override
     public boolean collide(Ball c){
-        for(Shape_rect s:allshapes)
+        for(Shapes temp:allshapes)
         {
-            if(s.collide(c) && !s.getRect().getFill().equals(c.getBallColor()))
-                return true;
-
+            if(temp.collide(c))
+            {
+                if(temp instanceof Star)
+                {
+                    gameScreen.increaseScore();
+                    group.getChildren().remove(s.node());
+                    return false;
+                }
+                else if (!c.getBallColor().equals(temp.getcolor()))
+                    return true;
+            }
         }
         return false;
     }
@@ -57,5 +74,6 @@ public class Obstacle_1Windmill extends Obstacle{
         rotateobj.setPivotY(140);
         rotateobj.setAngle(1);
         group.getTransforms().add(rotateobj);
+        s.starsize();
     }
 }

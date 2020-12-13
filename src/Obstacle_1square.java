@@ -11,8 +11,8 @@ public class Obstacle_1square extends Obstacle{
     private Shape_rect rect3;
     private Shape_rect rect4;
 
-    private ArrayList<Shape_rect> allshapes = new ArrayList<>();
-
+    private ArrayList<Shapes> allshapes = new ArrayList<>();
+    private Star s = new Star(0,0);
 
     @Override
     public void display() {
@@ -25,11 +25,17 @@ public class Obstacle_1square extends Obstacle{
         allshapes.add(rect2);
         allshapes.add(rect3);
         allshapes.add(rect4);
+        allshapes.add(s);
 
         group.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect());
-
+        group.getChildren().add(s.getStar());
         rect2.getRect().setRotate(90);
         rect4.getRect().setRotate(90);
+
+        s.getStar().setScaleX(0.85);
+        s.getStar().setScaleY(0.85);
+        s.getStar().setLayoutX(-63);
+        s.getStar().setLayoutY(-62);
 
         //gourp properties
         group.setLayoutX(119);
@@ -41,11 +47,19 @@ public class Obstacle_1square extends Obstacle{
 
     @Override
     public boolean collide(Ball c) {
-        for(Shape_rect s:allshapes)
+        for(Shapes temp:allshapes)
         {
-            if(s.collide(c) && !s.getRect().getFill().equals(c.getBallColor()))
-                return true;
-
+            if(temp.collide(c))
+            {
+                if(temp instanceof Star)
+                {
+                    gameScreen.increaseScore();
+                    group.getChildren().remove(s.node());
+                    return false;
+                }
+                else if (!c.getBallColor().equals(temp.getcolor()))
+                    return true;
+            }
         }
         return false;
     }
