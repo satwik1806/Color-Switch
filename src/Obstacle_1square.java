@@ -10,9 +10,10 @@ public class Obstacle_1square extends Obstacle{
     private Shape_rect rect2;
     private Shape_rect rect3;
     private Shape_rect rect4;
+    private Star s;
 
     private ArrayList<Shapes> allshapes = new ArrayList<>();
-    private Star s = new Star(0,0);
+
 
     @Override
     public void display() {
@@ -20,15 +21,15 @@ public class Obstacle_1square extends Obstacle{
         rect2 = new Shape_rect(50,100,"#900dff",118,-116,261,26);
         rect3 = new Shape_rect(50,100,"#32dbf0",235,0,261,26);
         rect4 = new Shape_rect(50,100,"#ff0181",118,117,261,26);
-
+        s=new Star(0,0);
         allshapes.add(rect1);
         allshapes.add(rect2);
         allshapes.add(rect3);
         allshapes.add(rect4);
         allshapes.add(s);
 
-        group.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect());
-        group.getChildren().add(s.getStar());
+        group.getChildren().addAll(rect1.getRect(),rect2.getRect(),rect3.getRect(),rect4.getRect(),s.node());
+
         rect2.getRect().setRotate(90);
         rect4.getRect().setRotate(90);
 
@@ -70,6 +71,7 @@ public class Obstacle_1square extends Obstacle{
         rotatesquare1.setPivotY(130.5);
         group.getTransforms().addAll(rotatesquare1);
         rotatesquare1.setAngle(1.5);
+        s.starsize();
     }
 
     public Obstacle_1square(Game_Screen g){

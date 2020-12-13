@@ -10,6 +10,7 @@ public class Obstacle_ConcentricCircle extends Obstacle {
     private Shape_quartcircle q2;
     private Shape_quartcircle q3;
     private Shape_quartcircle q4;
+    private Star s;
 
     private Rotate rotate1 = new Rotate();
 
@@ -23,14 +24,28 @@ public class Obstacle_ConcentricCircle extends Obstacle {
     private Group grp1 = new Group();
     private Group grp2 = new Group();
 
+    private ArrayList<Shapes> allshapes = new ArrayList<>();
+
+    public Obstacle_ConcentricCircle(Game_Screen g){
+        super(g);
+        display();
+    }
 
     @Override
     public boolean collide(Ball c) {
-        for(Shape_quartcircle s:allshapes)
+        for(Shapes temp:allshapes)
         {
-            if(s.collide(c) && !s.getQuat().getFill().equals(c.getBallColor()))
-                return true;
-
+            if(temp.collide(c))
+            {
+                if(temp instanceof Star)
+                {
+                    gameScreen.increaseScore();
+                    grp1.getChildren().remove(s.node());
+                    return false;
+                }
+                else if (!c.getBallColor().equals(temp.getcolor()))
+                    return true;
+            }
         }
         return false;
     }
@@ -46,9 +61,11 @@ public class Obstacle_ConcentricCircle extends Obstacle {
         rotate2.setPivotY(300);
         rotate2.setAngle(-1.5);
         grp2.getTransforms().add(rotate2);
+
+        s.starsize();
     }
 
-    private ArrayList<Shape_quartcircle> allshapes = new ArrayList<>();
+
 
     @Override
     public void display() {
@@ -56,13 +73,21 @@ public class Obstacle_ConcentricCircle extends Obstacle {
         q2=new Shape_quartcircle(250,250,180,colors[1]);
         q3=new Shape_quartcircle(0,250,-90,colors[2]);
         q4=new Shape_quartcircle(250,0,90,colors[3]);
+        s=new Star(0,0);
+
+
+        s.getStar().setLayoutX(210);
+        s.getStar().setLayoutY(110);
+        s.getStar().setScaleX(2);
+        s.getStar().setScaleY(2);
 
         allshapes.add(q1);
         allshapes.add(q2);
         allshapes.add(q3);
         allshapes.add(q4);
+        allshapes.add(s);
 
-        grp1.getChildren().addAll(q1.getQuat(),q2.getQuat(),q3.getQuat(),q4.getQuat());
+        grp1.getChildren().addAll(q1.getQuat(),q2.getQuat(),q3.getQuat(),q4.getQuat(),s.node());
 
         //group properties
         grp1.setLayoutX(-150);
@@ -93,8 +118,4 @@ public class Obstacle_ConcentricCircle extends Obstacle {
         group.setScaleX(0.85);
     }
 
-    public Obstacle_ConcentricCircle(Game_Screen g){
-        super(g);
-        display();
-    }
 }
