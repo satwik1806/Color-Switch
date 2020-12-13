@@ -162,11 +162,9 @@ public class Game_Screen implements Initializable {
             if(c.collide(b))
             {
                 if (c instanceof Obstacle)
-                    return true;
+                    return false;
                 if(c instanceof ColorSwitch)
-                {
                     temp =c;
-                }
             }
         }
         if(temp!=null)
