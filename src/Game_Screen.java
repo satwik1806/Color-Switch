@@ -79,7 +79,7 @@ public class Game_Screen implements Initializable {
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
-            if(check())
+            if(checkpause())
             {
                 if(checkcollide(ball))
                 {
@@ -198,16 +198,9 @@ public class Game_Screen implements Initializable {
     }
 
 
-    boolean check()
+    boolean checkpause()
     {
-        if(s==null)
-        {
-            s=pane.getScene();
-            if(s!=null)
-                root=s.getRoot();
-            return true;
-        }
-        return s.getRoot().equals(root);
+        return pane.getScene()!=null;
     }
 
 

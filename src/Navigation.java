@@ -36,6 +36,13 @@ public class Navigation {
 
     }
 
+    public void setroot(Parent root)
+    {
+        controllers.add(root);
+        scene.setRoot(root);
+        stage.show();
+    }
+
     public void GoBack()
     {
         if (controllers.size() > 1)
