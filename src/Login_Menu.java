@@ -10,7 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class Login_Menu {
 
@@ -28,6 +29,8 @@ public class Login_Menu {
     private Group t1;
     @FXML
     private Group t2;
+
+    private static ArrayList<Player> Plist=new ArrayList<>();
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
@@ -88,7 +91,30 @@ public class Login_Menu {
 
     public void exit(ActionEvent e){System.exit(0);}
 
+    public void Exiting_Player(ActionEvent e) throws IOException, ClassNotFoundException {
+        ObjectInputStream in=new ObjectInputStream(new FileInputStream("Players.txt"));
+        ArrayList<Player> temp =new ArrayList<>();
+        Player p;
+        while(in.available()==0)
+        {
+            p= (Player) in.readObject();
+            System.out.println(p.getName());
+            System.out.println(in.available());
+
+        }
+    }
+
+    public static void addPlayer(Player p) throws IOException {
+
+        ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream("Players.txt",true));
+        out.writeObject(p);
+        Plist.add(p);
+
+    }
+
+
     public void New_Player(ActionEvent e) throws IOException {
+
         Frame.navigation.load("New_Player_Details.fxml");
     }
 
