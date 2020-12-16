@@ -192,7 +192,7 @@ public class Game_Screen implements Initializable, Serializable {
             if(c.collide(b))
             {
                 if (c instanceof Obstacle)
-                    return false;
+                    return true;
                 if(c instanceof ColorSwitch)
                     temp =c;
                 if(c instanceof Star)
