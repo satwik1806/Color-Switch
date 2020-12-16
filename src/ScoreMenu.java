@@ -8,8 +8,9 @@ import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class ScoreMenu {
+public class ScoreMenu implements Serializable {
     @FXML
     private Group obs11;
     @FXML

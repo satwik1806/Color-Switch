@@ -3,7 +3,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 
-public class Ball {
+import java.io.Serializable;
+
+public class Ball implements Serializable {
 
     private Circle ball=new Circle();
 
@@ -17,9 +19,19 @@ public class Ball {
     {
         score++;
     }
+    private String colour;
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
 
     public Ball(String colour)
     {
+        this.colour = colour;
         display();
         ball.setFill(Paint.valueOf(colour));
     }

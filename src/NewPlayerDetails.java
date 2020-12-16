@@ -4,14 +4,25 @@ import javafx.fxml.FXML;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 
-public class NewPlayerDetails {
+import java.io.IOException;
+import java.io.Serializable;
+
+public class NewPlayerDetails implements Serializable {
 
     @FXML
     private Group obs11;
     @FXML
     private Group obs22;
+
+    @FXML
+    private TextArea NameText;
+
+    @FXML
+    private TextArea UNameText;
 
     Rotate rotate11 = new Rotate();
     Rotate rotate22 = new Rotate();
@@ -38,7 +49,12 @@ public class NewPlayerDetails {
     };
 
     public NewPlayerDetails(){ timer.start(); }
-    public void dosubmit(ActionEvent e){
+    public void dosubmit(ActionEvent e) throws IOException, ClassNotFoundException {
+        Player p=new Player(NameText.getText(),UNameText.getText());
         Frame.navigation.load("Player_Menu.fxml");
+        Player_Menu temp=(Player_Menu)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        temp.setMyPlayer(p);
+//        p.setPlayer_menu(temp);
+//        Login_Menu.addPlayer(p);
     }
 }

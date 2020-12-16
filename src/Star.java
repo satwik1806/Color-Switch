@@ -6,41 +6,43 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
 
-public class Star implements Collider {
+import java.io.Serializable;
+
+public class Star extends Shapes implements Serializable {
     private final SVGPath star=new SVGPath();
 
     public SVGPath getStar() {
         return star;
     }
 
-    public Star(int layoutx, int layouty) {
+    public Star(double layoutx, double layouty) {
         display();
         star.setLayoutY(layouty);
         star.setLayoutX(layoutx);
         star.setFill(Paint.valueOf("WHITE"));
-        star.setScaleX(0.7);
-        star.setScaleY(0.7);
     }
 
     private boolean less=false;
-
+    private int cnt = 100;
     void starsize()
     {
 
-        double X=star.getScaleX();
-        if(X>=0.7)
+        double X = star.getScaleX();
+        if(cnt >=120)
             less=true;
-        if(X<=0.6)
+        if(cnt < 80)
             less=false;
         if(less)
         {
-            star.setScaleX(X-0.005);
-            star.setScaleY(X-0.005);
+            star.setScaleX(X-0.01);
+            star.setScaleY(X-0.01);
+            cnt--;
         }
         else
         {
-            star.setScaleX(X+0.005);
-            star.setScaleY(X+0.005);
+            star.setScaleX(X+0.01);
+            star.setScaleY(X+0.01);
+            cnt++;
         }
     }
 
@@ -52,6 +54,11 @@ public class Star implements Collider {
                 " 192.000 172.000L 172.000 157.359L" +
                 " 174.679 182.000L 152.000 192.000L " +
                 "174.679 202.000L 172.000 226.641z");
+    }
+
+    @Override
+    public Paint getcolor() {
+        return star.getFill();
     }
 
     @Override

@@ -13,7 +13,25 @@ public class Navigation {
     private final Stage stage;
     private final Scene scene;
 
-    private List<Parent> controllers = new ArrayList<>();
+    private List<Parent> Roots = new ArrayList<>();
+
+    private List<Object> Controllers=new ArrayList<>();
+
+    public List<Parent> getRoots() {
+        return Roots;
+    }
+
+    public void setRoots(List<Parent> roots) {
+        Roots = roots;
+    }
+
+    public List<Object> getControllers() {
+        return Controllers;
+    }
+
+    public void setControllers(List<Object> controllers) {
+        Controllers = controllers;
+    }
 
     public Navigation(Stage stage)
     {
@@ -26,8 +44,12 @@ public class Navigation {
     {
         try {
             //loads the fxml file
-            Parent root = (Parent)(FXMLLoader.load(getClass().getResource(sUrl)));
-            controllers.add(root);
+            FXMLLoader f=new FXMLLoader();
+            Parent root = f.load(getClass().getResource(sUrl).openStream());
+            Roots.add(root);
+            Object o=f.getController();
+            Controllers.add(o);
+            System.out.println();
             scene.setRoot(root);
             stage.show();
         } catch(Exception e) {
@@ -36,18 +58,29 @@ public class Navigation {
 
     }
 
+    public void setroot(Parent root,Object whichclass)
+    {
+        Controllers.add(whichclass);
+        Roots.add(root);
+        scene.setRoot(root);
+        stage.show();
+    }
+
     public void GoBack()
     {
-        if (controllers.size() > 1)
+        if (Roots.size() > 1)
         {
-            controllers.remove((controllers.size() - 1));
-            scene.setRoot(controllers.get(controllers.size() - 1));
+            Roots.remove((Roots.size() - 1));
+            Controllers.remove(Controllers.size()-1);
+            scene.setRoot(Roots.get(Roots.size() - 1));
         }
     }
 
     public void cleanPrevious()
     {
-        while(controllers.size()>1)
-            controllers.remove(0);
+        while(Roots.size()>1) {
+            Roots.remove(0);
+            Controllers.remove(0);
+        }
     }
 }

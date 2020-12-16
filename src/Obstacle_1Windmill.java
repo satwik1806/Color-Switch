@@ -2,17 +2,22 @@ import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Obstacle_1Windmill extends Obstacle{
+public class Obstacle_1Windmill extends Obstacle implements Serializable {
 
     private Shape_rect rect1;
     private Shape_rect rect2;
     private Shape_rect rect3;
     private Shape_rect rect4;
 
+    private Star s;
+
+
     private ArrayList<Shape_rect> allshapes = new ArrayList<>();
-    public Obstacle_1Windmill(){
+    public Obstacle_1Windmill(Game_Screen g){
+        super(g);
         display();
     }
     @Override

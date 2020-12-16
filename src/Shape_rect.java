@@ -1,10 +1,13 @@
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
 
-public class Shape_rect extends Shapes {
+import java.io.Serializable;
+
+public class Shape_rect extends Shapes implements Serializable {
     private Rectangle rect = new Rectangle();
     private float archeight;
     private float archwidth;
@@ -35,6 +38,16 @@ public class Shape_rect extends Shapes {
         rect.setLayoutY(this.layouty);
         rect.setHeight(this.height);
         rect.setWidth(this.width);
+    }
+
+    @Override
+    public Paint getcolor() {
+        return rect.getFill();
+    }
+
+    @Override
+    public Node node() {
+        return rect;
     }
 
     public Rectangle getRect() {

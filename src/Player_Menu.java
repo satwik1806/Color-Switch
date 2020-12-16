@@ -12,8 +12,11 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
-public class Player_Menu {
+public class Player_Menu implements Serializable {
     @FXML
     private Group obs1;
     @FXML
@@ -32,6 +35,17 @@ public class Player_Menu {
     private Button backtologin;
     @FXML
     private Button loadgame;
+
+    private Player myPlayer;
+
+    public Player getMyPlayer() {
+        return myPlayer;
+    }
+
+    public void setMyPlayer(Player myPlayer) {
+        this.myPlayer = myPlayer;
+    }
+
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
@@ -92,13 +106,27 @@ public class Player_Menu {
     }
 
     public void New_Game(ActionEvent e) throws IOException {
+        //add also game
         Frame.navigation.load("Game_Screen.fxml");
+        Game_Screen gs=(Game_Screen)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+//        myPlayer.setGameScreen(gs);
+        gs.setMyPlayer(myPlayer);
     }
 
     public void backlogin() throws IOException {
-//        Frame.navigation.GoBack();
-//        Frame.navigation.GoBack();
         Frame.navigation.cleanPrevious();
         Frame.navigation.load("Login_Menu.fxml");
+    }
+
+    public void loadgame(ActionEvent e){
+        System.out.println(myPlayer.getGamestates().size());
+
+        Frame.navigation.load("Game_To_Load.fxml");
+        Game_To_Load gtl =(Game_To_Load) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        gtl.setMyplayer(myPlayer);
+    }
+
+    public void operatenow(){
+        Frame.navigation.setroot(this.loadgame.getScene().getRoot(),this);
     }
 }
