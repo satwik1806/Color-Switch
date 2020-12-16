@@ -34,6 +34,11 @@ public class Game_Screen implements Initializable, Serializable {
 
     @FXML
     private Label score;
+    private int scoreval;
+
+    public int getScoreval() {
+        return scoreval;
+    }
 
     public Player getMyPlayer() {
         return myPlayer;
@@ -63,6 +68,7 @@ public class Game_Screen implements Initializable, Serializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        scoreval = Integer.parseInt(score.getText());
         onscreenobstacles.add(new Obstacle_circle(this));
         onscreenobstacles.add(new Obstacle_2Windmill(this));
         Obstacle tt=new Obstacle_1square(this);
@@ -98,6 +104,7 @@ public class Game_Screen implements Initializable, Serializable {
                     System.out.println("DONE ========================" +
                             "\n \n \n \n \n \n \n \n \n \n \n \n \n" +
                             "DONE ===================" );
+
                 }
                 rotate();
                 fall();
@@ -196,6 +203,12 @@ public class Game_Screen implements Initializable, Serializable {
                     URL path = getClass().getResource("/soundeffects/dead.wav");
                     AudioClip ac = new AudioClip(path.toString());
                     ac.play();
+                    myPlayer.setPlayerscore(myPlayer.getPlayerscore() + Integer.parseInt(score.getText()));
+                    Frame.navigation.load("Score_Menu.fxml");
+                    ScoreMenu sc = (ScoreMenu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+                    sc.setScoreval(Integer.parseInt(score.getText()));
+                    sc.setBestscoreval(myPlayer.getPlayerscore());
+                    sc.setMyplayer(myPlayer);
                     return true;
                 }
                 if(c instanceof ColorSwitch) {

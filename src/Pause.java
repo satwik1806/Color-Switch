@@ -91,8 +91,10 @@ public class Pause implements Initializable, Serializable {
         myplayer.setGamestate(gstate);
         Login_Menu.addPlayer(myplayer);
         Frame.navigation.load("Score_Menu.fxml");
-//        Player_Menu pm = (Player_Menu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
-//        pm.setMyPlayer(myplayer);
+        ScoreMenu pm = (ScoreMenu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        pm.setScoreval(mygamescreen.getScoreval());
+        pm.setBestscoreval(myplayer.getPlayerscore());
+        pm.setMyplayer(myplayer);
     }
 
     public void gotohome(ActionEvent e) throws IOException {
