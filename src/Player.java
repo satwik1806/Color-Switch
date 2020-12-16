@@ -9,7 +9,7 @@ public class Player
     private String username;
     private Player_Menu player_menu;
     private Game_Screen gameScreen;
-    private Player_Menu playermenu;
+
 
 
     private int playerscore=0;

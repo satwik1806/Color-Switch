@@ -1,17 +1,21 @@
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.transform.Rotate;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class Existing_Player_Details {
+public class Existing_Player_Details implements Initializable {
     @FXML
-    private Label namee;
+    private TextArea namee;
     @FXML
     private Button button;
 
@@ -41,11 +45,13 @@ public class Existing_Player_Details {
             rotate22.setAngle(1.5);
         }
     };
-
-    public Existing_Player_Details(){timer.start();}
+//
+//    pub
+//    public Existing_Player_Details(){timer.start();}
 
     public void click(ActionEvent e){
         String name = namee.getText();
+        System.out.println(name);
         boolean f = true;
         for(Player p:Login_Menu.Plist){
             if(p.getName().equals(name)){
@@ -56,5 +62,10 @@ public class Existing_Player_Details {
         if(f){
             Frame.navigation.GoBack();
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        timer.start();
     }
 }

@@ -37,7 +37,7 @@
             <InnerShadow height="10.5" radius="2.125" width="0.0" />
          </effect>
       </Button>
-      <Button fx:id="loadgame" layoutX="-97.0" layoutY="438.0" mnemonicParsing="false" onAction="#LoadGame" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #FF0181; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="                Load Game" textFill="WHITE">
+      <Button fx:id="loadgame" layoutX="-97.0" layoutY="438.0" mnemonicParsing="false" onAction="#loadgame" prefHeight="52.0" prefWidth="346.0" style="-fx-background-color: #FF0181; -fx-shape: &quot;M 0 0 H 70 L 80 20 L 70 40 H -40 Z&quot;;" stylesheets="@Button.css" text="                Load Game" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
