@@ -20,7 +20,8 @@ public class Obstacle_2Windmill extends Obstacle{
     private Group grp1 = new Group();
     private Group grp2 = new Group();
 
-    private ArrayList<Shape_rect> allshapes=new ArrayList<>();
+    private ArrayList<Shapes> allshapes=new ArrayList<>();
+    public Star s  = new Star(0,0);
 
     public Obstacle_2Windmill(Game_Screen g){
         super(g);
@@ -55,7 +56,7 @@ public class Obstacle_2Windmill extends Obstacle{
         allshapes.add(rect6);
         allshapes.add(rect7);
         allshapes.add(rect8);
-
+        allshapes.add(s);
 
         grp2.getChildren().addAll(rect5.getRect(),rect6.getRect(),rect7.getRect(),rect8.getRect());
 
@@ -74,15 +75,30 @@ public class Obstacle_2Windmill extends Obstacle{
         group.getChildren().addAll(grp1,grp2);
         group.setScaleY(1.3);
         group.setScaleX(1.3);
+
+        s.getStar().setLayoutX(group.getLayoutX());
+        s.getStar().setLayoutY(group.getLayoutY() + 80);
+    }
+
+    public Star getStar(){
+        return this.s;
     }
 
     @Override
     public boolean collide(Ball c) {
-        for(Shape_rect s:allshapes)
+        for(Shapes temp:allshapes)
         {
-            if(s.collide(c) && !s.getRect().getFill().equals(c.getBallColor()))
-                return true;
-
+            if(temp.collide(c))
+            {
+                if(temp instanceof Star)
+                {
+                    gameScreen.increaseScore();
+                    group.getChildren().remove(s.node());
+                    return false;
+                }
+                else if (!c.getBallColor().equals(temp.getcolor()))
+                    return true;
+            }
         }
         return false;
     }
@@ -100,6 +116,7 @@ public class Obstacle_2Windmill extends Obstacle{
         rotateright.setAxis(new Point3D(0,0,1));
         grp2.getTransforms().addAll(rotateright);
         rotateright.setAngle(-1.5);
+        s.starsize();
     }
 
 }
