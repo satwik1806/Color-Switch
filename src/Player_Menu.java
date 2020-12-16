@@ -12,6 +12,7 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Player_Menu {
     @FXML
@@ -32,6 +33,8 @@ public class Player_Menu {
     private Button backtologin;
     @FXML
     private Button loadgame;
+
+    private ArrayList<Game_Screen> glist=new ArrayList<>();
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
@@ -100,5 +103,11 @@ public class Player_Menu {
 //        Frame.navigation.GoBack();
         Frame.navigation.cleanPrevious();
         Frame.navigation.load("Login_Menu.fxml");
+    }
+    public void LoadGame(ActionEvent e){
+
+    }
+    public void operatenow(){
+
     }
 }

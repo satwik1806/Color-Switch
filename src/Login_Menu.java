@@ -30,7 +30,7 @@ public class Login_Menu {
     @FXML
     private Group t2;
 
-    private static ArrayList<Player> Plist=new ArrayList<>();
+    static ArrayList<Player> Plist=new ArrayList<>();
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
@@ -89,25 +89,25 @@ public class Login_Menu {
         timer.start();
     }
 
-    public void exit(ActionEvent e){System.exit(0);}
+    public void exit(ActionEvent e) throws IOException {
+
+        System.exit(0);
+
+    }
 
     public void Exiting_Player(ActionEvent e) throws IOException, ClassNotFoundException {
+//        ObjectInputStream in=new ObjectInputStream(new FileInputStream("Players.txt"));
+//        ArrayList<Player> temp =new ArrayList<>();
+//        Player p;
         ObjectInputStream in=new ObjectInputStream(new FileInputStream("Players.txt"));
-        ArrayList<Player> temp =new ArrayList<>();
-        Player p;
-        while(in.available()==0)
-        {
-            p= (Player) in.readObject();
-            System.out.println(p.getName());
-            System.out.println(in.available());
-
-        }
+        Frame.login_menu = (Login_Menu) in.readObject();
+        Frame.navigation.load("Existing_Player_Details.fxml");
     }
 
     public static void addPlayer(Player p) throws IOException {
-
         ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream("Players.txt",true));
-        out.writeObject(p);
+        out.writeObject(Frame.login_menu);
+
         Plist.add(p);
 
     }
