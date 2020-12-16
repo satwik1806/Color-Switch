@@ -48,7 +48,7 @@ public class NewPlayerDetails {
     };
 
     public NewPlayerDetails(){ timer.start(); }
-    public void dosubmit(ActionEvent e)throws IOException {
+    public void dosubmit(ActionEvent e) throws IOException, ClassNotFoundException {
         Player p=new Player(NameText.getText(),UNameText.getText());
         Login_Menu.addPlayer(p);
         Frame.navigation.load("Player_Menu.fxml");

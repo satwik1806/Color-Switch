@@ -9,6 +9,7 @@ public class Player implements Serializable
     private String username;
 
     private Game_Screen gameScreen;
+    private Player_Menu playermenu;
 
     private ArrayList<Game_Screen> glist=new ArrayList<>();
 

@@ -1,19 +1,18 @@
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.transform.Rotate;
-import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class Login_Menu {
+public class Login_Menu implements Initializable {
 
     @FXML
     private Group obs1;
@@ -30,7 +29,10 @@ public class Login_Menu {
     @FXML
     private Group t2;
 
-    private static ArrayList<Player> Plist=new ArrayList<>();
+    static ArrayList<Player> Plist=new ArrayList<>();
+    static ObjectInputStream in;
+    static ObjectOutputStream out;
+
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
@@ -42,80 +44,94 @@ public class Login_Menu {
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
-            rotate1.setPivotX(0);
-            rotate1.setPivotY(0);
-            rotate1.setAxis(new Point3D(0,0,1));
-            rotate2.setPivotX(163);
-            rotate2.setPivotY(140);
-            rotate2.setAxis(new Point3D(0,0,1));
-            obs1.getTransforms().addAll(rotate1);
-            obs2.getTransforms().addAll(rotate2);
-            rotate1.setAngle(1.5);
-            rotate2.setAngle(3);
-
-            //11
-            rotate11.setPivotX(0);
-            rotate11.setPivotY(0);
-            rotate11.setAxis(new Point3D(0,0,1));
-            obs11.getTransforms().addAll(rotate11);
-            rotate11.setAngle(1.5);
-
-            //22
-            rotate22.setPivotX(0);
-            rotate22.setPivotY(0);
-            rotate22.setAxis(new Point3D(0,0,1));
-            obs22.getTransforms().addAll(rotate22);
-            rotate22.setAngle(1.5);
-
-            //t1
-            rotatet1.setPivotX(74);
-            rotatet1.setPivotY(159);
-            rotatet1.setAxis(new Point3D(0,0,1));
-            t1.getTransforms().addAll(rotatet1);
-            rotatet1.setAngle(2);
-
-            //t2
-            rotatet2.setPivotX(74);
-            rotatet2.setPivotY(159);
-            rotatet2.setAxis(new Point3D(0,0,1));
-            t2.getTransforms().addAll(rotatet2);
-            rotatet2.setAngle(-2);
-
-
+            rotate();
         }
     };
 
-    public Login_Menu(){
-        timer.start();
+    void rotate()
+    {
+        rotate1.setPivotX(0);
+        rotate1.setPivotY(0);
+        rotate1.setAxis(new Point3D(0,0,1));
+        rotate2.setPivotX(163);
+        rotate2.setPivotY(140);
+        rotate2.setAxis(new Point3D(0,0,1));
+        obs1.getTransforms().addAll(rotate1);
+        obs2.getTransforms().addAll(rotate2);
+        rotate1.setAngle(1.5);
+        rotate2.setAngle(3);
+
+        //11
+        rotate11.setPivotX(0);
+        rotate11.setPivotY(0);
+        rotate11.setAxis(new Point3D(0,0,1));
+        obs11.getTransforms().addAll(rotate11);
+        rotate11.setAngle(1.5);
+
+        //22
+        rotate22.setPivotX(0);
+        rotate22.setPivotY(0);
+        rotate22.setAxis(new Point3D(0,0,1));
+        obs22.getTransforms().addAll(rotate22);
+        rotate22.setAngle(1.5);
+
+        //t1
+        rotatet1.setPivotX(74);
+        rotatet1.setPivotY(159);
+        rotatet1.setAxis(new Point3D(0,0,1));
+        t1.getTransforms().addAll(rotatet1);
+        rotatet1.setAngle(2);
+
+        //t2
+        rotatet2.setPivotX(74);
+        rotatet2.setPivotY(159);
+        rotatet2.setAxis(new Point3D(0,0,1));
+        t2.getTransforms().addAll(rotatet2);
+        rotatet2.setAngle(-2);
+
     }
+
 
     public void exit(ActionEvent e){System.exit(0);}
 
     public void Exiting_Player(ActionEvent e) throws IOException, ClassNotFoundException {
-        ObjectInputStream in=new ObjectInputStream(new FileInputStream("Players.txt"));
+
+
         ArrayList<Player> temp =new ArrayList<>();
         Player p;
-        while(in.available()==0)
-        {
-            p= (Player) in.readObject();
-            System.out.println(p.getName());
-            System.out.println(in.available());
 
+        in=new ObjectInputStream(new FileInputStream("Players.txt"));
+        try {
+            while (true) {
+                p = (Player) in.readObject();
+                temp.add(p);
+                System.out.println(p.getName());
+            }
         }
+        catch(Exception e1)
+        {}
+
+
     }
 
     public static void addPlayer(Player p) throws IOException {
-
-        ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream("Players.txt",true));
+        out=new MyObjectOutputStream(new FileOutputStream("Players.txt",true));
         out.writeObject(p);
         Plist.add(p);
-
     }
 
 
-    public void New_Player(ActionEvent e) throws IOException {
+    public void New_Player(ActionEvent e){
 
         Frame.navigation.load("New_Player_Details.fxml");
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        timer.start();
+    }
+
+
+
 
 }
