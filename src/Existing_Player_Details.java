@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Existing_Player_Details {
     @FXML
-    private Label name;
+    private Label namee;
     @FXML
     private Button button;
 
@@ -45,16 +45,16 @@ public class Existing_Player_Details {
     public Existing_Player_Details(){timer.start();}
 
     public void click(ActionEvent e){
-        String nametosearch = name.getText();
-        boolean f = false;
-        for(Player p : Login_Menu.Plist){
-            if(p.getName().equals(nametosearch)){
-                p.start(); f = true;
+        String name = namee.getText();
+        boolean f = true;
+        for(Player p:Login_Menu.Plist){
+            if(p.getName().equals(name)){
+                f = false;
+                p.start();
             }
         }
-
-        if(!f){
-            Frame.navigation.load("Existing_Player_Details.fxml");
+        if(f){
+            Frame.navigation.GoBack();
         }
     }
 }

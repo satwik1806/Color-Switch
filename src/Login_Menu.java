@@ -104,6 +104,7 @@ public class Login_Menu implements Initializable {
         try {
             while (true) {
                 p = (Player) in.readObject();
+                Plist.add(p);
                 temp.add(p);
                 System.out.println(p.getName());
             }
@@ -111,6 +112,7 @@ public class Login_Menu implements Initializable {
         catch(Exception e1)
         {}
 
+        Frame.navigation.load("Existing_Player_Details.fxml");
 
     }
 

@@ -10,14 +10,14 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="480.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="700.0" prefWidth="480.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game_To_Load">
     <children>
-        <Label layoutY="141.0" prefHeight="54.0" prefWidth="515.0" style="-fx-background-color: #ffa733;" text="        ENTER PLAYER'S NAME" textFill="WHITE">
+        <Label layoutY="141.0" prefHeight="54.0" prefWidth="515.0" style="-fx-background-color: #ffa733;" text="              ENTER GAME ID" textFill="WHITE">
             <font>
                 <Font size="36.0" />
             </font>
         </Label>
-        <TextArea fx:id="name" layoutX="107.0" layoutY="307.0" prefHeight="103.0" prefWidth="297.0">
+        <TextArea fx:id="id" layoutX="181.0" layoutY="236.0" prefHeight="40.0" prefWidth="142.0">
             <font>
                 <Font size="24.0" />
             </font>
@@ -47,7 +47,7 @@
                 <Font name="System Bold" size="48.0" />
             </font>
         </Label>
-        <Button fx:id="button" layoutX="219.0" layoutY="476.0" mnemonicParsing="false" onAction="#click" prefHeight="32.0" prefWidth="71.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: black;" text="Button" />
+        <Button fx:id="button" layoutX="216.0" layoutY="366.0" mnemonicParsing="false" onAction="#click" prefHeight="32.0" prefWidth="71.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: black;" text="Button" />
         <Label layoutX="256.0" layoutY="22.0" lineSpacing="1.0" prefHeight="70.0" prefWidth="254.0" text="SWITCH" textFill="#eaeaea">
             <font>
                 <Font name="System Bold" size="48.0" />

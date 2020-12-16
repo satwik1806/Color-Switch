@@ -53,6 +53,7 @@ public class Game_Screen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Player_Menu.addgame(this);
         onscreenobstacles.add(new Obstacle_circle(this));
         onscreenobstacles.add(new Obstacle_2Windmill(this));
         Obstacle tt=new Obstacle_2square(this);

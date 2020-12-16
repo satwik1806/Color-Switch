@@ -20,6 +20,9 @@ public class Player
     }
 
     public void start(){
+        if(player_menu == null){
+//            this.player_menu =
+        }
         player_menu.operatenow();
     }
 

@@ -35,7 +35,7 @@ public class Player_Menu {
     @FXML
     private Button loadgame;
 
-    private ArrayList<Game_Screen> gamescreen;
+    static ArrayList<Game_Screen> gamescreen;
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
@@ -95,7 +95,12 @@ public class Player_Menu {
         timer.start();
     }
 
+    static void addgame(Game_Screen g){
+        gamescreen.add(g);
+    }
     public void New_Game(ActionEvent e) throws IOException {
+        //add also game
+
         Frame.navigation.load("Game_Screen.fxml");
     }
 
@@ -104,5 +109,13 @@ public class Player_Menu {
 //        Frame.navigation.GoBack();
         Frame.navigation.cleanPrevious();
         Frame.navigation.load("Login_Menu.fxml");
+    }
+
+    public void loadgame(ActionEvent e){
+        Frame.navigation.load("Game_To_Load.fxml");
+    }
+
+    public void operatenow(){
+        Frame.navigation.setroot(this.loadgame.getScene().getRoot());
     }
 }
