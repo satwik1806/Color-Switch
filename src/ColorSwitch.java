@@ -7,10 +7,11 @@ import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ColorSwitch implements Collider{
+public class ColorSwitch implements Collider, Serializable {
 
     private Arc a1=new Arc();
     private Arc a2=new Arc();

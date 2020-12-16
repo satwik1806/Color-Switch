@@ -2,9 +2,10 @@ import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Obstacle_ConcentricCircle extends Obstacle {
+public class Obstacle_ConcentricCircle extends Obstacle implements Serializable {
 
     private Shape_quartcircle q1;
     private Shape_quartcircle q2;

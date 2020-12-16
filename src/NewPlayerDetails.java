@@ -9,8 +9,9 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class NewPlayerDetails {
+public class NewPlayerDetails implements Serializable {
 
     @FXML
     private Group obs11;
@@ -50,7 +51,10 @@ public class NewPlayerDetails {
     public NewPlayerDetails(){ timer.start(); }
     public void dosubmit(ActionEvent e) throws IOException, ClassNotFoundException {
         Player p=new Player(NameText.getText(),UNameText.getText());
-        Login_Menu.addPlayer(p);
         Frame.navigation.load("Player_Menu.fxml");
+        Player_Menu temp=(Player_Menu)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        temp.setMyPlayer(p);
+        p.setPlayer_menu(temp);
+        Login_Menu.addPlayer(p);
     }
 }

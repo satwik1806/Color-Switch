@@ -2,9 +2,10 @@ import javafx.geometry.Point3D;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Obstacle_1square extends Obstacle{
+public class Obstacle_1square extends Obstacle implements Serializable {
 
     private Shape_rect rect1;
     private Shape_rect rect2;

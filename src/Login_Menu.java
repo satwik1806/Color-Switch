@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Login_Menu implements Initializable {
+public class Login_Menu implements Initializable,Serializable {
 
     @FXML
     private Group obs1;
@@ -29,7 +29,6 @@ public class Login_Menu implements Initializable {
     @FXML
     private Group t2;
 
-    static ArrayList<Player> Plist=new ArrayList<>();
     static ObjectInputStream in;
     static ObjectOutputStream out;
 
@@ -95,8 +94,6 @@ public class Login_Menu implements Initializable {
     public void exit(ActionEvent e){System.exit(0);}
 
     public void Exiting_Player(ActionEvent e) throws IOException, ClassNotFoundException {
-
-
         ArrayList<Player> temp =new ArrayList<>();
         Player p;
 
@@ -104,7 +101,6 @@ public class Login_Menu implements Initializable {
         try {
             while (true) {
                 p = (Player) in.readObject();
-                Plist.add(p);
                 temp.add(p);
                 System.out.println(p.getName());
             }
@@ -114,17 +110,16 @@ public class Login_Menu implements Initializable {
 
         Frame.navigation.load("Existing_Player_Details.fxml");
 
+
     }
 
     public static void addPlayer(Player p) throws IOException {
         out=new MyObjectOutputStream(new FileOutputStream("Players.txt",true));
         out.writeObject(p);
-        Plist.add(p);
     }
 
 
     public void New_Player(ActionEvent e){
-
         Frame.navigation.load("New_Player_Details.fxml");
     }
 

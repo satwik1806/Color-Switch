@@ -5,7 +5,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
 
-public class Shape_rect extends Shapes {
+import java.io.Serializable;
+
+public class Shape_rect extends Shapes implements Serializable {
     private Rectangle rect = new Rectangle();
     private float archeight;
     private float archwidth;

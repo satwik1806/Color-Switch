@@ -19,12 +19,13 @@ import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.lang.module.FindException.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Frame extends Application {
+public class Frame extends Application implements Serializable {
 
     static Navigation navigation;
     static Login_Menu login_menu;

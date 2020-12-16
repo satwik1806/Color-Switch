@@ -9,11 +9,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.transform.Rotate;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Existing_Player_Details implements Initializable {
+public class Existing_Player_Details implements Initializable, Serializable {
     @FXML
     private TextArea namee;
     @FXML
@@ -23,6 +24,16 @@ public class Existing_Player_Details implements Initializable {
     private Group obs11;
     @FXML
     private Group obs22;
+
+    private ArrayList<Player> plist=new ArrayList<>();
+
+    public ArrayList<Player> getPlist() {
+        return plist;
+    }
+
+    public void setPlist(ArrayList<Player> plist) {
+        this.plist = plist;
+    }
 
     Rotate rotate11 = new Rotate();
     Rotate rotate22 = new Rotate();
@@ -53,7 +64,7 @@ public class Existing_Player_Details implements Initializable {
         String name = namee.getText();
         System.out.println(name);
         boolean f = true;
-        for(Player p:Login_Menu.Plist){
+        for(Player p:plist){
             if(p.getName().equals(name)){
                 f = false;
                 p.start();

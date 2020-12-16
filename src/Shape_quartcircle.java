@@ -3,7 +3,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
 
-public class Shape_quartcircle extends Shapes {
+import java.io.Serializable;
+
+public class Shape_quartcircle extends Shapes implements Serializable {
 
     private SVGPath quat = new SVGPath(); //quarter
     private int rotate;

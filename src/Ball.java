@@ -3,7 +3,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 
-public class Ball {
+import java.io.Serializable;
+
+public class Ball implements Serializable {
 
     private Circle ball=new Circle();
 

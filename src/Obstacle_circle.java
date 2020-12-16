@@ -2,9 +2,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Obstacle_circle extends Obstacle {
+public class Obstacle_circle extends Obstacle implements Serializable {
 
     private Shape_quartcircle q1;
     private Shape_quartcircle q2;

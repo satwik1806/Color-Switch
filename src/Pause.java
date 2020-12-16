@@ -9,10 +9,11 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Pause implements Initializable {
+public class Pause implements Initializable, Serializable {
     @FXML
     private Button play;
     @FXML

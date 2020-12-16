@@ -15,12 +15,13 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class Game_Screen implements Initializable {
+public class Game_Screen implements Initializable, Serializable {
     @FXML
     private Button pause;
     @FXML
@@ -33,14 +34,22 @@ public class Game_Screen implements Initializable {
     @FXML
     private Label score;
 
-    private Scene s;
-    private Parent root;
+    public Player getMyPlayer() {
+        return myPlayer;
+    }
+
+    public void setMyPlayer(Player myPlayer) {
+        this.myPlayer = myPlayer;
+    }
+
+    private Player myPlayer;
 
     private int curscore=0;
 
     private ArrayList<Obstacle> onscreenobstacles = new ArrayList<>();
     private ArrayList<Collider> onscreencolliders=new ArrayList<>();
     private Ball ball;
+
 
 
     private double toadd = 0.05;
@@ -53,7 +62,6 @@ public class Game_Screen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Player_Menu.addgame(this);
         onscreenobstacles.add(new Obstacle_circle(this));
         onscreenobstacles.add(new Obstacle_2Windmill(this));
         Obstacle tt=new Obstacle_2square(this);
