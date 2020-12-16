@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
@@ -240,6 +241,9 @@ public class Game_Screen implements Initializable, Serializable {
 
     public void jumpwanted(MouseEvent e){
         jumphappened=true;
+        URL path = getClass().getResource("/soundeffects/bulle.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
     }
 
     private void jump()
