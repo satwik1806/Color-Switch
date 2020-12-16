@@ -220,7 +220,7 @@ public class Game_Screen implements Initializable, Serializable {
         if(ball.node().getBoundsInParent().getMinY()<400)
         {
             for (Collider c:onscreencolliders)
-                c.node().setLayoutY(c.node().getLayoutY()+2.5);
+                c.node().setLayoutY(c.node().getLayoutY()+3.5);
         }
     }
 

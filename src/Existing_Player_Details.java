@@ -67,13 +67,14 @@ public class Existing_Player_Details implements Initializable, Serializable {
         String name = namee.getText();
         System.out.println(name);
         boolean f = true;
+        Player temp = null;
         for(Player p:plist){
-            if(p.getName().equals(name)){
-                f = false;
-                p.start();
-                break;
+            if(p.getUsername().equals(name)){
+                temp = p;
             }
         }
+        if(temp != null)
+            temp.start();
         // can give warning invalid player name
     }
 
