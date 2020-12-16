@@ -9,6 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.transform.Rotate;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
@@ -68,15 +71,31 @@ public class Existing_Player_Details implements Initializable, Serializable {
             if(p.getName().equals(name)){
                 f = false;
                 p.start();
+                break;
             }
         }
-        if(f){
-            Frame.navigation.GoBack();
-        }
+        // can give warning invalid player name
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timer.start();
+        Player p;
+
+        ObjectInputStream in= null;
+        try {
+            in = new ObjectInputStream(new FileInputStream("Players.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            while (true) {
+                p = (Player) in.readObject();
+                plist.add(p);
+                System.out.println(p.getName());
+            }
+        }
+        catch(Exception e1)
+        {}
     }
 }

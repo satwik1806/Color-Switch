@@ -230,7 +230,13 @@ public class Game_Screen implements Initializable, Serializable {
             o.rotate();
     }
 
-    public void pauseclick(ActionEvent e) throws IOException {Frame.navigation.load("Pause.fxml"); }
+    public void pauseclick(ActionEvent e) throws IOException {
+
+        Frame.navigation.load("Pause.fxml");
+        Pause  p =(Pause) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        p.setMyplayer(myPlayer);
+        p.setMygamescreen(this);
+    }
 
     public void jumpwanted(MouseEvent e){
         jumphappened=true;
@@ -250,7 +256,87 @@ public class Game_Screen implements Initializable, Serializable {
     }
 
 
+    public void recreate_screen(Game_State g){
+        while (onscreencolliders.size()!=0){
+            Collider temp = onscreencolliders.get(0);
+            pane.getChildren().removeAll(temp.node());
+            onscreencolliders.remove(0);
+        }
+        onscreenobstacles = new ArrayList<>();
+        System.out.println(g.getAllcolliders().size());
 
+        for(Collider_state col:g.getAllcolliders()){
+            Collider temp = null;
+            switch (col.getOption()){
+                case 1:
+                    //colorswitch
+                    temp = new ColorSwitch();
+                    temp.node().setLayoutY(col.getLayouty());
+                    break;
+                case 2:
+                    //obs1square
+                    temp = new Obstacle_1square(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 3:
+                    //obs2square
+                    temp = new Obstacle_2square(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 4:
+                    //1windmill
+                    temp = new Obstacle_1Windmill(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 5:
+                    //2windmill
+                    temp = new Obstacle_2Windmill(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 6:
+                    //circle
+                    temp = new Obstacle_circle(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 7:
+                    //concircle
+                    temp = new Obstacle_ConcentricCircle(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+            }
+            onscreencolliders.add(temp);
+            if(temp instanceof Obstacle){
+                onscreenobstacles.add((Obstacle) temp);
+            }
+        }
+        for(Collider coli : onscreencolliders){
+            pane.getChildren().add(coli.node());
+        }
+    }
+
+    public Game_State Save_game(){
+        Game_State gs = new Game_State();
+        for(Collider o: onscreencolliders){
+            int op;
+            if(o instanceof ColorSwitch) op = 1;
+            else if(o instanceof Obstacle_1square) op = 2;
+            else if (o instanceof Obstacle_2square) op = 3;
+            else if(o instanceof Obstacle_1Windmill) op = 4;
+            else if (o instanceof Obstacle_2Windmill) op = 5;
+            else if (o instanceof Obstacle_circle) op =6;
+            else op= 7;
+            Collider_state curr = new Collider_state(op,o.node().getLayoutY(),o.node().getRotate());
+            gs.addcollider(curr);
+        }
+        System.out.println(gs.getAllcolliders().size());
+        return gs;
+    }
 
     private String[] colors={"FAE100","900DFF","FF0181","32DBF0"};
 }

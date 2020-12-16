@@ -94,28 +94,21 @@ public class Login_Menu implements Initializable,Serializable {
     public void exit(ActionEvent e){System.exit(0);}
 
     public void Exiting_Player(ActionEvent e) throws IOException, ClassNotFoundException {
-        ArrayList<Player> temp =new ArrayList<>();
-        Player p;
-
-        in=new ObjectInputStream(new FileInputStream("Players.txt"));
-        try {
-            while (true) {
-                p = (Player) in.readObject();
-                temp.add(p);
-                System.out.println(p.getName());
-            }
-        }
-        catch(Exception e1)
-        {}
-
         Frame.navigation.load("Existing_Player_Details.fxml");
-
-
     }
 
     public static void addPlayer(Player p) throws IOException {
-        out=new MyObjectOutputStream(new FileOutputStream("Players.txt",true));
+
+        System.out.println("game is saving" + p.getName());
+        File f = new File("Players.txt");
+        if(f.isFile()){
+            out=new MyObjectOutputStream(new FileOutputStream("Players.txt",true));
+        }
+        else {
+            out = new ObjectOutputStream(new FileOutputStream("Players.txt", true));
+        }
         out.writeObject(p);
+
     }
 
 

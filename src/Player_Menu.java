@@ -109,7 +109,7 @@ public class Player_Menu implements Serializable {
         //add also game
         Frame.navigation.load("Game_Screen.fxml");
         Game_Screen gs=(Game_Screen)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
-        myPlayer.setGameScreen(gs);
+//        myPlayer.setGameScreen(gs);
         gs.setMyPlayer(myPlayer);
     }
 
@@ -120,6 +120,8 @@ public class Player_Menu implements Serializable {
 
     public void loadgame(ActionEvent e){
         Frame.navigation.load("Game_To_Load.fxml");
+        Game_To_Load gtl =(Game_To_Load) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        gtl.setMyplayer(myPlayer);
     }
 
     public void operatenow(){

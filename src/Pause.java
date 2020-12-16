@@ -66,8 +66,30 @@ public class Pause implements Initializable, Serializable {
         }
     }
 
+    private Player myplayer;
 
-    public void saveanddisplscore(ActionEvent e){
+    public Player getMyplayer() {
+        return myplayer;
+    }
+
+    public void setMyplayer(Player myplayer) {
+        this.myplayer = myplayer;
+    }
+
+    private  Game_Screen mygamescreen;
+
+    public Game_Screen getMygamescreen() {
+        return mygamescreen;
+    }
+
+    public void setMygamescreen(Game_Screen mygamescreen) {
+        this.mygamescreen = mygamescreen;
+    }
+
+    public void saveanddisplscore(ActionEvent e) throws IOException {
+        Game_State gstate = mygamescreen.Save_game();
+        myplayer.setGamestate(gstate);
+        Login_Menu.addPlayer(myplayer);
         Frame.navigation.load("Score_Menu.fxml");
     }
 
@@ -78,6 +100,7 @@ public class Pause implements Initializable, Serializable {
 //        s.show();
 //        Frame.navigation.GoBack();
 //        Frame.navigation.GoBack();
+        Frame.navigation.cleanPrevious();
         Frame.navigation.load("Player_menu.fxml");
     }
 

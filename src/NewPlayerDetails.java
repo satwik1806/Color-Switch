@@ -54,7 +54,7 @@ public class NewPlayerDetails implements Serializable {
         Frame.navigation.load("Player_Menu.fxml");
         Player_Menu temp=(Player_Menu)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
         temp.setMyPlayer(p);
-        p.setPlayer_menu(temp);
-        Login_Menu.addPlayer(p);
+//        p.setPlayer_menu(temp);
+//        Login_Menu.addPlayer(p);
     }
 }
