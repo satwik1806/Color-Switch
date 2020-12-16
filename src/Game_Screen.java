@@ -65,7 +65,7 @@ public class Game_Screen implements Initializable, Serializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         onscreenobstacles.add(new Obstacle_circle(this));
         onscreenobstacles.add(new Obstacle_2Windmill(this));
-        Obstacle tt=new Obstacle_2square(this);
+        Obstacle tt=new Obstacle_1square(this);
         tt.node().setLayoutY(-350);
         onscreenobstacles.add(tt);
 
@@ -192,12 +192,21 @@ public class Game_Screen implements Initializable, Serializable {
         {
             if(c.collide(b))
             {
-                if (c instanceof Obstacle)
+                if (c instanceof Obstacle) {
+                    URL path = getClass().getResource("/soundeffects/dead.wav");
+                    AudioClip ac = new AudioClip(path.toString());
+                    ac.play();
                     return true;
-                if(c instanceof ColorSwitch)
-                    temp =c;
-                if(c instanceof Star)
-                    temp=c;
+                }
+                if(c instanceof ColorSwitch) {
+                    temp = c;
+                    URL path = getClass().getResource("/soundeffects/colorswitch.wav");
+                    AudioClip ac = new AudioClip(path.toString());
+                    ac.play();
+                }
+                if(c instanceof Star) {
+                    temp = c;
+                }
             }
         }
         if(temp!=null)
@@ -327,6 +336,20 @@ public class Game_Screen implements Initializable, Serializable {
         ball.node().setLayoutY(g.getBall_y());
         pane.getChildren().addAll(ball.node());
         score.setText(Integer.toString(g.getScore()));
+
+        //try to remove star if possible, its okay otherwise
+//        for(Collider col : onscreencolliders){
+//            if(col instanceof Obstacle_2Windmill)
+//                continue;
+//            if(col instanceof Obstacle_1Windmill)
+//                continue;
+//            if(col instanceof Obstacle) {
+//                System.out.println("AAGYA BE");
+//                if (col.node().getLayoutY() > ball.node().getLayoutY()) {
+//                    col..getChildren().removeAll(((Obstacle) col).getS().node());
+//                }
+//            }
+//        }
     }
 
     public Game_State Save_game(){

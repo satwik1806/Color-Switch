@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;
 
 import java.io.FileInputStream;
@@ -64,6 +65,9 @@ public class Existing_Player_Details implements Initializable, Serializable {
 //    public Existing_Player_Details(){timer.start();}
 
     public void click(ActionEvent e){
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         String name = namee.getText();
         System.out.println(name);
         boolean f = true;

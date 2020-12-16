@@ -15,6 +15,7 @@ public class Obstacle_1Windmill extends Obstacle implements Serializable {
     private Star s;
 
 
+
     private ArrayList<Shape_rect> allshapes = new ArrayList<>();
     public Obstacle_1Windmill(Game_Screen g){
         super(g);
@@ -61,5 +62,10 @@ public class Obstacle_1Windmill extends Obstacle implements Serializable {
         rotateobj.setPivotY(140);
         rotateobj.setAngle(1);
         group.getTransforms().add(rotateobj);
+    }
+
+    @Override
+    public Star getS() {
+        return null;
     }
 }

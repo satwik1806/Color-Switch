@@ -5,11 +5,13 @@ import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.net.URL;
 
 public class NewPlayerDetails implements Serializable {
 
@@ -50,6 +52,9 @@ public class NewPlayerDetails implements Serializable {
 
     public NewPlayerDetails(){ timer.start(); }
     public void dosubmit(ActionEvent e) throws IOException, ClassNotFoundException {
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Player p=new Player(NameText.getText(),UNameText.getText());
         Frame.navigation.load("Player_Menu.fxml");
         Player_Menu temp=(Player_Menu)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);

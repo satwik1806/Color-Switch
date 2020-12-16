@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;
 
 import java.io.*;
@@ -91,9 +92,19 @@ public class Login_Menu implements Initializable,Serializable {
     }
 
 
-    public void exit(ActionEvent e){System.exit(0);}
+    public void exit(ActionEvent e){
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
+        // for delay in threading
+        for(int i=0;i<1000000000;i++){;}
+        System.exit(0);
+    }
 
     public void Exiting_Player(ActionEvent e) throws IOException, ClassNotFoundException {
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Frame.navigation.load("Existing_Player_Details.fxml");
     }
 
@@ -113,6 +124,9 @@ public class Login_Menu implements Initializable,Serializable {
 
 
     public void New_Player(ActionEvent e){
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Frame.navigation.load("New_Player_Details.fxml");
     }
 

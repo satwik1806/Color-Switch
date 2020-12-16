@@ -6,7 +6,10 @@ import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;
+
+import java.net.URL;
 
 public class Game_To_Load {
     @FXML
@@ -56,6 +59,10 @@ public class Game_To_Load {
     }
 
     public void click(ActionEvent e){
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
+
         int itsid = Integer.parseInt(ID.getText());
 //        Frame.navigation.setroot(Player_Menu.gamescreen.get(itsid-1).getPane().getScene().getRoot());
         Game_State gstate ;
