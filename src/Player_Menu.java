@@ -8,12 +8,14 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Player_Menu implements Serializable {
@@ -107,6 +109,9 @@ public class Player_Menu implements Serializable {
 
     public void New_Game(ActionEvent e) throws IOException {
         //add also game
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Frame.navigation.load("Game_Screen.fxml");
         Game_Screen gs=(Game_Screen)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
 //        myPlayer.setGameScreen(gs);
@@ -114,13 +119,21 @@ public class Player_Menu implements Serializable {
     }
 
     public void backlogin() throws IOException {
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Frame.navigation.cleanPrevious();
         Frame.navigation.load("Login_Menu.fxml");
     }
 
-    public void loadgame(ActionEvent e){
-        System.out.println(myPlayer.getGamestates().size());
 
+    public void loadgame(ActionEvent e){
+
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
+
+        System.out.println(myPlayer.getGamestates().size());
         Frame.navigation.load("Game_To_Load.fxml");
         Game_To_Load gtl =(Game_To_Load) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
         gtl.setMyplayer(myPlayer);

@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
@@ -33,6 +34,11 @@ public class Game_Screen implements Initializable, Serializable {
 
     @FXML
     private Label score;
+    private int scoreval;
+
+    public int getScoreval() {
+        return scoreval;
+    }
 
     public Player getMyPlayer() {
         return myPlayer;
@@ -62,9 +68,10 @@ public class Game_Screen implements Initializable, Serializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        scoreval = Integer.parseInt(score.getText());
         onscreenobstacles.add(new Obstacle_circle(this));
         onscreenobstacles.add(new Obstacle_2Windmill(this));
-        Obstacle tt=new Obstacle_2square(this);
+        Obstacle tt=new Obstacle_1square(this);
         tt.node().setLayoutY(-350);
         onscreenobstacles.add(tt);
 
@@ -97,6 +104,7 @@ public class Game_Screen implements Initializable, Serializable {
                     System.out.println("DONE ========================" +
                             "\n \n \n \n \n \n \n \n \n \n \n \n \n" +
                             "DONE ===================" );
+
                 }
                 rotate();
                 fall();
@@ -191,12 +199,27 @@ public class Game_Screen implements Initializable, Serializable {
         {
             if(c.collide(b))
             {
-                if (c instanceof Obstacle)
+                if (c instanceof Obstacle) {
+                    URL path = getClass().getResource("/soundeffects/dead.wav");
+                    AudioClip ac = new AudioClip(path.toString());
+                    ac.play();
+                    myPlayer.setPlayerscore(myPlayer.getPlayerscore() + Integer.parseInt(score.getText()));
+                    Frame.navigation.load("Score_Menu.fxml");
+                    ScoreMenu sc = (ScoreMenu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+                    sc.setScoreval(Integer.parseInt(score.getText()));
+                    sc.setBestscoreval(myPlayer.getPlayerscore());
+                    sc.setMyplayer(myPlayer);
                     return true;
-                if(c instanceof ColorSwitch)
-                    temp =c;
-                if(c instanceof Star)
-                    temp=c;
+                }
+                if(c instanceof ColorSwitch) {
+                    temp = c;
+                    URL path = getClass().getResource("/soundeffects/colorswitch.wav");
+                    AudioClip ac = new AudioClip(path.toString());
+                    ac.play();
+                }
+                if(c instanceof Star) {
+                    temp = c;
+                }
             }
         }
         if(temp!=null)
@@ -240,6 +263,9 @@ public class Game_Screen implements Initializable, Serializable {
 
     public void jumpwanted(MouseEvent e){
         jumphappened=true;
+        URL path = getClass().getResource("/soundeffects/bulle.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
     }
 
     private void jump()
@@ -323,6 +349,20 @@ public class Game_Screen implements Initializable, Serializable {
         ball.node().setLayoutY(g.getBall_y());
         pane.getChildren().addAll(ball.node());
         score.setText(Integer.toString(g.getScore()));
+
+        //try to remove star if possible, its okay otherwise
+//        for(Collider col : onscreencolliders){
+//            if(col instanceof Obstacle_2Windmill)
+//                continue;
+//            if(col instanceof Obstacle_1Windmill)
+//                continue;
+//            if(col instanceof Obstacle) {
+//                System.out.println("AAGYA BE");
+//                if (col.node().getLayoutY() > ball.node().getLayoutY()) {
+//                    col..getChildren().removeAll(((Obstacle) col).getS().node());
+//                }
+//            }
+//        }
     }
 
     public Game_State Save_game(){

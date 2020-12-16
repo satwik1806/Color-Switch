@@ -21,6 +21,7 @@ public abstract class Obstacle implements Collider, Serializable {
 
     public abstract void rotate();
 
+    public abstract Star getS();
 
     @Override
     public Node node() {

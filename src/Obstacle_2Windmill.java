@@ -120,4 +120,9 @@ public class Obstacle_2Windmill extends Obstacle implements Serializable {
 //        s.starsize();
     }
 
+    @Override
+    public Star getS() {
+        return null;
+    }
+
 }

@@ -1,8 +1,10 @@
 import javafx.geometry.Point3D;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
 import java.io.Serializable;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Obstacle_1square extends Obstacle implements Serializable {
@@ -12,6 +14,11 @@ public class Obstacle_1square extends Obstacle implements Serializable {
     private Shape_rect rect3;
     private Shape_rect rect4;
     private Star s;
+
+    @Override
+    public Star getS() {
+        return s;
+    }
 
     private ArrayList<Shapes> allshapes = new ArrayList<>();
 
@@ -55,6 +62,9 @@ public class Obstacle_1square extends Obstacle implements Serializable {
             {
                 if(temp instanceof Star)
                 {
+                    URL path = getClass().getResource("/soundeffects/star.wav");
+                    AudioClip ac = new AudioClip(path.toString());
+                    ac.play();
                     gameScreen.increaseScore();
                     group.getChildren().remove(s.node());
                     return false;
