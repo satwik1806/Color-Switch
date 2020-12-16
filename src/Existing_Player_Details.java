@@ -81,15 +81,17 @@ public class Existing_Player_Details implements Initializable, Serializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timer.start();
         Player p;
-
+        System.out.println("HERE ----->>>> ");
         ObjectInputStream in= null;
         try {
             in = new ObjectInputStream(new FileInputStream("Players.txt"));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        int cnt = 0;
         try {
             while (true) {
+                System.out.println(++cnt);cnt++;
                 p = (Player) in.readObject();
                 plist.add(p);
                 System.out.println(p.getName());

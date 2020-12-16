@@ -17,7 +17,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <TextArea fx:id="namee" layoutX="107.0" layoutY="307.0" prefHeight="103.0" prefWidth="297.0">
+      <TextArea fx:id="namee" layoutX="107.0" layoutY="261.0" prefHeight="103.0" prefWidth="297.0">
          <font>
             <Font size="24.0" />
          </font>
@@ -47,7 +47,7 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Button fx:id="button" layoutX="219.0" layoutY="476.0" mnemonicParsing="false" onAction="#click" prefHeight="32.0" prefWidth="71.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: black;" text="Button" />
+      <Button fx:id="button" layoutX="219.0" layoutY="434.0" mnemonicParsing="false" onAction="#click" prefHeight="32.0" prefWidth="71.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: black;" text="Button" />
       <Label layoutX="256.0" layoutY="22.0" lineSpacing="1.0" prefHeight="70.0" prefWidth="254.0" text="SWITCH" textFill="#eaeaea">
          <font>
             <Font name="System Bold" size="48.0" />

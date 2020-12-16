@@ -318,6 +318,11 @@ public class Game_Screen implements Initializable, Serializable {
         for(Collider coli : onscreencolliders){
             pane.getChildren().add(coli.node());
         }
+        pane.getChildren().removeAll(ball.node());
+        ball = new Ball(g.getColor());
+        ball.node().setLayoutY(g.getBall_y());
+        pane.getChildren().addAll(ball.node());
+        score.setText(Integer.toString(g.getScore()));
     }
 
     public Game_State Save_game(){
@@ -335,6 +340,9 @@ public class Game_Screen implements Initializable, Serializable {
             gs.addcollider(curr);
         }
         System.out.println(gs.getAllcolliders().size());
+        gs.setScore(Integer.parseInt(score.getText()));
+        gs.setBall_y(ball.node().getBoundsInParent().getCenterY());
+        gs.setColor(ball.getColour());
         return gs;
     }
 
