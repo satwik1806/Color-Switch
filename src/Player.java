@@ -1,17 +1,15 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Player implements Serializable
+public class Player
 {
     private static int UID=0;
     private int ID=0;
     private String name;
     private String username;
-
+    private Player_Menu player_menu;
     private Game_Screen gameScreen;
     private Player_Menu playermenu;
-
-    private ArrayList<Game_Screen> glist=new ArrayList<>();
 
 
     private int playerscore=0;
@@ -21,6 +19,9 @@ public class Player implements Serializable
         UID=this.ID;
     }
 
+    public void start(){
+        player_menu.operatenow();
+    }
 
     Player(String name, String username)
     {
@@ -46,11 +47,6 @@ public class Player implements Serializable
 
     public void setGameScreen(Game_Screen gameScreen) {
         this.gameScreen = gameScreen;
-    }
-
-    public void addGameScreen(Game_Screen g)
-    {
-        glist.add(g);
     }
 
     public int getPlayerscore() {
