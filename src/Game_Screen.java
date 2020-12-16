@@ -151,6 +151,7 @@ public class Game_Screen implements Initializable {
 
                 onscreencolliders.remove(c);
                 onscreenobstacles.remove(c);
+                pane.getChildren().removeAll(c.node());
 
                 double lower = o.group.getBoundsInParent().getCenterY();
                 o.group.setLayoutY(o.group.getLayoutY() -250 - lower);
