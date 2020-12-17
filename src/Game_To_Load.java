@@ -68,12 +68,18 @@ public class Game_To_Load implements Initializable {
         ac.play();
 
         Game_State gstate = null;
+        if(ID.getText()==null)
+            return;
+        if(ID.getText().equals(""))
+            return;
         for(Game_State gs:myplayer.getGamestates())
         {
             if(gs.getDate().equals(ID.getText()))
                 gstate=gs;
         }
         Frame.navigation.load("Game_Screen.fxml");
+        if(gstate==null)
+            return;
         Game_Screen gsscreen =(Game_Screen)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
         gsscreen.setMyPlayer(myplayer);
         gsscreen.recreate_screen(gstate);
@@ -94,6 +100,8 @@ public class Game_To_Load implements Initializable {
         {
             gamelist.getItems().add(gstate.getDate());
         }
+        if(gamelist.getItems().size()==0)
+            button.setDisable(true);
     }
 
     public void goback(ActionEvent actionEvent) {
