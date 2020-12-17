@@ -19,22 +19,6 @@ public class Player implements Serializable
 
     private int bestscore=0;
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public int getBestscore() {
         return bestscore;
     }

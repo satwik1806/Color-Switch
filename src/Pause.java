@@ -101,15 +101,6 @@ public class Pause implements Initializable, Serializable {
         Frame.navigation.load("Player_menu.fxml");
         Player_Menu pm = (Player_Menu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
         pm.setMyPlayer(myplayer);
-
-//        Frame.navigation.load("Score_Menu.fxml");
-//        ScoreMenu sc = (ScoreMenu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
-//        sc.setScoreval(mygamescreen.getCurscore());
-//        sc.setBestscoreval(myplayer.getBestscore());
-//        sc.setTotalscoreval(myplayer.getPlayerscore());
-//        sc.setMyplayer(myplayer);
-//        sc.setMyGameScreen(mygamescreen);
-
         Login_Menu.addPlayer(myplayer);
     }
 
@@ -117,6 +108,14 @@ public class Pause implements Initializable, Serializable {
         URL path = getClass().getResource("/soundeffects/button.wav");
         AudioClip ac = new AudioClip(path.toString());
         ac.play();
+        Game_State gstate = mygamescreen.Save_game();
+        myplayer.setGamestate(gstate);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now=LocalDateTime.now();
+        gstate.setDate(dtf.format(now));
+        Login_Menu.addPlayer(myplayer);
+
         Frame.navigation.cleanPrevious();
         Frame.navigation.load("Player_menu.fxml");
         Player_Menu pm = (Player_Menu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);

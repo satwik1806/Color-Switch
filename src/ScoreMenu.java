@@ -115,7 +115,6 @@ public class ScoreMenu implements Serializable {
     };
 
     public void reloadgame(ActionEvent e){
-
         URL path = getClass().getResource("/soundeffects/button.wav");
         AudioClip ac = new AudioClip(path.toString());
         ac.play();
@@ -127,11 +126,15 @@ public class ScoreMenu implements Serializable {
         gs.setMyPlayer(myplayer);
     }
 
-    public void returntomain(ActionEvent e) {
+    public void returntomain(ActionEvent e) throws IOException {
         URL path = getClass().getResource("/soundeffects/button.wav");
         AudioClip ac = new AudioClip(path.toString());
         ac.play();
-        myplayer.start();
+        Frame.navigation.cleanPrevious();
+        Frame.navigation.load("Player_menu.fxml");
+        Player_Menu pm = (Player_Menu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        Login_Menu.addPlayer(myplayer);
+        pm.setMyPlayer(myplayer);
     }
 
     private boolean less1 = false;
