@@ -104,7 +104,6 @@ public class Game_Screen implements Initializable, Serializable {
                     System.out.println("DONE ========================" +
                             "\n \n \n \n \n \n \n \n \n \n \n \n \n" +
                             "DONE ===================" );
-
                 }
                 rotate();
                 fall();
@@ -123,6 +122,9 @@ public class Game_Screen implements Initializable, Serializable {
     public void increaseScore()
     {
         curscore++;
+        myPlayer.setPlayerscore(myPlayer.getPlayerscore()+1);
+        if(myPlayer.getBestscore()<curscore)
+            myPlayer.setBestscore(curscore);
         score.setText(Integer.toString(curscore));
     }
 
@@ -203,12 +205,13 @@ public class Game_Screen implements Initializable, Serializable {
                     URL path = getClass().getResource("/soundeffects/dead.wav");
                     AudioClip ac = new AudioClip(path.toString());
                     ac.play();
-                    myPlayer.setPlayerscore(myPlayer.getPlayerscore() + Integer.parseInt(score.getText()));
                     Frame.navigation.load("Score_Menu.fxml");
                     ScoreMenu sc = (ScoreMenu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
                     sc.setScoreval(Integer.parseInt(score.getText()));
-                    sc.setBestscoreval(myPlayer.getPlayerscore());
+                    sc.setBestscoreval(myPlayer.getBestscore());
+                    sc.setTotalscoreval(myPlayer.getPlayerscore());
                     sc.setMyplayer(myPlayer);
+
                     return true;
                 }
                 if(c instanceof ColorSwitch) {

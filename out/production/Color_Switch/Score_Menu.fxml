@@ -51,7 +51,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutY="350.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #ffa733;" text="               TOTAL SCORE" textFill="WHITE">
+      <Label layoutY="350.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #ffa733;" text="               BEST SCORE" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
@@ -61,7 +61,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="7.0" layoutY="552.0" prefHeight="40.0" prefWidth="106.0" text="    128" textFill="WHITE">
+      <Label fx:id="totalscore" layoutX="70.0" layoutY="552.0" prefHeight="40.0" prefWidth="106.0" text="    128" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>

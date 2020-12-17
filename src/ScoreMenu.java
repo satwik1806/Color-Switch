@@ -31,6 +31,8 @@ public class ScoreMenu implements Serializable {
     private Label score;
     @FXML
     private Label bestscore;
+    @FXML
+    private Label totalscore;
 
     public Player myplayer;
 
@@ -44,6 +46,15 @@ public class ScoreMenu implements Serializable {
 
     private int scoreval;
     private int bestscoreval; // it is total score btw
+    private int totalscoreval;
+
+    public int getTotalscoreval() {
+        return totalscoreval;
+    }
+
+    public void setTotalscoreval(int totalscoreval) {
+        this.totalscoreval = totalscoreval;
+    }
 
     public int getScoreval() {
         return scoreval;
@@ -84,6 +95,7 @@ public class ScoreMenu implements Serializable {
             animatereload();animatestars();
             score.setText(Integer.toString(scoreval));
             bestscore.setText(Integer.toString(bestscoreval));
+            totalscore.setText(Integer.toString(totalscoreval));
         }
     };
 
