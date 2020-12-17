@@ -6,6 +6,8 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
@@ -18,7 +20,7 @@
                 <Font size="36.0" />
             </font>
         </Label>
-        <TextArea fx:id="ID" editable="false" layoutX="84.0" layoutY="455.0" prefHeight="80.0" prefWidth="339.0">
+        <TextArea fx:id="ID" editable="false" layoutX="84.0" layoutY="317.0" prefHeight="80.0" prefWidth="339.0">
             <font>
                 <Font size="24.0" />
             </font>
@@ -48,12 +50,21 @@
                 <Font name="System Bold" size="48.0" />
             </font>
         </Label>
-        <Button fx:id="button" layoutX="222.0" layoutY="561.0" mnemonicParsing="false" onAction="#click" prefHeight="32.0" prefWidth="71.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: FAE100;" stylesheets="@Button.css" text="OK" textFill="#252525" />
+        <Button fx:id="button" layoutX="219.0" layoutY="433.0" mnemonicParsing="false" onAction="#click" prefHeight="32.0" prefWidth="71.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: FAE100;" stylesheets="@Button.css" text="OK" textFill="#252525" />
+      <Button fx:id="returnmain" layoutX="195.0" layoutY="521.0" mnemonicParsing="false" onAction="#goback" prefHeight="94.0" prefWidth="101.0" style="-fx-shape: &quot;        M 100, 100        m -75, 0        a 75,75 0 1,0 150,0        a 75,75 0 1,0 -150,0        &quot;;">
+         <graphic>
+            <ImageView fitHeight="84.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@return.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
         <Label layoutX="256.0" layoutY="22.0" lineSpacing="1.0" prefHeight="70.0" prefWidth="254.0" text="SWITCH" textFill="#eaeaea">
             <font>
                 <Font name="System Bold" size="48.0" />
             </font>
         </Label>
-      <ListView fx:id="gamelist" layoutX="158.0" layoutY="208.0" onMouseClicked="#onlistclick" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: orange;" />
+      <ListView fx:id="gamelist" layoutX="120.0" layoutY="166.0" onMouseClicked="#onlistclick" prefHeight="125.0" prefWidth="268.0" style="-fx-background-color: orange;" />
     </children>
 </AnchorPane>

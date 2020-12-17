@@ -96,4 +96,10 @@ public class Game_To_Load implements Initializable {
         }
     }
 
+    public void goback(ActionEvent actionEvent) {
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
+        Frame.navigation.GoBack();
+    }
 }

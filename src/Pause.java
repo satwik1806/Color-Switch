@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -105,6 +106,9 @@ public class Pause implements Initializable, Serializable {
     }
 
     public void gotohome(ActionEvent e) throws IOException {
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Frame.navigation.cleanPrevious();
         Frame.navigation.load("Player_menu.fxml");
         Player_Menu pm = (Player_Menu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
@@ -112,6 +116,9 @@ public class Pause implements Initializable, Serializable {
     }
 
     public void back(ActionEvent e) throws IOException{
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Frame.navigation.GoBack();
     }
 

@@ -5,11 +5,13 @@ import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.net.URL;
 
 public class ScoreMenu implements Serializable {
     @FXML
@@ -101,17 +103,21 @@ public class ScoreMenu implements Serializable {
 
     public void reloadgame(ActionEvent e){
 
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Frame.navigation.GoBack();
         Frame.navigation.GoBack();
         Frame.navigation.GoBack();
         Frame.navigation.load("Game_Screen.fxml");
         Game_Screen gs=(Game_Screen)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
-//        myPlayer.setGameScreen(gs);
         gs.setMyPlayer(myplayer);
     }
 
     public void returntomain(ActionEvent e) {
-//        Frame.navigation.load("Player_Menu.fxml");
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         myplayer.start();
     }
 
