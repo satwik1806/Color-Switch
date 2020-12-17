@@ -20,7 +20,7 @@
                 <Font size="36.0" />
             </font>
         </Label>
-        <TextArea fx:id="ID" editable="false" layoutX="84.0" layoutY="317.0" prefHeight="80.0" prefWidth="339.0">
+        <TextArea fx:id="ID" editable="false" layoutX="87.0" layoutY="418.0" prefHeight="80.0" prefWidth="339.0">
             <font>
                 <Font size="24.0" />
             </font>
@@ -50,8 +50,8 @@
                 <Font name="System Bold" size="48.0" />
             </font>
         </Label>
-        <Button fx:id="button" layoutX="219.0" layoutY="433.0" mnemonicParsing="false" onAction="#click" prefHeight="32.0" prefWidth="71.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: FAE100;" stylesheets="@Button.css" text="OK" textFill="#252525" />
-      <Button fx:id="returnmain" layoutX="195.0" layoutY="521.0" mnemonicParsing="false" onAction="#goback" prefHeight="94.0" prefWidth="101.0" style="-fx-shape: &quot;        M 100, 100        m -75, 0        a 75,75 0 1,0 150,0        a 75,75 0 1,0 -150,0        &quot;;">
+        <Button fx:id="button" layoutX="220.0" layoutY="539.0" mnemonicParsing="false" onAction="#click" prefHeight="32.0" prefWidth="71.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: FAE100;" stylesheets="@Button.css" text="OK" textFill="#252525" />
+      <Button fx:id="returnmain" layoutX="204.0" layoutY="595.0" mnemonicParsing="false" onAction="#goback" prefHeight="56.0" prefWidth="98.0" style="-fx-shape: &quot;        M 100, 100        m -75, 0        a 75,75 0 1,0 150,0        a 75,75 0 1,0 -150,0        &quot;;">
          <graphic>
             <ImageView fitHeight="84.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -65,6 +65,6 @@
                 <Font name="System Bold" size="48.0" />
             </font>
         </Label>
-      <ListView fx:id="gamelist" layoutX="120.0" layoutY="166.0" onMouseClicked="#onlistclick" prefHeight="125.0" prefWidth="268.0" style="-fx-background-color: orange;" />
+      <ListView fx:id="gamelist" layoutX="96.0" layoutY="166.0" onMouseClicked="#onlistclick" prefHeight="246.0" prefWidth="315.0" style="-fx-background-color: orange;" />
     </children>
 </AnchorPane>

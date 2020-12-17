@@ -202,7 +202,6 @@ public class Game_Screen implements Initializable, Serializable {
                     sc.setTotalscoreval(myPlayer.getPlayerscore());
                     sc.setMyplayer(myPlayer);
                     sc.setMyGameScreen(this);
-                    Login_Menu.addPlayer(myPlayer);
                     return true;
                 }
                 if(c instanceof ColorSwitch) {
