@@ -332,20 +332,6 @@ public class Game_Screen implements Initializable, Serializable {
         ball.node().setLayoutY(g.getBall_y());
         pane.getChildren().addAll(ball.node());
         score.setText(Integer.toString(g.getScore()));
-
-        //try to remove star if possible, its okay otherwise
-//        for(Collider col : onscreencolliders){
-//            if(col instanceof Obstacle_2Windmill)
-//                continue;
-//            if(col instanceof Obstacle_1Windmill)
-//                continue;
-//            if(col instanceof Obstacle) {
-//                System.out.println("AAGYA BE");
-//                if (col.node().getLayoutY() > ball.node().getLayoutY()) {
-//                    col..getChildren().removeAll(((Obstacle) col).getS().node());
-//                }
-//            }
-//        }
     }
 
     public Game_State Save_game(){
