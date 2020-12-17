@@ -8,14 +8,17 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.util.ArrayList;
 
-public class Player_Menu {
+public class Player_Menu implements Serializable {
     @FXML
     private Group obs1;
     @FXML
@@ -35,7 +38,16 @@ public class Player_Menu {
     @FXML
     private Button loadgame;
 
-    private ArrayList<Game_Screen> gamescreen;
+    private Player myPlayer;
+
+    public Player getMyPlayer() {
+        return myPlayer;
+    }
+
+    public void setMyPlayer(Player myPlayer) {
+        this.myPlayer = myPlayer;
+    }
+
 
     Rotate rotate1 = new Rotate();
     Rotate rotate2 = new Rotate();
@@ -96,13 +108,38 @@ public class Player_Menu {
     }
 
     public void New_Game(ActionEvent e) throws IOException {
+        //add also game
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Frame.navigation.load("Game_Screen.fxml");
+        Game_Screen gs=(Game_Screen)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+//        myPlayer.setGameScreen(gs);
+        gs.setMyPlayer(myPlayer);
     }
 
     public void backlogin() throws IOException {
-//        Frame.navigation.GoBack();
-//        Frame.navigation.GoBack();
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
         Frame.navigation.cleanPrevious();
         Frame.navigation.load("Login_Menu.fxml");
+    }
+
+
+    public void loadgame(ActionEvent e){
+
+        URL path = getClass().getResource("/soundeffects/button.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
+
+        System.out.println(myPlayer.getGamestates().size());
+        Frame.navigation.load("Game_To_Load.fxml");
+        Game_To_Load gtl =(Game_To_Load) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        gtl.setMyplayer(myPlayer);
+    }
+
+    public void operatenow(){
+        Frame.navigation.setroot(this.loadgame.getScene().getRoot(),this);
     }
 }

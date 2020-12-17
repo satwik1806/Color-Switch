@@ -4,12 +4,14 @@ import javafx.fxml.FXML;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class ScoreMenu {
+public class ScoreMenu implements Serializable {
     @FXML
     private Group obs11;
     @FXML
@@ -24,6 +26,40 @@ public class ScoreMenu {
     private SVGPath star2;
     @FXML
     private SVGPath star3;
+
+    @FXML
+    private Label score;
+    @FXML
+    private Label bestscore;
+
+    public Player myplayer;
+
+    public Player getMyplayer() {
+        return myplayer;
+    }
+
+    public void setMyplayer(Player myplayer) {
+        this.myplayer = myplayer;
+    }
+
+    private int scoreval;
+    private int bestscoreval; // it is total score btw
+
+    public int getScoreval() {
+        return scoreval;
+    }
+
+    public void setScoreval(int scoreval) {
+        this.scoreval = scoreval;
+    }
+
+    public int getBestscoreval() {
+        return bestscoreval;
+    }
+
+    public void setBestscoreval(int bestscoreval) {
+        this.bestscoreval = bestscoreval;
+    }
 
     Rotate rotate11 = new Rotate();
     Rotate rotate22 = new Rotate();
@@ -46,7 +82,8 @@ public class ScoreMenu {
             rotate22.setAngle(1.5);
 
             animatereload();animatestars();
-
+            score.setText(Integer.toString(scoreval));
+            bestscore.setText(Integer.toString(bestscoreval));
         }
     };
 
@@ -56,14 +93,14 @@ public class ScoreMenu {
         Frame.navigation.GoBack();
         Frame.navigation.GoBack();
         Frame.navigation.load("Game_Screen.fxml");
+        Game_Screen gs=(Game_Screen)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+//        myPlayer.setGameScreen(gs);
+        gs.setMyPlayer(myplayer);
     }
 
     public void returntomain(ActionEvent e) {
 //        Frame.navigation.load("Player_Menu.fxml");
-        Frame.navigation.GoBack();
-        Frame.navigation.GoBack();
-        Frame.navigation.GoBack();
-
+        myplayer.start();
     }
 
     private boolean less1 = false;

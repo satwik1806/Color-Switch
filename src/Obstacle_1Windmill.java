@@ -2,9 +2,10 @@ import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Obstacle_1Windmill extends Obstacle{
+public class Obstacle_1Windmill extends Obstacle implements Serializable {
 
     private Shape_rect rect1;
     private Shape_rect rect2;
@@ -12,6 +13,7 @@ public class Obstacle_1Windmill extends Obstacle{
     private Shape_rect rect4;
 
     private Star s;
+
 
 
     private ArrayList<Shape_rect> allshapes = new ArrayList<>();
@@ -60,5 +62,10 @@ public class Obstacle_1Windmill extends Obstacle{
         rotateobj.setPivotY(140);
         rotateobj.setAngle(1);
         group.getTransforms().add(rotateobj);
+    }
+
+    @Override
+    public Star getS() {
+        return null;
     }
 }

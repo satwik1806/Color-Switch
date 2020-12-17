@@ -6,7 +6,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
 
-public class Star extends Shapes{
+import java.io.Serializable;
+
+public class Star extends Shapes implements Serializable {
     private final SVGPath star=new SVGPath();
 
     public SVGPath getStar() {

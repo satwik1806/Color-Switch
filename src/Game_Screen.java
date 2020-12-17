@@ -10,17 +10,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class Game_Screen implements Initializable {
+public class Game_Screen implements Initializable, Serializable {
     @FXML
     private Button pause;
     @FXML
@@ -32,15 +34,28 @@ public class Game_Screen implements Initializable {
 
     @FXML
     private Label score;
+    private int scoreval;
 
-    private Scene s;
-    private Parent root;
+    public int getScoreval() {
+        return scoreval;
+    }
+
+    public Player getMyPlayer() {
+        return myPlayer;
+    }
+
+    public void setMyPlayer(Player myPlayer) {
+        this.myPlayer = myPlayer;
+    }
+
+    private Player myPlayer;
 
     private int curscore=0;
 
     private ArrayList<Obstacle> onscreenobstacles = new ArrayList<>();
     private ArrayList<Collider> onscreencolliders=new ArrayList<>();
     private Ball ball;
+
 
 
     private double toadd = 0.05;
@@ -53,9 +68,10 @@ public class Game_Screen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        scoreval = Integer.parseInt(score.getText());
         onscreenobstacles.add(new Obstacle_circle(this));
         onscreenobstacles.add(new Obstacle_2Windmill(this));
-        Obstacle tt=new Obstacle_2square(this);
+        Obstacle tt=new Obstacle_1square(this);
         tt.node().setLayoutY(-350);
         onscreenobstacles.add(tt);
 
@@ -88,6 +104,7 @@ public class Game_Screen implements Initializable {
                     System.out.println("DONE ========================" +
                             "\n \n \n \n \n \n \n \n \n \n \n \n \n" +
                             "DONE ===================" );
+
                 }
                 rotate();
                 fall();
@@ -182,12 +199,27 @@ public class Game_Screen implements Initializable {
         {
             if(c.collide(b))
             {
-                if (c instanceof Obstacle)
-                    return false;
-                if(c instanceof ColorSwitch)
-                    temp =c;
-                if(c instanceof Star)
-                    temp=c;
+                if (c instanceof Obstacle) {
+                    URL path = getClass().getResource("/soundeffects/dead.wav");
+                    AudioClip ac = new AudioClip(path.toString());
+                    ac.play();
+                    myPlayer.setPlayerscore(myPlayer.getPlayerscore() + Integer.parseInt(score.getText()));
+                    Frame.navigation.load("Score_Menu.fxml");
+                    ScoreMenu sc = (ScoreMenu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+                    sc.setScoreval(Integer.parseInt(score.getText()));
+                    sc.setBestscoreval(myPlayer.getPlayerscore());
+                    sc.setMyplayer(myPlayer);
+                    return true;
+                }
+                if(c instanceof ColorSwitch) {
+                    temp = c;
+                    URL path = getClass().getResource("/soundeffects/colorswitch.wav");
+                    AudioClip ac = new AudioClip(path.toString());
+                    ac.play();
+                }
+                if(c instanceof Star) {
+                    temp = c;
+                }
             }
         }
         if(temp!=null)
@@ -211,7 +243,7 @@ public class Game_Screen implements Initializable {
         if(ball.node().getBoundsInParent().getMinY()<400)
         {
             for (Collider c:onscreencolliders)
-                c.node().setLayoutY(c.node().getLayoutY()+2.5);
+                c.node().setLayoutY(c.node().getLayoutY()+3.5);
         }
     }
 
@@ -221,10 +253,19 @@ public class Game_Screen implements Initializable {
             o.rotate();
     }
 
-    public void pauseclick(ActionEvent e) throws IOException {Frame.navigation.load("Pause.fxml"); }
+    public void pauseclick(ActionEvent e) throws IOException {
+
+        Frame.navigation.load("Pause.fxml");
+        Pause  p =(Pause) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        p.setMyplayer(myPlayer);
+        p.setMygamescreen(this);
+    }
 
     public void jumpwanted(MouseEvent e){
         jumphappened=true;
+        URL path = getClass().getResource("/soundeffects/bulle.wav");
+        AudioClip ac = new AudioClip(path.toString());
+        ac.play();
     }
 
     private void jump()
@@ -241,7 +282,109 @@ public class Game_Screen implements Initializable {
     }
 
 
+    public void recreate_screen(Game_State g){
+        while (onscreencolliders.size()!=0){
+            Collider temp = onscreencolliders.get(0);
+            pane.getChildren().removeAll(temp.node());
+            onscreencolliders.remove(0);
+        }
+        onscreenobstacles = new ArrayList<>();
+        System.out.println(g.getAllcolliders().size());
 
+        for(Collider_state col:g.getAllcolliders()){
+            Collider temp = null;
+            switch (col.getOption()){
+                case 1:
+                    //colorswitch
+                    temp = new ColorSwitch();
+                    temp.node().setLayoutY(col.getLayouty());
+                    break;
+                case 2:
+                    //obs1square
+                    temp = new Obstacle_1square(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 3:
+                    //obs2square
+                    temp = new Obstacle_2square(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 4:
+                    //1windmill
+                    temp = new Obstacle_1Windmill(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 5:
+                    //2windmill
+                    temp = new Obstacle_2Windmill(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 6:
+                    //circle
+                    temp = new Obstacle_circle(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+                case 7:
+                    //concircle
+                    temp = new Obstacle_ConcentricCircle(this);
+                    temp.node().setLayoutY(col.getLayouty());
+                    temp.node().setRotate(col.getRotation());
+                    break;
+            }
+            onscreencolliders.add(temp);
+            if(temp instanceof Obstacle){
+                onscreenobstacles.add((Obstacle) temp);
+            }
+        }
+        for(Collider coli : onscreencolliders){
+            pane.getChildren().add(coli.node());
+        }
+        pane.getChildren().removeAll(ball.node());
+        ball = new Ball(g.getColor());
+        ball.node().setLayoutY(g.getBall_y());
+        pane.getChildren().addAll(ball.node());
+        score.setText(Integer.toString(g.getScore()));
+
+        //try to remove star if possible, its okay otherwise
+//        for(Collider col : onscreencolliders){
+//            if(col instanceof Obstacle_2Windmill)
+//                continue;
+//            if(col instanceof Obstacle_1Windmill)
+//                continue;
+//            if(col instanceof Obstacle) {
+//                System.out.println("AAGYA BE");
+//                if (col.node().getLayoutY() > ball.node().getLayoutY()) {
+//                    col..getChildren().removeAll(((Obstacle) col).getS().node());
+//                }
+//            }
+//        }
+    }
+
+    public Game_State Save_game(){
+        Game_State gs = new Game_State();
+        for(Collider o: onscreencolliders){
+            int op;
+            if(o instanceof ColorSwitch) op = 1;
+            else if(o instanceof Obstacle_1square) op = 2;
+            else if (o instanceof Obstacle_2square) op = 3;
+            else if(o instanceof Obstacle_1Windmill) op = 4;
+            else if (o instanceof Obstacle_2Windmill) op = 5;
+            else if (o instanceof Obstacle_circle) op =6;
+            else op= 7;
+            Collider_state curr = new Collider_state(op,o.node().getLayoutY(),o.node().getRotate());
+            gs.addcollider(curr);
+        }
+        System.out.println(gs.getAllcolliders().size());
+        gs.setScore(Integer.parseInt(score.getText()));
+        gs.setBall_y(ball.node().getBoundsInParent().getCenterY());
+        gs.setColor(ball.getColour());
+        return gs;
+    }
 
     private String[] colors={"FAE100","900DFF","FF0181","32DBF0"};
 }

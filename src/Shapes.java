@@ -1,6 +1,8 @@
 import javafx.scene.paint.Paint;
 
-public abstract class Shapes implements Collider {
+import java.io.Serializable;
+
+public abstract class Shapes implements Collider, Serializable {
     protected float layoutx;
     protected float layouty;
     protected String color;

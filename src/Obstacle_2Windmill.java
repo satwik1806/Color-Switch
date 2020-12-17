@@ -4,9 +4,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Obstacle_2Windmill extends Obstacle{
+public class Obstacle_2Windmill extends Obstacle implements Serializable {
     private Shape_rect rect1;
     private Shape_rect rect2;
     private Shape_rect rect3;
@@ -56,7 +57,7 @@ public class Obstacle_2Windmill extends Obstacle{
         allshapes.add(rect6);
         allshapes.add(rect7);
         allshapes.add(rect8);
-        allshapes.add(s);
+//        allshapes.add(s);
 
         grp2.getChildren().addAll(rect5.getRect(),rect6.getRect(),rect7.getRect(),rect8.getRect());
 
@@ -76,8 +77,8 @@ public class Obstacle_2Windmill extends Obstacle{
         group.setScaleY(1.3);
         group.setScaleX(1.3);
 
-        s.getStar().setLayoutX(group.getLayoutX());
-        s.getStar().setLayoutY(group.getLayoutY() + 80);
+//        s.getStar().setLayoutX(group.getLayoutX());
+//        s.getStar().setLayoutY(group.getLayoutY() + 80);
     }
 
     public Star getStar(){
@@ -116,7 +117,12 @@ public class Obstacle_2Windmill extends Obstacle{
         rotateright.setAxis(new Point3D(0,0,1));
         grp2.getTransforms().addAll(rotateright);
         rotateright.setAngle(-1.5);
-        s.starsize();
+//        s.starsize();
+    }
+
+    @Override
+    public Star getS() {
+        return null;
     }
 
 }

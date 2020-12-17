@@ -1,10 +1,13 @@
 import javafx.scene.Group;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
+import java.io.Serializable;
+import java.net.URL;
 import java.util.ArrayList;
 
-public class Obstacle_ConcentricCircle extends Obstacle {
+public class Obstacle_ConcentricCircle extends Obstacle implements Serializable {
 
     private Shape_quartcircle q1;
     private Shape_quartcircle q2;
@@ -32,6 +35,11 @@ public class Obstacle_ConcentricCircle extends Obstacle {
     }
 
     @Override
+    public Star getS() {
+        return s;
+    }
+
+    @Override
     public boolean collide(Ball c) {
         for(Shapes temp:allshapes)
         {
@@ -39,6 +47,9 @@ public class Obstacle_ConcentricCircle extends Obstacle {
             {
                 if(temp instanceof Star)
                 {
+                    URL path = getClass().getResource("/soundeffects/star.wav");
+                    AudioClip ac = new AudioClip(path.toString());
+                    ac.play();
                     gameScreen.increaseScore();
                     grp1.getChildren().remove(s.node());
                     return false;

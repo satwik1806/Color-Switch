@@ -1,6 +1,8 @@
 import javafx.scene.Node;
 
-public interface Collider {
+import java.io.Serializable;
+
+public interface Collider extends Serializable {
     void display();
     Node node();
     boolean collide(Ball b);

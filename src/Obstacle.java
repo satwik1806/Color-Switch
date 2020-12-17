@@ -2,7 +2,9 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
 
-public abstract class Obstacle implements Collider {
+import java.io.Serializable;
+
+public abstract class Obstacle implements Collider, Serializable {
 
     protected Game_Screen gameScreen;
 
@@ -19,6 +21,7 @@ public abstract class Obstacle implements Collider {
 
     public abstract void rotate();
 
+    public abstract Star getS();
 
     @Override
     public Node node() {

@@ -1,11 +1,14 @@
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 
+import java.io.Serializable;
+import java.net.URL;
 import java.util.ArrayList;
 
-public class Obstacle_2square extends Obstacle {
+public class Obstacle_2square extends Obstacle implements Serializable {
 
     private Shape_rect rect1;
     private Shape_rect rect2;
@@ -78,6 +81,12 @@ public class Obstacle_2square extends Obstacle {
         //group properties
 
     }
+
+    @Override
+    public Star getS() {
+        return s;
+    }
+
     private Rotate rotatesquare1 = new Rotate();
     private Rotate rotatesquare2 = new Rotate();
 
@@ -89,6 +98,9 @@ public class Obstacle_2square extends Obstacle {
             {
                 if(temp instanceof Star)
                 {
+                    URL path = getClass().getResource("/soundeffects/star.wav");
+                    AudioClip ac = new AudioClip(path.toString());
+                    ac.play();
                     gameScreen.increaseScore();
                     grp1.getChildren().remove(s.node());
                     return false;

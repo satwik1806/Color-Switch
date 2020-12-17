@@ -1,18 +1,38 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Player
+public class Player implements Serializable
 {
     private static int UID=0;
     private int ID=0;
     private String name;
     private String username;
-    private Player_Menu player_menu;
-    private Game_Screen gameScreen;
-    private Player_Menu playermenu;
 
+
+
+//    private Player_Menu player_menu;
+    private Game_State gamestate;
+
+    private ArrayList<Game_State> gamestates=new ArrayList<>();
 
     private int playerscore=0;
+
+    public Game_State getGamestate() {
+        return gamestate;
+    }
+
+    public void setGamestate(Game_State gamestatse) {
+        this.gamestate = gamestatse;
+        gamestates.add(gamestatse);
+    }
+
+    public ArrayList<Game_State> getGamestates() {
+        return gamestates;
+    }
+
+    public void setGamestates(ArrayList<Game_State> gamestates) {
+        this.gamestates = gamestates;
+    }
 
     Player()
     {
@@ -20,7 +40,10 @@ public class Player
     }
 
     public void start(){
-        player_menu.operatenow();
+        System.out.println(this.name + "i am here ");
+        Frame.navigation.load("Player_Menu.fxml");
+        Player_Menu pm = (Player_Menu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        pm.setMyPlayer(this);
     }
 
     Player(String name, String username)
@@ -41,13 +64,6 @@ public class Player
     }
 
 
-    public Game_Screen getGameScreen() {
-        return gameScreen;
-    }
-
-    public void setGameScreen(Game_Screen gameScreen) {
-        this.gameScreen = gameScreen;
-    }
 
     public int getPlayerscore() {
         return playerscore;
@@ -55,6 +71,7 @@ public class Player
 
     public void setPlayerscore(int playerscore) {
         this.playerscore = playerscore;
+
     }
 
 
