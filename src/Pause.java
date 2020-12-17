@@ -96,10 +96,11 @@ public class Pause implements Initializable, Serializable {
         LocalDateTime now=LocalDateTime.now();
         gstate.setDate(dtf.format(now));
         Frame.navigation.load("Score_Menu.fxml");
-        ScoreMenu pm = (ScoreMenu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
-        pm.setScoreval(mygamescreen.getScoreval());
-        pm.setBestscoreval(myplayer.getPlayerscore());
-        pm.setMyplayer(myplayer);
+        ScoreMenu sc = (ScoreMenu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
+        sc.setScoreval(mygamescreen.getCurscore());
+        sc.setBestscoreval(myplayer.getBestscore());
+        sc.setTotalscoreval(myplayer.getPlayerscore());
+        sc.setMyplayer(myplayer);
         Login_Menu.addPlayer(myplayer);
     }
 

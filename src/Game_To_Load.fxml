@@ -13,12 +13,12 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="480.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game_To_Load">
     <children>
-        <Label layoutX="-1.0" layoutY="388.0" prefHeight="54.0" prefWidth="515.0" style="-fx-background-color: #ffa733;" text="              ENTER GAME ID" textFill="WHITE">
+        <Label layoutX="-4.0" layoutY="92.0" prefHeight="54.0" prefWidth="515.0" style="-fx-background-color: #ffa733;" text="              CHOOSE GAME" textFill="WHITE">
             <font>
                 <Font size="36.0" />
             </font>
         </Label>
-        <TextArea fx:id="ID" layoutX="84.0" layoutY="455.0" prefHeight="80.0" prefWidth="339.0">
+        <TextArea fx:id="ID" editable="false" layoutX="84.0" layoutY="455.0" prefHeight="80.0" prefWidth="339.0">
             <font>
                 <Font size="24.0" />
             </font>
@@ -54,6 +54,6 @@
                 <Font name="System Bold" size="48.0" />
             </font>
         </Label>
-      <ListView fx:id="gamelist" layoutX="158.0" layoutY="121.0" onMouseClicked="#onlistclick" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: orange;" />
+      <ListView fx:id="gamelist" layoutX="158.0" layoutY="208.0" onMouseClicked="#onlistclick" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: orange;" />
     </children>
 </AnchorPane>

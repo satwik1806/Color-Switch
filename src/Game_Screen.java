@@ -50,6 +50,14 @@ public class Game_Screen implements Initializable, Serializable {
 
     private Player myPlayer;
 
+    public int getCurscore() {
+        return curscore;
+    }
+
+    public void setCurscore(int curscore) {
+        this.curscore = curscore;
+    }
+
     private int curscore=0;
 
     private ArrayList<Obstacle> onscreenobstacles = new ArrayList<>();
