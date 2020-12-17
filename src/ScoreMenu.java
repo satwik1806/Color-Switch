@@ -5,6 +5,8 @@ import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
@@ -28,7 +30,8 @@ public class ScoreMenu implements Serializable {
     private SVGPath star2;
     @FXML
     private SVGPath star3;
-
+    @FXML
+    private ImageView heart;
     @FXML
     private Label score;
     @FXML
@@ -49,6 +52,16 @@ public class ScoreMenu implements Serializable {
     private int scoreval;
     private int bestscoreval; // it is total score btw
     private int totalscoreval;
+
+    private Game_Screen myGameScreen;
+
+    public Game_Screen getMyGameScreen() {
+        return myGameScreen;
+    }
+
+    public void setMyGameScreen(Game_Screen myGameScreen) {
+        this.myGameScreen = myGameScreen;
+    }
 
     public int getTotalscoreval() {
         return totalscoreval;
@@ -168,4 +181,14 @@ public class ScoreMenu implements Serializable {
     }
 
     public ScoreMenu(){ timer.start();}
+
+    public void heartClicked(MouseEvent mouseEvent) {
+        if(myplayer.getPlayerscore()>=10) {
+            Game_State gstate=myGameScreen.Save_game();
+            gstate.setBall_y(gstate.getBall_y()+50);
+            myGameScreen.recreate_screen(gstate);
+            myplayer.setPlayerscore(myplayer.getPlayerscore()-10);
+            Frame.navigation.GoBack();
+        }
+    }
 }

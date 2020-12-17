@@ -105,13 +105,17 @@ public class Game_Screen implements Initializable, Serializable {
         public void handle(long l) {
             if(checkpause())
             {
-                if(checkcollide(ball))
-                {
-                    System.out.println("Collided");
-                    timer.stop();
-                    System.out.println("DONE ========================" +
-                            "\n \n \n \n \n \n \n \n \n \n \n \n \n" +
-                            "DONE ===================" );
+                try {
+                    if(checkcollide(ball))
+                    {
+                        System.out.println("Collided");
+//                        timer.stop();
+                        System.out.println("DONE ========================" +
+                                "\n \n \n \n \n \n \n \n \n \n \n \n \n" +
+                                "DONE ===================" );
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 rotate();
                 fall();
@@ -163,7 +167,6 @@ public class Game_Screen implements Initializable, Serializable {
                 double lower = o.group.getBoundsInParent().getCenterY();
                 o.group.setLayoutY(o.group.getLayoutY() -250 - lower);
                 newcolorswitch.node().setLayoutY(o.group.getBoundsInParent().getMinY()-80);
-
             }
         }
     }
@@ -182,8 +185,7 @@ public class Game_Screen implements Initializable, Serializable {
     }
 
 
-    private boolean checkcollide(Ball b)
-    {
+    private boolean checkcollide(Ball b) throws IOException {
         Collider temp = null;
         for(Collider c:onscreencolliders)
         {
@@ -199,7 +201,8 @@ public class Game_Screen implements Initializable, Serializable {
                     sc.setBestscoreval(myPlayer.getBestscore());
                     sc.setTotalscoreval(myPlayer.getPlayerscore());
                     sc.setMyplayer(myPlayer);
-
+                    sc.setMyGameScreen(this);
+                    Login_Menu.addPlayer(myPlayer);
                     return true;
                 }
                 if(c instanceof ColorSwitch) {
