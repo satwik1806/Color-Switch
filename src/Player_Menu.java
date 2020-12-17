@@ -137,9 +137,7 @@ public class Player_Menu implements Serializable {
         Frame.navigation.load("Game_To_Load.fxml");
         Game_To_Load gtl =(Game_To_Load) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
         gtl.setMyplayer(myPlayer);
+        gtl.showList();
     }
 
-    public void operatenow(){
-        Frame.navigation.setroot(this.loadgame.getScene().getRoot(),this);
-    }
 }

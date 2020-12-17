@@ -1,17 +1,21 @@
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;
 
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Game_To_Load {
+public class Game_To_Load implements Initializable {
     @FXML
     private Group obs11;
     @FXML
@@ -21,6 +25,9 @@ public class Game_To_Load {
     private TextArea ID;
     @FXML
     private Button button;
+
+    @FXML
+    private ListView<String> gamelist;
 
     private Player myplayer;
 
@@ -54,22 +61,39 @@ public class Game_To_Load {
         }
     };
 
-    public Game_To_Load(){
-        timer.start();
-    }
 
     public void click(ActionEvent e){
         URL path = getClass().getResource("/soundeffects/button.wav");
         AudioClip ac = new AudioClip(path.toString());
         ac.play();
 
-        int itsid = Integer.parseInt(ID.getText());
-//        Frame.navigation.setroot(Player_Menu.gamescreen.get(itsid-1).getPane().getScene().getRoot());
-        Game_State gstate ;
-        gstate = myplayer.getGamestates().get(itsid-1);
+        Game_State gstate = null;
+        for(Game_State gs:myplayer.getGamestates())
+        {
+            if(gs.getDate().equals(ID.getText()))
+                gstate=gs;
+        }
         Frame.navigation.load("Game_Screen.fxml");
         Game_Screen gsscreen =(Game_Screen)Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
         gsscreen.setMyPlayer(myplayer);
         gsscreen.recreate_screen(gstate);
     }
+
+    public void onlistclick(MouseEvent mouseEvent) {
+
+        ID.setText(gamelist.getSelectionModel().getSelectedItem());
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        timer.start();
+    }
+    public void showList()
+    {
+        for(Game_State gstate:myplayer.getGamestates())
+        {
+            gamelist.getItems().add(gstate.getDate());
+        }
+    }
+
 }

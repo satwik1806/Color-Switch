@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class Pause implements Initializable, Serializable {
@@ -89,21 +92,18 @@ public class Pause implements Initializable, Serializable {
     public void saveanddisplscore(ActionEvent e) throws IOException {
         Game_State gstate = mygamescreen.Save_game();
         myplayer.setGamestate(gstate);
-        Login_Menu.addPlayer(myplayer);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now=LocalDateTime.now();
+        gstate.setDate(dtf.format(now));
         Frame.navigation.load("Score_Menu.fxml");
         ScoreMenu pm = (ScoreMenu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
         pm.setScoreval(mygamescreen.getScoreval());
         pm.setBestscoreval(myplayer.getPlayerscore());
         pm.setMyplayer(myplayer);
+        Login_Menu.addPlayer(myplayer);
     }
 
     public void gotohome(ActionEvent e) throws IOException {
-//        Stage s = (Stage) home.getScene().getWindow();
-//        Parent root = FXMLLoader.load(getClass().getResource("Player_Menu.fxml"));
-//        s.setScene(new Scene(root,480,700));
-//        s.show();
-//        Frame.navigation.GoBack();
-//        Frame.navigation.GoBack();
         Frame.navigation.cleanPrevious();
         Frame.navigation.load("Player_menu.fxml");
         Player_Menu pm = (Player_Menu) Frame.navigation.getControllers().get(Frame.navigation.getControllers().size()-1);
@@ -111,10 +111,6 @@ public class Pause implements Initializable, Serializable {
     }
 
     public void back(ActionEvent e) throws IOException{
-//        Stage s = (Stage) play.getScene().getWindow();
-//        Parent root = FXMLLoader.load(getClass().getResource("Game_Screen.fxml"));
-//        s.setScene(new Scene(root,480,700));
-//        s.show();
         Frame.navigation.GoBack();
     }
 

@@ -2,11 +2,29 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Game_State implements Serializable {
-//    private ArrayList<coliider_state> collidernumber = new ArrayList<>();
     private ArrayList<Collider_state> allcolliders = new ArrayList<>();
     private int score;
     private double ball_y;
     private String color;
+
+    private String Date;
+    private String Time;
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
+    }
 
     public String getColor() {
         return color;
