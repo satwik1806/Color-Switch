@@ -129,26 +129,6 @@ public class Game_Screen implements Initializable, Serializable {
     }
 
 
-    public Obstacle add(){
-        Random rand = new Random();
-        int x = rand.nextInt(6);
-        switch (x){
-            case 0:
-                return new Obstacle_1square(this);
-            case 1:
-                return new Obstacle_1Windmill(this);
-            case 2:
-                return new Obstacle_2square(this);
-            case 3:
-                return new Obstacle_2Windmill(this);
-            case 4:
-                return new Obstacle_circle(this);
-            case 5:
-                return new Obstacle_ConcentricCircle(this);
-            default:
-                return new Obstacle_circle(this);
-        }
-    }
 
 
     private void updatescreen()
@@ -158,7 +138,7 @@ public class Game_Screen implements Initializable, Serializable {
             Obstacle c=onscreenobstacles.get(i);
             if(c.node().getBoundsInParent().getMinY()>700)
             {
-                Obstacle o=add();
+                Obstacle o=FactoryObstacles.addObstacle(this);
                 ColorSwitch newcolorswitch=addColorSwitch();
 
                 onscreencolliders.add(o);
